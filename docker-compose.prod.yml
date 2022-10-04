@@ -1,12 +1,13 @@
+version: "3.9"
 
 services:
   frontend:
     image: frontend
     build:
       context: ./frontend
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     volumes:
-      - ./frontend:/frontend
+      - ./frontend_volume:/source
     ports:
       - "3000:3000"
     depends_on:
@@ -18,9 +19,10 @@ services:
     image: backend
     build:
       context: ./backend
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
+    # command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./backend:/backend
+      - ./backend_volume:/source
     ports:
       - "8000:8000"
     environment:

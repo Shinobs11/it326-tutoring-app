@@ -2,7 +2,19 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'standalone' //https://github.com/vercel/next.js/tree/canary/examples/with-docker
+  output: 'standalone',
+    webpackDevMiddleware: config => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    }
+    return config
+  },
+  
+   //https://github.com/vercel/next.js/tree/canary/examples/with-docker
 }
+
+
+
 
 module.exports = nextConfig

@@ -1,11 +1,14 @@
-version: "3.9"
 
 services:
   frontend:
-    image: frontend
-    build: ./frontend
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     volumes:
-      - ./frontend_volume:/source
+      - ./frontend:/src
+      - /src/node_modules
+      - /src/.next
     ports:
       - "3000:3000"
     depends_on:
@@ -14,11 +17,13 @@ services:
 
 
   backend:
-    image: backend
-    build: ./backend
-    # command: python manage.py runserver 0.0.0.0:8000
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    
     volumes:
-      - ./backend_volume:/source
+      - ./backend:/src
     ports:
       - "8000:8000"
     environment:
@@ -32,6 +37,7 @@ services:
 
 
   db:
+    container_name: database
     image: postgres
     volumes:
       - ./db_volume:/var/lib/postgresql/data

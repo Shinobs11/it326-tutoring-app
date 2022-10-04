@@ -6,5 +6,11 @@ WORKDIR /src
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . ./
-RUN chmod +x ./docker-entrypoint.sh
+
+
+
+ENV PORT 8000
+EXPOSE 8000
+
+RUN ["chmod", "+x" ,"./docker-entrypoint.sh"]
 ENTRYPOINT ./docker-entrypoint.sh

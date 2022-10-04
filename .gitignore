@@ -1,4 +1,4 @@
-./db_volume
-./frontend_volume
-./backend_volume
-./db
+db_volume
+frontend_volume
+backend_volume
+db

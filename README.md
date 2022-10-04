@@ -3,9 +3,17 @@
 ---
 First, you'll need to download some software and install it on your machines.
 
-Docker Desktop: https://docs.docker.com/desktop/
-Git: https://git-scm.com/downloads
-Git Credential Manager(MAYBE, idk yet): https://github.com/GitCredentialManager/git-credential-manager
+Docker Desktop: https://docs.docker.com/desktop/ <br/>
+Git: https://git-scm.com/downloads <br/>
+Git Credential Manager(highly suggested): https://github.com/GitCredentialManager/git-credential-manager <br/>
+
+After git is installed, you'll need to configure some stuff.
+
+```
+git config --global user.name *a name, doesn't have to be your real one*
+git config --global user.email *an email, also doesn't have to be your real one*
+git config --global core.autocrlf false  // THIS PART IS REALLY IMPORTANT FOR THIS PARTICULAR PROJECT, do this before cloning
+```
 
 Next, clone the repo (or if you REALLY don't want to use git, you can always download a zip of the repo and extract it).
 
@@ -19,24 +27,26 @@ After cloning the repo do
 ```
 cd ./it326-tutoring-app
 ```
-There's two docker-compose files for setting up the containers. One is for prod, one is for dev, take a guess which is which.
 
-Before we can start the containers, we need to build the containers.
+Before we can start the containers, we need to build the containers. Depending on your machine and internet, it could take a bit. (My laptop takes around 45 seconds with ISU internet)
+
 ```
-docker compose -f ./docker-compose.dev.yml build
+docker compose build
 ```
-You shouldn't need to rebuild the containers in theory, though sometimes it can be useful for debugging when you have nothing else to try and need a bit to think after bashing your head against a keyboard for a few hours. It probably won't fix anything though.
+You shouldn't ever need to rebuild the containers in theory, though sometimes it can be useful for debugging when you have nothing else to try and need a bit to think after bashing your head against a keyboard for a few hours. It probably won't fix anything though.
 
 After building your containers you can now start them!
 ```
-docker compose -f ./docker-compose.dev.yml start
+docker compose up
 ```
+
+
 
 All the containers are hosted on your PC and will use the localhost ip address (127.0.0.1)
 
-NextJs(Frontend) server: 127.0.0.1:3000
+NextJs(Frontend) server: 127.0.0.1:3000 or localhost:3000
 
-Django(Backend) server: 127.0.0.1:8000
+Django(Backend) server: 127.0.0.1:8000 or localhost:8000
 
-Postgres(Database) server: 127.0.0.1:5432
+Postgres(Database) server: 127.0.0.1:5432 or localhost:5432
 

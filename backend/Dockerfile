@@ -13,4 +13,4 @@ ENV PORT 8000
 EXPOSE 8000
 
 RUN ["chmod", "+x" ,"./docker-entrypoint.sh"]
-ENTRYPOINT ./docker-entrypoint.sh
+# ENTRYPOINT ./docker-entrypoint.sh

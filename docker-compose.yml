@@ -32,7 +32,7 @@ services:
       - POSTGRES_PASSWORD=postgres  
     depends_on:
       - db
-
+    command: ["./wait-for-it.sh", "db:5432", "--", "./docker-entrypoint.sh"]
 
 
 

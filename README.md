@@ -3,7 +3,7 @@
 ---
 First, you'll need to download some software and install it on your machines.
 
-Docker Desktop: https://docs.docker.com/desktop/ <br/>
+Docker Desktop: https://docs.docker.com/desktop/ (You may want to go to task manager and disable this on start up(also any other junk you have enabled on start up too)) <br/>
 Git: https://git-scm.com/downloads <br/>
 Git Credential Manager(highly suggested): https://github.com/GitCredentialManager/git-credential-manager <br/>
 

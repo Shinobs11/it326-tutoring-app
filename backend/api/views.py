@@ -1,9 +1,22 @@
 from django.shortcuts import render
+from api.models import User
+from api.serializers import UserSerializer
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 # Create your views here.
 
-@api_view(['GET'])
-def test(request):
-  return Response(status=status.HTTP_200_OK, data={"data": "Hello World!"})
+
+#https://www.django-rest-framework.org/tutorial/3-class-based-views/ going based off of this for now
+class UserList(
+  mixins.ListModelMixin,
+  mixins.CreateModelMixin,
+  generics.GenericAPIView):
+  queryset = User.objects.all()
+  serializer_class = UserSerializer
+
+  def get(self, request, *args, **kwargs):
+    return self.list(request, *args, **kwargs)
+
+  def post(self, request, *args, **kwargs):
+    return self.create(request, *args, **kwargs)

@@ -20,3 +20,21 @@ class UserList(
 
   def post(self, request, *args, **kwargs):
     return self.create(request, *args, **kwargs)
+
+class UserDetail(
+  mixins.RetrieveModelMixin,
+  mixins.UpdateModelMixin,
+  mixins.DestroyModelMixin,
+  generics.GenericAPIView):
+  queryset = User.objects.all()
+  serializer_class = UserSerializer
+
+  def get(self, request, *args, **kwargs):
+    return self.list(request, *args, **kwargs)
+
+  def post(self, request, *args, **kwargs):
+    return self.create(request, *args, **kwargs)
+
+  def delete(self, request, *args, **kwargs):
+    return self.delete(request, *args, **kwargs)
+  

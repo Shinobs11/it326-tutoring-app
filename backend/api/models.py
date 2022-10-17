@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from fields import FullNameField, DesiredNameField, EmailAddressField, FirstNameField, LastNameField, PhoneNumberField
+from api.fields import FullNameField, DesiredNameField, EmailAddressField, FirstNameField, LastNameField, PhoneNumberField
 # Create your models here.
 
 

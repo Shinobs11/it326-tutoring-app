@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     #djoser?
-
-    'core',
     'api'
 ]
 
@@ -122,11 +120,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC' #if deciding to change this, make sure to update postgres config
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = True #if deciding to change this, make sure to update postgres config
 
 
 # Static files (CSS, JavaScript, Images)

@@ -30,10 +30,10 @@ class UserDetail(
   serializer_class = UserSerializer
 
   def get(self, request, *args, **kwargs):
-    return self.list(request, *args, **kwargs)
+    return self.retrieve(request, *args, **kwargs)
 
   def post(self, request, *args, **kwargs):
-    return self.create(request, *args, **kwargs)
+    return self.update(request, *args, **kwargs)
 
   def delete(self, request, *args, **kwargs):
     return self.delete(request, *args, **kwargs)

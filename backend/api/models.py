@@ -5,6 +5,8 @@ from api.fields import FullNameField, DesiredNameField, EmailAddressField, First
 
 
 class User(models.Model):
+
+  
   uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True,)
   #primary_key=True: uses this field as the primary key for all rows in the User table
   #default=uuid.uuid4: uses this callable/value as the default value for the uid field
@@ -21,6 +23,7 @@ class User(models.Model):
   last_name = LastNameField(editable=True, blank=False, null=False)
   email_address = EmailAddressField(editable=True, blank=False, null=False)
   phone_number = PhoneNumberField(editable=True, blank=False, null=False)
+
 
 class Student(models.Model):
   user = models.OneToOneField(

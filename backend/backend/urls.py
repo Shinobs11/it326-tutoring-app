@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from api.views import UserDetail, UserList
+
+
 urlpatterns = [
-  path('user/', UserList.as_view()),
-  path('user/<int:pk>/', UserDetail.as_view())
+  path('', include('api.urls'))
 ]

@@ -13,7 +13,7 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-
+    restart: unless-stopped
 
 
   backend:
@@ -32,8 +32,8 @@ services:
       - POSTGRES_PASSWORD=postgres  
     depends_on:
       - db
-    command: ["bash","./wait-for-it.sh", "db:5432", "--", "./docker-entrypoint.sh"]
-
+    command: ["/bin/bash","./wait-for-it.sh", "db:5432", "--", "./docker-entrypoint.sh"]
+    restart: unless-stopped
 
 
   db:
@@ -47,4 +47,4 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  
+    restart: unless-stopped

@@ -12,6 +12,7 @@ COPY . ./
 ENV PORT 8000
 EXPOSE 8000
 
+USER root
 RUN ["chmod", "+x" ,"./docker-entrypoint.sh"]
 RUN ["chmod", "+x", "./wait-for-it.sh"]
 # ENTRYPOINT ./docker-entrypoint.sh

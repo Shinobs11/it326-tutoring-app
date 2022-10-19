@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 
-const ExampleComponent = () => {
+const ReactExampleComponent = () => {
   /**
     useState maintains "exampleState" between renders.
     when state is updated using "setExampleState", the component re-renders.
@@ -41,5 +41,5 @@ const ExampleComponent = () => {
 
 };
 
-export default ExampleComponent;
+export default ReactExampleComponent;
 

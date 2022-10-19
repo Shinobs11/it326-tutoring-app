@@ -30,4 +30,5 @@ class Command(BaseCommand):
     for _ in range(NUM_USERS):
       users.append(UserFactory())
 
+    
 

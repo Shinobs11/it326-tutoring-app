@@ -1,4 +1,5 @@
-import User
+from api.classes.User import User
+
 class Student(User):
     __schoolYear:int
     __tutorSessHour:int

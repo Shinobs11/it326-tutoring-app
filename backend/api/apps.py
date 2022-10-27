@@ -7,8 +7,7 @@ class ApiConfig(AppConfig):
 
     def ready(self):
       if os.environ.get('RUN_MAIN', None) != 'true':  
-        from .models import User
-        
+        from api.models import User
         for x in range(0, 10):
           user = User(
             first_name=f"First {x}",

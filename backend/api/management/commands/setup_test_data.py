@@ -2,10 +2,8 @@
 from django.db import transaction
 from django.core.management.base import BaseCommand
 
-from api.models import User
-from api.factories import (
-  UserFactory
-)
+from api.models.User import User
+from api.factories.UserFactory import UserFactory
 
 NUM_USERS = 30
 NUM_STUDENTS = 15

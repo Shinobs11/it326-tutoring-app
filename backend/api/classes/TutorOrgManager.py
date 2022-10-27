@@ -1,5 +1,6 @@
-from backend.backend import TutorOrganization, User, TutorSession
-
+from api.classes.User import User
+from api.classes.TutorSession import TutorSession
+from api.classes.TutorOrganization import TutorOrganization
 class TutorOrgManager(User):
     __tutorOrgManagerID: int
     def __init__(self, tomID: int) -> None:
@@ -7,7 +8,9 @@ class TutorOrgManager(User):
 
     def createTutorOrganization(self) -> TutorOrganization:
         print("Tutor Organization created.")
+        return TutorOrganization()
 
     def creeateTutorSession(self, TutorOrganization) -> TutorSession:
         print("Tutor session created.")
+        return TutorSession()
 

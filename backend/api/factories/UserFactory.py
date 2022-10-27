@@ -2,7 +2,7 @@
 
 import factory
 from factory.django import DjangoModelFactory
-from .models import Student, User
+from api.models.User import User
 
 class UserFactory(DjangoModelFactory):
   class Meta:
@@ -14,9 +14,3 @@ class UserFactory(DjangoModelFactory):
   last_name = factory.Faker("last_name")
   email_address = factory.Faker("email")
   phone_number = factory.Faker("phone_number")
-
-class StudentFactory(DjangoModelFactory):
-  class Meta:
-    model = Student
-  
-  

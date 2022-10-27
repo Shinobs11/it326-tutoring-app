@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from api.models import User
+from api.models.User import User
 from api.serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics

@@ -8,16 +8,16 @@ class Student(User):
         self.__schoolYear=schoolYear
         self.__tutorSessHour=0
     def rateTutorSession(self,TutorSession):
-        rating =-1
+        rating: int = -1
         while(rating > 5 or rating < 0):
-            rating= input("Enter rating (0-5)")
+            rating = int(input("Enter rating (0-5)"))
             if(rating > 5 or rating < 0):
                 print("Rating not within proper range. Select again")
             
         TutorSession.rate(rating)
     
     def login(self,UID,paswrd):
-        super.login(UID,paswrd)
+        self.login(UID,paswrd)
 
     def authenticate(self):
-        super.authenticate()
+        self.authenticate()

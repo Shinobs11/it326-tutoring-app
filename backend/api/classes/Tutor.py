@@ -9,11 +9,11 @@ class Tutor(User):
         self.rating=0
         self.tutorSubject=""
         self.numOfTutOrgs=0
-        super.__init__(nm,UID,paswrd,phnNO,eml)
+        super().__init__(nm,UID,paswrd,phnNO,eml)
     
-    def editAvailability():
+    def editAvailability(self):
         pass
 
-    def joinTutOrg(TutorOrganization):
+    def joinTutOrg(self, TutorOrganization):
         pass
     #need class for joining tutor session

@@ -1,4 +1,4 @@
-from backend.backend.Class import Class
+from api.classes.Class import Class
 
 class ClassResources:
     __classData: str
@@ -7,6 +7,7 @@ class ClassResources:
 
     def sendClassInfo(self, data: str) -> Class:
         print("Passed resources to Class obj")
+        return Class()
 
     def saveClassResource(self, data: str) -> None:
         print("Saved resources ")

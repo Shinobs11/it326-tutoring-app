@@ -1,4 +1,4 @@
-import User, TutorSession
+import User
 class Student(User):
     __schoolYear:int
     __tutorSessHour:int
@@ -8,9 +8,9 @@ class Student(User):
         self.__tutorSessHour=0
     def rateTutorSession(self,TutorSession):
         rating =-1
-        while(rating>5 or rating <0):
+        while(rating > 5 or rating < 0):
             rating= input("Enter rating (0-5)")
-            if(rating>5 or rating<0):
+            if(rating > 5 or rating < 0):
                 print("Rating not within proper range. Select again")
             
         TutorSession.rate(rating)

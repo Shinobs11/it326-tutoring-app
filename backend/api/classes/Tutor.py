@@ -1,4 +1,4 @@
-from api.classes.User import User
+from User import User
 class Tutor(User):
     __tutorID:int
     __rating: float

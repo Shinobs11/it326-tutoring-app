@@ -1,14 +1,14 @@
 echo "Plan database migrations"
-python manage.py makemigrations
+py manage.py makemigrations
 
 
 echo "Apply database migrations"
-python manage.py migrate
+py manage.py migrate
 
 
 echo "Generate test data"
-python manage.py setup_test_data
+py manage.py setup_test_data
 
 echo "Starting server"
-python manage.py runserver 0.0.0.0:8000
+py manage.py runserver 0.0.0.0:8000
 

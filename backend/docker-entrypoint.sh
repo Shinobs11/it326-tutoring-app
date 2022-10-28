@@ -3,6 +3,11 @@
 # echo "Collect static files"
 # python manage.py collectstatic --noinput
 
+
+#Flush database
+echo "Flushing database"
+python manage.py flush --no-input
+
 # Plan database migrations
 echo "Plan database migrations"
 python manage.py makemigrations

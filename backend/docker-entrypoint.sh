@@ -4,13 +4,14 @@
 # python manage.py collectstatic --noinput
 
 
-#Flush database
-echo "Flushing database"
-python manage.py flush --no-input
+# #Flush database
+# echo "Flushing database"
+# python manage.py flush --no-input
+
 
 # Plan database migrations
 echo "Plan database migrations"
-python manage.py makemigrations
+python manage.py makemigrations api
 
 # Apply database migrations
 echo "Apply database migrations"

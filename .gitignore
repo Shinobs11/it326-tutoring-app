@@ -2,3 +2,10 @@ db_volume
 frontend_volume
 backend_volume
 db
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+db.sqlite3

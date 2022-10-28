@@ -43,9 +43,7 @@ const APIExampleComponent = () => {
 
 
   if (loaded) {
-    return <>{
-      for(let user in )
-    }</>;
+    return <></>
   } else {
     return <></>;
   }

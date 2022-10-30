@@ -2,9 +2,13 @@ from django.db import models
 from api.models import User
 
 class Student(models.Model):
+  #OPTIONAL 1-1 relation with User
   user = models.OneToOneField(
-    'User',
+    User,
     on_delete=models.CASCADE,
-    primary_key=True
+    blank=True, null=True
   )
-  test_field = models.PositiveSmallIntegerField(null=True, blank=True, default=32)
+  #PK
+  studentID = models.PositiveSmallIntegerField(primary_key=True, blank=False, null=False)
+
+

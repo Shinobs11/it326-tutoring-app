@@ -5,6 +5,11 @@ from api.fields import FullNameField, DesiredNameField, EmailAddressField, First
 
 
 class User(models.Model):
+
+
+  class Meta:
+    app_label = 'api'
+
   yearChoices = [
     ('FR', 'Freshman'),
     ('SO', 'Sophomore'),
@@ -26,6 +31,8 @@ class User(models.Model):
   phone_number = PhoneNumberField(editable=True, blank=False, null=False)
   #Allows 4 choices for what year the user is
   #year = models.CharField(max_length=2, editable=True, blank=False, null=False, choices=yearChoices)
+  #blank=False: The field cannot be empty, this is distinct from null in that empty could be something like an empty string
+  #null=False: The field cannot be null, more self explanatory, the field cannot have a value of null
 
 
 

@@ -1,7 +1,12 @@
 from django.db import models
-from api.models import User
+from api.models.User import User
 
 class Student(models.Model):
+
+  class Meta:
+    app_label = 'api'
+
+
   #OPTIONAL 1-1 relation with User
   user = models.OneToOneField(
     User,

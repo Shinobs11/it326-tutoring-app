@@ -1,3 +1,7 @@
-# __all__ = ['UserFactory', 'StudentFactory']
-# from .StudentFactory import StudentFactory
-# from .UserFactory import UserFactory
+try:
+	from api.factories.UserFactory import UserFactory
+	from api.factories.StudentFactory import StudentFactory
+
+except ImportError:
+	from .UserFactory import UserFactory
+	from .StudentFactory import StudentFactory

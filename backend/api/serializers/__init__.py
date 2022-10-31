@@ -1,2 +1,5 @@
-__all__ = ['UserSerializer']
-from .UserSerializer import UserSerializer
+try:
+	from api.serializers.UserSerializer import UserSerializer
+
+except ImportError:
+	from .UserSerializer import UserSerializer

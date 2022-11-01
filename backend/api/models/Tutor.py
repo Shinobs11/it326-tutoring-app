@@ -1,7 +1,7 @@
 from django.db import models
 from api.models.User import User
-from backend.api.models.TutorOrganization import TutorOrganization
-from backend.api.models.TutorSession import TutorSession
+from api.models.TutorOrganization import TutorOrganization
+from api.models.TutorSession import TutorSession
 class Tutor(models.Model):
 
   class Meta:
@@ -16,9 +16,9 @@ class Tutor(models.Model):
   tutorOrganizationID= models.foreignKey(TutorOrganization, on_delete=models.CASCADE, blank=True, null=True)
   
   tutorID = models.PositiveSmallIntegerField(primary_key=True)
-  rating = models.IntegerField(default=0) #may be a better field to allow for decimals
+  rating = models.FloatField(default=0)
   tutor_subj= models.CharField(max_length=30)
-  Num_Tut_Orgs= models.IntegerField(default=0)
+  Num_Tut_Orgs= models.PositiveSmallIntegerField(default=0)
   
 
 

@@ -1,6 +1,5 @@
 from django.db import models
 from api.models.User import User
-from api.models.TutorSession import TutorSession
 
 class Student(models.Model):
 
@@ -19,7 +18,6 @@ class Student(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
   #PK
   studentID = models.PositiveSmallIntegerField(primary_key=True, blank=False, null=False)
-  tutorSessionID= models.foreignKey(TutorSession, on_delete=models.CASCADE,blank=True, null=True)
   tutorSessHours= models.PositiveSmallIntegerField(default=0)
 
 

@@ -8,6 +8,8 @@ urlpatterns = [
   path('user/<str:pk>/', UserDetail.as_view()),
   path('student/', StudentList.as_view()),
   path('student/<str:pk>/', StudentDetail.as_view()),
+  path('tutor/', TutorList.as_view()),
+  path('tutor/<str:pk>/', TutorDetail.as_view()),
   path('tutororgman/', TutorOrgManList.as_view()),
   path('tutororgman/<str:pk>/', TutorOrgManDetail.as_view())
 

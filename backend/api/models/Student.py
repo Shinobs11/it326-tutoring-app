@@ -15,7 +15,7 @@ class Student(models.Model):
   ] """
 
   #OPTIONAL 1-1 relation with User
-  user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
   #PK
   studentID = models.PositiveSmallIntegerField(primary_key=True, blank=False, null=False)
   tutorSessHours= models.PositiveSmallIntegerField(default=0)

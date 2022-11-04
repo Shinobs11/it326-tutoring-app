@@ -7,7 +7,7 @@ class Tutor(models.Model):
 
 
   # OPTIONAL 1-1 relation with User
-  user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
   #0-* relation with TutorSessions
   #0-* relation with TutorOrganizaiton
   tutorID = models.PositiveSmallIntegerField(primary_key=True)

@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from api.models.User import User
 from api.models.Student import Student
+from api.models.Tutor import Tutor
+from api.serializers.TutorSerializer import TutorSerializer
+from api.models.TutorOrgManager import TutorOrgManager
+from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
 from api.serializers.StudentSerializer import StudentSerializer
 from api.serializers.UserSerializer import UserSerializer
 from rest_framework.response import Response
@@ -40,34 +44,25 @@ class UserDetail(
   def delete(self, request, *args, **kwargs):
     return self.delete(request, *args, **kwargs)
 
-class StudentList(
-    mixins.ListModelMixin,
-    mixins.CreateModelMixin,
-    generics.GenericAPIView):
+class StudentList(UserList):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+class StudentDetail(UserDetail):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-    def get(self, request, *args, **kwargs):
-      return self.list(request, *args, **kwargs)
+class TutorList(UserList):
+  queryset = Tutor.objects.all()
+  serializer_class = TutorSerializer
 
-    def post(self, request, *args, **kwargs):
-      return self.create(request, *args, **kwargs)
+class TutorDetail(UserDetail):
+  queryset = Tutor.objects.all()
+  serializer_class = TutorSerializer
 
-class StudentDetail(
-    mixins.RetrieveModelMixin,
-    mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,
-    generics.GenericAPIView):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+class TutorOrgManList(UserList):
+  queryset = TutorOrgManager.objects.all()
+  serializer_class = TutorOrgManSerializer
 
-    def get(self, request, *args, **kwargs):
-      return self.retrieve(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-      return self.update(request, *args, **kwargs)
-
-    def delete(self, request, *args, **kwargs):
-      return self.delete(request, *args, **kwargs)
-
-  
+class TutorOrgManDetail(UserDetail):
+  queryset = TutorOrgManager.objects.all()
+  serializer_class = TutorOrgManSerializer

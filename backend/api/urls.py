@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from api.views import UserDetail, UserList, StudentDetail, StudentList, TutorList, TutorDetail, TutorOrgManDetail, TutorOrgManList
+from api.views import *
 from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
   path('user/', UserList.as_view()),

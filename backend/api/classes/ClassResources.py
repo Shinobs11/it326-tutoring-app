@@ -1,13 +1,16 @@
 from api.classes.Class import Class
 
 class ClassResources:
-    __classData: str
-    def __init__(self, classData: str) -> None:
-        self.__classData = classData
+    __classData: list
+    def __init__(self )-> None:
+        pass
 
-    def sendClassInfo(self, data: str) -> Class:
+    def sendClassInfo(self) -> list:
         print("Passed resources to Class obj")
-        return Class()
+        return self.__classData
 
     def saveClassResource(self, data: str) -> None:
+        self.__classData.append(data)
         print("Saved resources ")
+        
+    

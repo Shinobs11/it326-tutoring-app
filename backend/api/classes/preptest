@@ -1,0 +1,12 @@
+#Using to test functionality as we go
+
+
+from TutorSession import TutorSession
+date= "24-Feb-22"
+time= "12:30"
+location="Stv 101"
+t= TutorSession(date,time,location)
+
+t.getNumOfAttendees()
+
+

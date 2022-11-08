@@ -1,5 +1,5 @@
 import string
-from api.classes.Class import ClassResources as CR
+from ClassResources import ClassResources as CR
 
 class Class:
     __classID: int
@@ -20,5 +20,5 @@ class Class:
         self.__Resource.saveClassResource(data)
         
     def getClassInfo(self) ->list:
-        
         return self.__Resource.sendClassInfo()
+    

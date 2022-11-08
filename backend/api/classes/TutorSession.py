@@ -1,29 +1,51 @@
-from api.classes.Student import Student
-from api.classes.Class import Class
+from Student import Student
+from Tutor import Tutor
+from Class import Class
 
 class TutorSession:
     __tutorSessID: int
     __date: str
-    __time: float
+    __time: str #changed to string
     __location: str
     __numOfStudents: int
     __numOfTutors: int
-    __tutorSessAttendee: Student
-    def __init__(self):
-        pass
-
-    def getClassInfo(self, classObj: Class) ->str:
+    __tutorSessAttendee: Student # should be a list
+    __tutorSessTutor: Tutor
+    def __init__(self,date,time,location):
+        self.__tutorSessID=0 #Need to find way to initalize ID
+        self.__date=date
+        self.__time=time
+        self.__location=location
+        self.__numOfStudents=0
+        self.__numOfTutors=0
+        self.fun=12
+        
+    def getClassInfo(self, classObj: Class) ->list:#returns a list of strings
         print("Got class info")
-        return ""
+        return classObj.getClassInfo()
 
     def getNumOfAttendees(self) ->int:
         print("Got # of attendees")
-        return 0
+        return self.__numOfStudents
 
     def getNumOfTutors(self)->int:
         print("Got # of tutors")
-        return 0
+        return self.__numOfTutors
 
-    def compareSession(self, other) -> bool:
+    def compareSession(self, tutSess) -> bool: #Need to look into how to send a class its own data type. May need to mannualy input value error
+        #Return true if both objects are during the same time
+        #Return false if tutorsessions are at different times
         print("Comparing both objs....")
+        #if(self.__date==tutSess.__date)
+        
         return False
+    
+    def AddStudent(self,stuObj:Student):
+        self.__numOfStudents+=1
+        self.__tutorSessAttendee.append(stuObj)
+        
+        
+    
+    def AddTutor(tutObj):
+        self.__numOfTutors+=1
+        self.__tutorSessTutor.append(tutObj)

@@ -1,5 +1,4 @@
-from api.classes.Class import Class
-
+#Don't import class: created circular import
 class ClassResources:
     __classData: list
     def __init__(self )-> None:

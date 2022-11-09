@@ -10,7 +10,9 @@ class TutorOrgManager(User):
         print("Tutor Organization created.")
         return TutorOrganization()
 
-    def creeateTutorSession(self, TutorOrganization) -> TutorSession:
+    def createTutorSession(self, TutorOrganization) -> TutorSession:
         print("Tutor session created.")
         return TutorSession()
+    
+    def assignTutor(self,Tutor)
 

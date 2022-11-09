@@ -31,14 +31,21 @@ class TutorSession:
     def getNumOfTutors(self)->int:
         print("Got # of tutors")
         return self.__numOfTutors
-
+    
+    def getDate(self)->str:
+        return self.__date
+    
+    def getTime(self)->str:
+        return self.__time
+    
     def compareSession(self, tutSess) -> bool: #Need to look into how to send a class its own data type. May need to mannualy input value error
         #Return true if both objects are during the same time
         #Return false if tutorsessions are at different times
         print("Comparing both objs....")
-        #if(self.__date==tutSess.__date)
-        
-        return False
+        if(self.__date==tutSess.getDate() and self.__time==tutSess.getTime()):
+            return True
+        else:
+            return False
     
     def AddStudent(self,stuObj:Student):
         self.__numOfStudents+=1
@@ -46,6 +53,6 @@ class TutorSession:
         
         
     
-    def AddTutor(tutObj):
+    def AddTutor(self,tutObj):
         self.__numOfTutors+=1
         self.__tutorSessTutor.append(tutObj)

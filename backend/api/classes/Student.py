@@ -21,3 +21,7 @@ class Student(User):
 
     def authenticate(self):
         self.authenticate()
+
+    @Override
+    def update(self, content):
+        pass #Student Update Method

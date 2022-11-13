@@ -17,3 +17,7 @@ class Tutor(User):
     def joinTutOrg(self, TutorOrganization):
         pass
     #need class for joining tutor session
+
+    @Override
+    def update(self, content):
+        pass # Tutor's Update method

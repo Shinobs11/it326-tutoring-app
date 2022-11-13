@@ -18,3 +18,6 @@ class User(ABC):
     @abstractmethod
     def autheticate(self):
         pass
+    @abstractmethod
+    def update(self, content): # Updates
+        pass

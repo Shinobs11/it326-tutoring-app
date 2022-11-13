@@ -1,8 +1,8 @@
 from django.db import models
 from api.models.User import User
+
+
 class TutorOrgManager(models.Model):
-
-
 
   class Meta:
     app_label = 'api'
@@ -10,7 +10,6 @@ class TutorOrgManager(models.Model):
   # OPTIONAL 1-1 relation with User
   user = models.OneToOneField(
     User,
-    on_delete=models.CASCADE,
-    blank = True, null = True
+    on_delete=models.CASCADE
   )
   tutOrgManID = models.PositiveSmallIntegerField(primary_key=True)

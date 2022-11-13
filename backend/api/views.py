@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from api.models.User import User
-from api.serializers import UserSerializer
+from api.models.Student import Student
+from api.models.Tutor import Tutor
+from api.serializers.TutorSerializer import TutorSerializer
+from api.models.TutorOrgManager import TutorOrgManager
+from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
+from api.serializers.StudentSerializer import StudentSerializer
+from api.serializers.UserSerializer import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
@@ -37,4 +43,26 @@ class UserDetail(
 
   def delete(self, request, *args, **kwargs):
     return self.delete(request, *args, **kwargs)
-  
+
+class StudentList(UserList):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+class StudentDetail(UserDetail):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class TutorList(UserList):
+  queryset = Tutor.objects.all()
+  serializer_class = TutorSerializer
+
+class TutorDetail(UserDetail):
+  queryset = Tutor.objects.all()
+  serializer_class = TutorSerializer
+
+class TutorOrgManList(UserList):
+  queryset = TutorOrgManager.objects.all()
+  serializer_class = TutorOrgManSerializer
+
+class TutorOrgManDetail(UserDetail):
+  queryset = TutorOrgManager.objects.all()
+  serializer_class = TutorOrgManSerializer

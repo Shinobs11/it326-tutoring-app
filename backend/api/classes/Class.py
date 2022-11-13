@@ -1,19 +1,24 @@
 import string
-from api.classes.Class import Class
+from ClassResources import ClassResources as CR
 
 class Class:
-    _classID: int
-    _className: string
-    _classType: string
-    _studentsEnrolled: int
-
+    __classID: int
+    __className: string
+    __classType: string
+    __studentsEnrolled: int
+    #__ClassReso: ClassResouce-- Will just declare in constructor for sake of ease
     # Default Constructor
     def __init__(self, id, name, type, numStudents):
-        self._classID = id
-        self._className = name
-        self._classType = type
-        self._studentsEnrolled = numStudents
-
+        self.__classID = id
+        self.__className = name
+        self.__classType = type
+        self.__studentsEnrolled = numStudents
+        self.__Resource=CR.classResources()
+        
     # Gets the Class Info
-    def getClassInfo():
-        return "string"
+    def createClassResources(self, data:str):
+        self.__Resource.saveClassResource(data)
+        
+    def getClassInfo(self) ->list:
+        return self.__Resource.sendClassInfo()
+    

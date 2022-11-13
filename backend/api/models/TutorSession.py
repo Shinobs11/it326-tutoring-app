@@ -2,7 +2,7 @@ from django.db import models
 from api.models.Class import Class
 from api.models.TutorOrganization import TutorOrganization
 from api.models.Tutor import Tutor
-from datetime import datetime
+from django.utils.timezone import now
 class TutorSession(models.Model):
 
 
@@ -15,4 +15,4 @@ class TutorSession(models.Model):
   #MANDATORY 1-1 relation with Class
   classID = models.OneToOneField(Class, on_delete=models.CASCADE, blank=False, null=False)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)
-  date = models.DateTimeField(default=datetime.now())
+  date = models.DateTimeField(default=now)

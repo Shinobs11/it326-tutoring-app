@@ -14,4 +14,3 @@ class UserFactory(DjangoModelFactory):
   last_name = factory.Faker("last_name")
   email_address = factory.Faker("email")
   phone_number = factory.Faker("phone_number")
-  #year = factory.Faker("year")

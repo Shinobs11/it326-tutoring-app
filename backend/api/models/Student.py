@@ -6,14 +6,6 @@ class Student(models.Model):
   class Meta:
     app_label = 'api'
 
-    """ Currently inside of User but thinking would be a better fit for student 
-    yearChoices = [
-    ('FR', 'Freshman'),
-    ('SO', 'Sophomore'),
-    ('JR', 'Junior'),
-    ('SR', 'Senior')
-  ] """
-
   #OPTIONAL 1-1 relation with User
   user = models.OneToOneField(User, on_delete=models.CASCADE)
   #PK

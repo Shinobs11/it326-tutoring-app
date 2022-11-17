@@ -34,7 +34,6 @@ class UserDetail(
   generics.GenericAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-
   def get(self, request, *args, **kwargs):
     return self.retrieve(request, *args, **kwargs)
 

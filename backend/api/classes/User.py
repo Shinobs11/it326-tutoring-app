@@ -1,22 +1,26 @@
 from abc import ABC, abstractmethod
+from api.models.User import User as UserDB
 class User(ABC):
-    __name: str
-    __userID: str
-    __password: str
-    __phoneNo: str
-    __email: str
+    name: str
+    userID: str
+    password: str
+    phoneNo: str
+    email: str
     @abstractmethod
     def __init__(self, name:str, UID:str, password:str, phoneNumber: str, email: str):
-        self.__name=name
-        self.__userID=UID
-        self.__password=password
-        self.__phoneNo=phoneNumber
-        self.__email=email
-    @abstractmethod
+        self.name=name
+        self.userID=UID
+        self.password=password
+        self.phoneNo=phoneNumber
+        self.email=email
+
     def login(self,UID,paswrd):
         pass
-    @abstractmethod
-    def autheticate(self):
+
+    def authenticate(self):
+        pass
+
+    def register(self):
         pass
     @abstractmethod
     def update(self, content): # Updates

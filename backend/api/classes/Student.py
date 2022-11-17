@@ -15,12 +15,6 @@ class Student(User):
                 print("Rating not within proper range. Select again")
             
         TutorSession.rate(rating)
-    
-    def login(self,UID,paswrd):
-        self.login(UID,paswrd)
-
-    def authenticate(self):
-        self.authenticate()
 
     @Override
     def update(self, content):

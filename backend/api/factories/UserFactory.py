@@ -4,6 +4,7 @@ import factory
 from factory.django import DjangoModelFactory
 from api.models.User import User
 
+
 class UserFactory(DjangoModelFactory):
   class Meta:
     model = User
@@ -14,3 +15,5 @@ class UserFactory(DjangoModelFactory):
   last_name = factory.Faker("last_name")
   email_address = factory.Faker("email")
   phone_number = factory.Faker("phone_number")
+
+

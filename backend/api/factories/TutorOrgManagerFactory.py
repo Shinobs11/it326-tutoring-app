@@ -1,11 +1,11 @@
 import factory
 from factory.django import DjangoModelFactory
-from api.models.Tutor import Tutor
+from api.models.TutorOrgManager import TutorOrgManager
 
 
-class TutorFactory(DjangoModelFactory):
+class TutorOrgManagerFactory(DjangoModelFactory):
     class Meta:
-        model = Tutor
+        model = TutorOrgManager
 
     # rating = factory.Faker("rating")
     # tutor_subj = factory.Faker("tutor_subj")

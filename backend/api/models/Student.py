@@ -1,16 +1,29 @@
+from enum import Enum
 from django.db import models
-from api.models.User import User
+
+import uuid
+
+YEAR_CHOICE_ENUM = Enum('year_choice', ['Freshman', 'Sophomore', 'Junior', 'Senior'])
 
 class Student(models.Model):
 
   class Meta:
     app_label = 'api'
 
-  #OPTIONAL 1-1 relation with User
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
+# https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-choices-enum-types
+  class YearInSchool(models.IntegerChoices):
+    FRESHMAN = 0, 'Freshman'
+    SOPHOMORE = 1, 'Sophomore'
+    JUNIOR = 2, 'Junior'
+    SENIOR = 3, 'Senior'
+    GRADUATE = 4, 'Graduate',
+    NOT_APPLICABLE = 5, 'N/A'
   #PK
-  studentID = models.PositiveSmallIntegerField(primary_key=True, blank=False, null=False)
-  tutorSessHours= models.PositiveSmallIntegerField(default=0)
+  studentID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True, null=False, blank=False)
+  yearInSchool = models.SmallIntegerField(default=None, editable=True, null=True, choices=YearInSchool.choices)
+
+
+  # tutorSessHours= models.PositiveSmallIntegerField(default=0)
 
 
 

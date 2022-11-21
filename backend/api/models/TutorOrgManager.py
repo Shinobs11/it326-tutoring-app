@@ -1,6 +1,6 @@
 from django.db import models
-from api.models.User import User
 
+import uuid
 
 class TutorOrgManager(models.Model):
 
@@ -8,8 +8,5 @@ class TutorOrgManager(models.Model):
     app_label = 'api'
 
   # OPTIONAL 1-1 relation with User
-  user = models.OneToOneField(
-    User,
-    on_delete=models.CASCADE
-  )
-  tutOrgManID = models.PositiveSmallIntegerField(primary_key=True)
+
+  tutOrgManID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True, null=False, blank=False)

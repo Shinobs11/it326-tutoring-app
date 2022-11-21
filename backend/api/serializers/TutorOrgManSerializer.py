@@ -5,4 +5,4 @@ from api.models.TutorOrgManager import TutorOrgManager
 class TutorOrgManSerializer(serializers.ModelSerializer):
   class Meta:
     model = TutorOrgManager
-    fields = ['user', 'tutOrgManID']
+    fields = ['tutOrgManID']

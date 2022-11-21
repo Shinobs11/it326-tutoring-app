@@ -1,19 +1,19 @@
 from django.db import models
-from api.models.User import User
+
+import uuid
 class Tutor(models.Model):
 
   class Meta:
     app_label = 'api'
 
 
-  # OPTIONAL 1-1 relation with User
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
+
   #0-* relation with TutorSessions
   #0-* relation with TutorOrganizaiton
-  tutorID = models.PositiveSmallIntegerField(primary_key=True)
-  rating = models.FloatField(default=0)
-  tutor_subj= models.CharField(max_length=30)
-  Num_Tut_Orgs= models.PositiveSmallIntegerField(default=0)
+  tutorID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True, null=False, blank=False)
+  # rating = models.FloatField(default=0)
+  # tutor_subj= models.CharField(max_length=30)
+  # Num_Tut_Orgs= models.PositiveSmallIntegerField(default=0)
   
 
 

@@ -5,17 +5,16 @@ FROM node:16-alpine AS deps
 RUN mkdir -p /src
 WORKDIR /src
 ENV NODE_ENV development
+
 # Install dependencies based on the preferred package manager
 COPY package*.json /src
 RUN yarn install
-COPY . /src
-# COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
+
+FROM deps AS entry
+COPY docker-entrypoint.sh /src/docker-entrypoint.sh
 
 
-# RUN addgroup --system --gid 1001 nodejs
-# RUN adduser --system --uid 1001 nextjs
 
-# USER nextjs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -23,49 +22,3 @@ ENV PORT 3000
 RUN ["chmod", "+x" ,"./docker-entrypoint.sh"]
 ENTRYPOINT ["./docker-entrypoint.sh"]
 
-
-# Rebuild the source code only when needed
-# FROM node:16-alpine AS builder
-# WORKDIR /frontend
-# COPY --from=deps /frontend/node_modules ./node_modules
-# COPY . .
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-# RUN yarn build
-
-# If using npm comment out above and use below instead
-# RUN npm run build
-
-# Production image, copy all the files and run next
-# FROM node:16-alpine AS runner
-# WORKDIR /frontend
-
-# ENV NODE_ENV development
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-# RUN addgroup --system --gid 1001 nodejs
-# RUN adduser --system --uid 1001 nextjs
-
-# COPY --from=builder /frontend/public ./public
-
-# # Automatically leverage output traces to reduce image size
-# # https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=builder --chown=nextjs:nodejs /frontend/.next/standalone ./
-# COPY --from=builder --chown=nextjs:nodejs /frontend/.next/static ./.next/static
-# COPY --from=builder --chown=nextjs:nodejs /frontend/ ./
-
-# USER nextjs
-
-# EXPOSE 3000
-
-# ENV PORT 3000
-
-
-# CMD ["yarn", "dev"]
-
-# CMD ["node", "server.js"]

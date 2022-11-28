@@ -33,7 +33,7 @@ class UserFactory(DjangoModelFactory):
   email_address = factory.Faker("email")
   phone_number = factory.Faker("phone_number")
 
-
+  #this sucks so if there's a better way lmk
   tutor = factory.Maybe(decider='is_tutor', yes_declaration=factory.SubFactory('api.factories.TutorFactory'), no_declaration=None)
   student = factory.Maybe(decider='is_student', yes_declaration=factory.SubFactory('api.factories.StudentFactory'), no_declaration=None)
   tutorOrgManager = factory.Maybe(decider='is_tutorOrgManager', yes_declaration=factory.SubFactory('api.factories.TutorOrgManagerFactory'), no_declaration=None)

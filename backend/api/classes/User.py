@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
 from api.models.User import User as UserDB
+# need to pull in user database: should be in form
+# from .models import Stock
+from models import user
 class User(ABC):
     name: str
     userID: str
@@ -18,7 +21,14 @@ class User(ABC):
         pass
 
     def authenticate(self):
-        pass
+        # TODO: Get the database table
+        # to pull from user
+        item= user.objects.get(pk=user_id)
+        foundUser = False
+
+        while (foundUser != True):
+            # Search the elements
+            foundUser = True
 
     def register(self):
         pass

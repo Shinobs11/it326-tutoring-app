@@ -18,12 +18,17 @@ class UserList(
   mixins.ListModelMixin,
   mixins.CreateModelMixin,
   generics.GenericAPIView):
+  # List of all the objects
   queryset = User.objects.all()
+
+  # Formats the users in json
   serializer_class = UserSerializer
 
+  # Gets all the users from the database
   def get(self, request, *args, **kwargs):
     return self.list(request, *args, **kwargs)
 
+  # Create a new user object
   def post(self, request, *args, **kwargs):
     return self.create(request, *args, **kwargs)
 
@@ -46,6 +51,7 @@ class UserDetail(
 class StudentList(UserList):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    
 class StudentDetail(UserDetail):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
@@ -65,3 +71,8 @@ class TutorOrgManList(UserList):
 class TutorOrgManDetail(UserDetail):
   queryset = TutorOrgManager.objects.all()
   serializer_class = TutorOrgManSerializer
+
+class user():
+  
+  def login(request):
+    return render(request, 'login.html',{})

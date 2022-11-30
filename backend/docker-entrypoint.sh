@@ -6,7 +6,7 @@
 
 
 
-
+sleep 5
 
 
 #uncomment when starting to clear DB and run migrations on launch

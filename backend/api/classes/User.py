@@ -22,6 +22,7 @@ class User(ABC):
 
     def register(self):
         pass
+
     @abstractmethod
     def update(self, content): # Updates
         pass

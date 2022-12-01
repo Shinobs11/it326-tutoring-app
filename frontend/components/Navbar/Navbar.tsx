@@ -21,13 +21,33 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, EmailIcon, BellIcon } from '@chakra-ui/icons';
 
-const links = [
-  "Sessions",
-  "Tutors",
-  "Tutor Organizations"
+
+interface LinkType {
+  name: string;
+  url: string;
+}
+
+const links:LinkType[] = [
+  {
+    name: "Sessions",
+    url: "/sessions"
+  },
+  {
+    name: "Tutors",
+    url: "/tutors"
+  },
+  {
+    name:"Tutor Organizations",
+    url: "/tutor-orgs"
+  }
+  ,
+  {
+    name: "Testing",
+    url: "/testing"
+  }
 ]
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ href, children }: { href:string, children: ReactNode }) => (
   <Link
     px={2}
     py={1}
@@ -36,7 +56,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('red.700', 'red.700'),
     }}
-    href={'#'}>
+    href={href}>
     {children}
   </Link>
 );
@@ -66,9 +86,9 @@ export default function Navbar() {
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {links.map((link) => (
-                <NavLink key={link}>
+                <NavLink key={link.name} href={link.url}>
                   <Text color={useColorModeValue('red.50', 'red.50')}>
-                    {link}
+                    {link.name}
                   </Text>
                 </NavLink>
               ))}
@@ -142,9 +162,9 @@ export default function Navbar() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {links.map((link) => (
-                <NavLink key={link}>
+                <NavLink key={link.name} href={link.url}>
                   <Text color={useColorModeValue('red.50', 'red.50')}>
-                    {link}
+                    {link.name}
                   </Text>
                 </NavLink>
               ))}

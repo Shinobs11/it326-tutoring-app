@@ -20,7 +20,8 @@ import {
   Avatar,
   VStack,
   Divider,
-  HStack
+  HStack,
+  ButtonGroup
 }
 from "@chakra-ui/react";
 
@@ -29,30 +30,40 @@ import {sampleSessions} from '../sampleData/sessions'
 
 const Dashboard: NextPage = () =>{
   return (
-    <Box height="100vh">
+    <Box height="100vh" bgColor={'gray.100'}>
       <Head>
         <title>Dashboard | Tutor Tim</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar/>
-    
+      <Center>
         <HStack>
           <VStack
-            minW='xs'
+            
             minHeight={'calc(100vh - 64px)'}
             backgroundColor='blue.200'
             height="100%" 
             justify='flex-start'
             >
             <Avatar
-              my="2rem"
+              m="2rem"
               name="Placeholder Name"
               size='xl'
+              
             >
             </Avatar>
-            <Text>
-              Placeholder bio
-            </Text>
+            <ButtonGroup px="2.5rem" orientation='vertical'>
+              <Button>
+                Student
+              </Button>
+              <Button>
+                Tutor
+              </Button>
+              <Button>
+                Organization Manager
+              </Button>
+            </ButtonGroup>
+            
           </VStack>
           <Divider orientation='vertical'/>
           <VStack
@@ -68,7 +79,7 @@ const Dashboard: NextPage = () =>{
   
           </VStack>
         </HStack>
-        
+        </Center>
     </Box>
   )
 }

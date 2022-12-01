@@ -2,6 +2,15 @@
 
 
 
+export interface SignupFormState {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  password: string;
+}
+
+
+
 // export interface Tutor {
 //   tutorId: string;
 //   tutorOrganizationIds: string[];

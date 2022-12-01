@@ -19,7 +19,16 @@ import {
   ListItem,
   ListItemProps,
   ListProps,
-  HStack
+  HStack,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 }
 from "@chakra-ui/react";
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
@@ -36,22 +45,33 @@ interface ScheduleItemPropsType{
 }
 const ScheduleItem = ({session, ...props}:ScheduleItemPropsType) =>{
   return (
-    <HStack maxH="2.5rem">
-      <Card bgColor="red.200">
-        <CardBody display={"flex"} flexDirection={"row"}>
-          <Text width={'7rem'}>
-            {session.startTime.toLocaleDateString()}
-          </Text>
-          <Text>{ 
-            `${session.startTime.toLocaleTimeString()} - ${session.endTime.toLocaleTimeString()}`
-          }
-          </Text>
-          <Text>
-            {session.title}
-          </Text>
-        </CardBody>
-      </Card>
-    </HStack>
+    // <HStack maxH="2.5rem">
+    //   <Card bgColor="red.200">
+    //     <CardBody display={"flex"} flexDirection={"row"}>
+    //       <Text width={'7rem'}>
+    //         {session.startTime.toLocaleDateString()}
+    //       </Text>
+    //       <Text>{ 
+    //         `${session.startTime.toLocaleTimeString()} - ${session.endTime.toLocaleTimeString()}`
+    //       }
+    //       </Text>
+    //       <Text>
+    //         {session.title}
+    //       </Text>
+    //     </CardBody>
+    //   </Card>
+    // </HStack>
+    <Tr>
+      <Td>
+        {session.startTime.toLocaleDateString()}
+      </Td>
+      <Td>
+        {session.startTime.toLocaleTimeString()}
+      </Td>
+      <Td>
+        {session.title}
+      </Td>
+    </Tr>
   )
 }
 
@@ -67,19 +87,27 @@ const Schedule = ({sessions,...props}:SchedulePropsType) =>{
       <Text fontSize={24} fontWeight={600}>
         My sessions
       </Text>
-      <List my={2} spacing={8}>
-        {
-          sessions.map(
-            (session)=>{
-              return (
-                <ListItem>
-                  <ScheduleItem session={session}/>
-                </ListItem>
+      <TableContainer>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>Date</Th>
+              <Th>Time</Th>
+              <Th>Title</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+          {
+            sessions.map((session)=>{
+              return(
+              <ScheduleItem session={session}/>
               )
-            }
-          )
-        }
-      </List>
+            })
+          }
+          </Tbody>
+        </Table>
+      </TableContainer>
+    
     </Container>
   
     )}

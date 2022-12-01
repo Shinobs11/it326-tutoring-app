@@ -7,8 +7,9 @@ WORKDIR /src
 ENV NODE_ENV development
 
 # Install dependencies based on the preferred package manager
-COPY package*.json /src
+COPY package.json /src/package.json
 RUN yarn install
+RUN yarn add @chakra-ui/react
 
 FROM deps AS entry
 COPY docker-entrypoint.sh /src/docker-entrypoint.sh

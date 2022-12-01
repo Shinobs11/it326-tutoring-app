@@ -73,6 +73,23 @@ class TutorOrgManDetail(UserDetail):
   serializer_class = TutorOrgManSerializer
 
 
+class user():
   
-def login(request):
-  return render(request,'login.html',{})
+  def login(request):
+    # need to add authenticate once entered in information in login area
+    # getting intial page layout completed
+    return render(request,'login.html',{})
+  
+  def userhome(request):
+    return render(request,'homeuser.html',{})
+
+#File tutor, nameing convention to keep seperate from other classes
+class Fstudent():
+  #will send person to student homepage
+  def studenthome(request):
+    return render(request, 'studenthome.html',{})
+
+class Ftutor():
+  #will send person to student homepage
+  def tutorhome(request):
+    return render(request, 'tutorhome.html',{}) 

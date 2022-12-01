@@ -19,7 +19,6 @@ class User(models.Model):
   last_name = LastNameField(editable=True, blank=False, null=False)
   email_address = EmailAddressField(editable=True, blank=False, null=False)
   phone_number = PhoneNumberField(editable=True, blank=False, null=False)
-
   student = models.OneToOneField(
     Student,
     on_delete=models.CASCADE,
@@ -35,6 +34,7 @@ class User(models.Model):
     on_delete=models.CASCADE,
     null=True,
   )
+  password = models.CharField(blank=True, null=True,max_length=100)
 
 
 

@@ -6,8 +6,13 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-  # Login Page Path
-  path('',views.login,name="login"),
+  # User facing pages
+  path('',user.login,name="login"),
+  path('userhome',user.userhome,name="userhome"),
+  path('studenthome',Fstudent.studenthome,name="studenthome"),
+  path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
+  
+  #these are for the API
   path('user/', UserList.as_view()),
   path('user/<str:pk>/', UserDetail.as_view()),
   path('student/', StudentList.as_view()),

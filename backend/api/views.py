@@ -1,6 +1,7 @@
 from api.models.User import User
 from api.models.Student import Student
 from api.models.Tutor import Tutor
+from api.models.TutorSession import TutorSession
 from api.serializers.TutorSerializer import TutorSerializer
 from api.models.TutorOrgManager import TutorOrgManager
 from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
@@ -83,13 +84,39 @@ class user():
   def userhome(request):
     return render(request,'homeuser.html',{})
 
+
 #File tutor, nameing convention to keep seperate from other classes
 class Fstudent():
   #will send person to student homepage
   def studenthome(request):
     return render(request, 'studenthome.html',{})
+  
+  def showtutorSessions(request):# will create seperate method for searching for specific criteria
+    import json
+    if request.method== 'POST':
+      #if the button is pushed  get
+      pass
+    else:
+      tutorsess= FtutorSession.gettutorSession()
+      #tutorsess= FtutorSession.gettutorSession
+
+      return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
+
 
 class Ftutor():
   #will send person to student homepage
   def tutorhome(request):
     return render(request, 'tutorhome.html',{}) 
+  
+class FtutorSession():
+  
+  def gettutorSession():
+    return TutorSession.objects.all
+  
+class FtutorOrg():
+  
+  def tutorOrghome(request):
+    return render(request, 'tutorOrghome.html',{})
+  
+  def createSession(request):
+    return render(request, 'SessionCreation.html',{})

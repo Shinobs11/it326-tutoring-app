@@ -11,7 +11,7 @@ class TutorSession(models.Model):
     app_label = 'api'
   #OPTIONAL M-M with Tutor
   tutor = models.ManyToManyField(Tutor, blank=True, null=True)
-  # OPTIONAL M-M with TutorOrgManager
+  # OPTIONAL M- M with TutorOrgManager
   student = models.ManyToManyField(Student, blank=True, null=True)
   #MANDATORY 1-M with TutorOrganization
   tutOrg = models.ForeignKey(TutorOrganization, on_delete=models.CASCADE, blank=False, null=False)
@@ -19,3 +19,4 @@ class TutorSession(models.Model):
   classID = models.OneToOneField(Class, on_delete=models.CASCADE, blank=False, null=False)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)
   date = models.DateTimeField(default=now)
+  rate = models.IntegerField(default=0)

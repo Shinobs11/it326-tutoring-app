@@ -7,6 +7,7 @@ from api.models.TutorOrgManager import TutorOrgManager
 from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
 from api.serializers.StudentSerializer import StudentSerializer
 from api.serializers.UserSerializer import UserSerializer
+from api.serializers.TutorSessionSerializer import TutorSessionSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
@@ -74,8 +75,38 @@ class TutorOrgManDetail(UserDetail):
   queryset = TutorOrgManager.objects.all()
   serializer_class = TutorOrgManSerializer
 
+class TutorSessionList(UserList):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
+class TutorSessionDetail(UserDetail):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
+
 
 
 
   
 
+<<<<<<< HEAD
+=======
+      return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
+
+
+class Ftutor():
+  #will send person to student homepage
+  def tutorhome(request):
+    return render(request, 'tutorhome.html',{}) 
+  
+class FtutorSession():
+  
+  def gettutorSession(self):
+    return TutorSession.objects.all
+  
+class FtutorOrg():
+  
+  def tutorOrghome(request):
+    return render(request, 'tutorOrghome.html',{})
+  
+  def createSession(request):
+    return render(request, 'SessionCreation.html',{})
+>>>>>>> fe9f6cd429d0f831712d6ae16b18b49b89b86db3

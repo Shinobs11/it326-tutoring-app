@@ -32,7 +32,10 @@ urlpatterns = [
   path('tutor/', TutorList.as_view()),
   path('tutor/<str:pk>/', TutorDetail.as_view()),
   path('tutororgman/', TutorOrgManList.as_view()),
-  path('tutororgman/<str:pk>/', TutorOrgManDetail.as_view())
+  path('tutororgman/<str:pk>/', TutorOrgManDetail.as_view()),
+  path('tutorsession/', TutorSessionList.as_view()),
+  path('tutorsession/<str:pk>/', TutorSessionDetail.as_view())
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

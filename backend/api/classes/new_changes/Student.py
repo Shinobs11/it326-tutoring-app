@@ -1,6 +1,6 @@
 # The Student File
-from classes.User import User
-from classes.Observer import Observer
+from api.classes.User import User
+#from api.classes.Observer import Observer
 
 class Student(User, Observer):
     # Local Variables

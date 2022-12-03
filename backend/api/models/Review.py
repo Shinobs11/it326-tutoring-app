@@ -12,7 +12,7 @@ class Review:
     #MANDATORY 1-1 with Student
     student = models.OneToOneField(Student, on_delete=models.CASCADE)
     #Optional comment section
-    comment = models.CharField(blank=True, null=True)
+    #comment = models.CharField(blank=True, null=True)
     #Ratings from 0 to 5
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
     # OPTIONAL 1-M relation with TutorSession

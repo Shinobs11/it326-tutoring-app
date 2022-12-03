@@ -1,6 +1,6 @@
-from classes.Class import Class
-from classes.Review import Review
-from classes.TutorOrganization import TutorOrganization
+from api.classes.Class import Class
+from api.classes.Review import Review
+from api.classes.TutorOrganization import TutorOrganization
 
 class TutorSession():
     # Local Variables

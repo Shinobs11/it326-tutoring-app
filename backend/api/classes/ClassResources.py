@@ -10,6 +10,6 @@ class ClassResources:
 
     def saveClassResource(self, data: str) -> None:
         self.__classData.append(data)
-        print("Saved resources ")
+        print("Saved resources")
         
     

@@ -9,7 +9,7 @@ class Tutor(models.Model):
 
 
   #0-* relation with TutorSessions
-  #0-* relation with TutorOrganizaiton
+  #0-* relation with TutorOrganization
   tutorID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True, null=False, blank=False)
   # rating = models.FloatField(default=0)
   # tutor_subj= models.CharField(max_length=30)

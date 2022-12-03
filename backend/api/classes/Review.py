@@ -8,18 +8,15 @@ class Review():
     _sesFeedback: str # String that contains any feedback given by the student for the tutor session
 
     def __init__(self):
-        _orgRating, _sesRating = -1
         _orgFeedback, _sesFeedback = "N/A"
 
-    def rateTutorSess(self):
+    def rateTutorSess(self, rating: int):
         #Rating for Tutor Session
-        while (_sesRating > 5 or _sesRating < 1):
-            _sesRating = int(input("Enter rating out of five stars for the Tutor Session: ")) # User input to provide the rating
-            if (_sesRating > 5 or _sesRating < 0): # User did not enter a value in range. Restart loop
-                print("Rating not within proper range. Please enter a value between 1-5")
-
-        #Feedback for Tutor Session
-        _sesFeedback = str(input("Enter any feedback you'd like to add for the Tutor Session: "))
+        if (rating<=5 or rating>=1):
+            # TODO Front-end functionality
+            self._sesFeedback = str(input("Enter feedback"))
+        else:
+            print("Invalid rating value")
 
         # TODO: Return values to the Tutor Sess
 

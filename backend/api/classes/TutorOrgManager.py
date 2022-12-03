@@ -12,9 +12,10 @@ class TutorOrgManager(User):
 
     def createTutorSession(self, TutorOrganization) -> TutorSession:
         print("Tutor session created.")
-        return TutorSession()
+        pass
     
-    def assignTutor(self,Tutor):
-      return
+    def assignTutor(self,Tutor, TutorSession):
+        TutorSession.register()
+        pass
       
 

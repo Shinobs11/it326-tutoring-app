@@ -5,7 +5,7 @@ class ClassResources():
 
     # Constructor
     def __init__(self, resource):
-        classData = resource
+        self.classData = resource
 
     def saveClassResource(self, resource):
         self.classData = resource

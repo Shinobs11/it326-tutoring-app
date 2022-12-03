@@ -3,7 +3,7 @@ from api.models.User import User as UserDB
 from django.shortcuts import render, redirect
 # need to pull in user database: should be in form
 # from .models import Stock
-from models import user
+from api.models import User
 class User(ABC):
     name: str
     userID: str
@@ -22,11 +22,11 @@ class User(ABC):
     def authenticate(self,user_id,passattempt):
         # TODO: Get the database table
         # to pull from user
-        item= user.objects.get(pk=user_id)
+        item= User.objects.get(pk=user_id)
         if passattempt==item.password:
             return True
         else:
-            return false
+            return False
 
         while (foundUser != True):
             # Search the elements
@@ -40,6 +40,7 @@ class User(ABC):
 
 
     def register(self):
+        pass
         
 
     @abstractmethod

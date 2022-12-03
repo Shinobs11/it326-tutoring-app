@@ -18,7 +18,7 @@ class TutorSession(Observable): #Inherits from Observable
 
     def getClassInfo(self, classObj: Class) ->str:
         print("Got class info")
-        return ""
+        return Class.getClassInfo()
 
     def getNumOfAttendees(self) ->int:
         print("Got # of attendees")
@@ -43,7 +43,6 @@ class TutorSession(Observable): #Inherits from Observable
         print(user, " was unregistered")
 
     # Notify all the users in the subject the updated content
-    @Override
     def notifyAll(self):
         for user in self.user_list:
             user.update(self.__content)

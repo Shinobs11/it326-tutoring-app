@@ -1,9 +1,9 @@
 # Implementation of a Factory Pattern for User
-from classes.User import User #NOTE: Only here to show the return type of the function on line 11 (..."-> User"). Should we remove that?
-from classes.Tutor import Tutor
-from classes.Student import Student
-from classes.TutorOrgManager import TutorOrgManager
-from classes.UserType import UserType
+from api.classes.User import User #NOTE: Only here to show the return type of the function on line 11 (..."-> User"). Should we remove that?
+from api.classes.Tutor import Tutor
+from api.classes.Student import Student
+from api.classes.TutorOrgManager import TutorOrgManager
+from api.classes.UserType import UserType
 
 
 

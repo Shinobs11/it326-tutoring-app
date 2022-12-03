@@ -16,6 +16,6 @@ class Student(User):
             
         TutorSession.rate(rating)
 
-    #@Override
+    @Override
     def update(self, content):
         pass #Student Update Method

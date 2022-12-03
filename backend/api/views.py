@@ -7,10 +7,12 @@ from api.models.TutorOrgManager import TutorOrgManager
 from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
 from api.serializers.StudentSerializer import StudentSerializer
 from api.serializers.UserSerializer import UserSerializer
+from api.serializers.TutorSessionSerializer import TutorSessionSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
+from .forms import TutorSessionForm
 # Create your views here.
 
 
@@ -73,33 +75,20 @@ class TutorOrgManDetail(UserDetail):
   queryset = TutorOrgManager.objects.all()
   serializer_class = TutorOrgManSerializer
 
+class TutorSessionList(UserList):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
+class TutorSessionDetail(UserDetail):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
 
-class user():
+
+
+
   
-  def login(request):
-    # need to add authenticate once entered in information in login area
-    # getting intial page layout completed
-    return render(request,'login.html',{})
-  
-  def userhome(request):
-    return render(request,'homeuser.html',{})
 
-
-#File tutor, nameing convention to keep seperate from other classes
-class Fstudent():
-  #will send person to student homepage
-  def studenthome(request):
-    return render(request, 'studenthome.html',{})
-  
-  def showtutorSessions(request):# will create seperate method for searching for specific criteria
-    import json
-    if request.method== 'POST':
-      #if the button is pushed  get
-      pass
-    else:
-      tutorsess= FtutorSession.gettutorSession()
-      #tutorsess= FtutorSession.gettutorSession
-
+<<<<<<< HEAD
+=======
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
 
 
@@ -110,7 +99,7 @@ class Ftutor():
   
 class FtutorSession():
   
-  def gettutorSession():
+  def gettutorSession(self):
     return TutorSession.objects.all
   
 class FtutorOrg():
@@ -120,3 +109,4 @@ class FtutorOrg():
   
   def createSession(request):
     return render(request, 'SessionCreation.html',{})
+>>>>>>> fe9f6cd429d0f831712d6ae16b18b49b89b86db3

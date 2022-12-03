@@ -1,4 +1,4 @@
-from api.classes.TutorOrganization import TutorOrganization
+
 
 class TutorOrganization:
     _tutorOrgID: int
@@ -10,5 +10,5 @@ class TutorOrganization:
         self._tutorOrgID = manager.tutorOrgManagerID
 
     # Creates a tutor organization object
-    def createTutorOrganization(self, manager):
+    def createTutorOrganization(self, request):
         return TutorOrganization(manager)

@@ -19,4 +19,3 @@ class TutorSession(models.Model):
   classID = models.OneToOneField(Class, on_delete=models.CASCADE, blank=False, null=False)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)
   date = models.DateTimeField(default=now)
-  rate = models.IntegerField(default=0)

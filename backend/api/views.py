@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
+from .forms import TutorSessionForm
 # Create your views here.
 
 
@@ -74,49 +75,7 @@ class TutorOrgManDetail(UserDetail):
   serializer_class = TutorOrgManSerializer
 
 
-class user():
-  
-  def login(request):
-    # need to add authenticate once entered in information in login area
-    # getting intial page layout completed
-    return render(request,'login.html',{})
-  
-  def userhome(request):
-    return render(request,'homeuser.html',{})
 
 
-#File tutor, nameing convention to keep seperate from other classes
-class Fstudent():
-  #will send person to student homepage
-  def studenthome(request):
-    return render(request, 'studenthome.html',{})
   
-  def showtutorSessions(request):# will create seperate method for searching for specific criteria
-    import json
-    if request.method== 'POST':
-      #if the button is pushed  get
-      pass
-    else:
-      tutorsess= FtutorSession.gettutorSession()
-      #tutorsess= FtutorSession.gettutorSession
 
-      return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
-
-
-class Ftutor():
-  #will send person to student homepage
-  def tutorhome(request):
-    return render(request, 'tutorhome.html',{}) 
-  
-class FtutorSession():
-  
-  def gettutorSession():
-    return TutorSession.objects.all
-  
-class FtutorOrg():
-  
-  def tutorOrghome(request):
-    return render(request, 'tutorOrghome.html',{})
-  
-  def createSession(request):
-    return render(request, 'SessionCreation.html',{})

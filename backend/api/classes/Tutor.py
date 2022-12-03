@@ -1,4 +1,4 @@
-from User import User
+from api.classes.User import User
 class Tutor(User):
     __tutorID:int
     __rating: float
@@ -18,6 +18,6 @@ class Tutor(User):
         pass
     #need class for joining tutor session
 
-    @Override
+    #@Override
     def update(self, content):
         pass # Tutor's Update method

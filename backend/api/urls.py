@@ -4,16 +4,25 @@ from django.conf.urls import include
 from api.views import *
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
+from api.Fuser import *
+from api.Fstudent import *
+from api.Ftutor import *
+from api.FtutorOrg import *
+from api.FtutorOrgManager import *
+
 
 urlpatterns = [
   # User facing pages
-  path('',user.login,name="login"),
-  path('userhome',user.userhome,name="userhome"),
+  path('',Fuser.login,name="login"),
+  path('userhome',Fuser.userhome,name="userhome"),
   path('studenthome',Fstudent.studenthome,name="studenthome"),
   path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
+  path('tutorOrgMgrHome',FtutorOrgManager.tutorOrgMgrhome,name="tutorOrgMgrHome"),
   path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
   path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
   path('createSession',FtutorOrg.createSession,name='createSession'),
+  path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
+  
   
   #these are for the API
   path('user/', UserList.as_view()),

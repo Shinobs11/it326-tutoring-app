@@ -7,13 +7,13 @@ from . import views
 
 urlpatterns = [
   # User facing pages
-  path('',user.login,name="login"),
-  path('userhome',user.userhome,name="userhome"),
-  path('studenthome',Fstudent.studenthome,name="studenthome"),
-  path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
-  path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
-  path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
-  path('createSession',FtutorOrg.createSession,name='createSession'),
+  # path('',user.login,name="login"),
+  # path('userhome',user.userhome,name="userhome"),
+  # path('studenthome',Fstudent.studenthome,name="studenthome"),
+  # path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
+  # path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
+  # path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
+  # path('createSession',FtutorOrg.createSession,name='createSession'),
   
   #these are for the API
   path('user/', UserList.as_view()),

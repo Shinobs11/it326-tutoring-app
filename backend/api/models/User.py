@@ -34,7 +34,7 @@ class User(models.Model):
     on_delete=models.CASCADE,
     null=True,
   )
-  password = models.CharField(blank=True, null=True,max_length=100)
+  #password = models.CharField(blank=True, null=True,max_length=100)
 
 
 

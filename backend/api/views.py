@@ -7,6 +7,7 @@ from api.models.TutorOrgManager import TutorOrgManager
 from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
 from api.serializers.StudentSerializer import StudentSerializer
 from api.serializers.UserSerializer import UserSerializer
+from api.serializers.TutorSessionSerializer import TutorSessionSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
@@ -73,6 +74,13 @@ class TutorOrgManDetail(UserDetail):
   queryset = TutorOrgManager.objects.all()
   serializer_class = TutorOrgManSerializer
 
+class TutorSessionList(UserList):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
+class TutorSessionDetail(UserDetail):
+    queryset = TutorSession.objects.all()
+    serializer_class = TutorSessionSerializer
+
 
 class user():
   
@@ -110,7 +118,7 @@ class Ftutor():
   
 class FtutorSession():
   
-  def gettutorSession():
+  def gettutorSession(self):
     return TutorSession.objects.all
   
 class FtutorOrg():

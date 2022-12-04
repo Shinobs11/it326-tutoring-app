@@ -1,6 +1,7 @@
 from django.db import models
 from api.models.TutorOrgManager import TutorOrgManager
 from api.models.Tutor import Tutor
+from api.models.TutorSession import TutorSession
 import uuid
 
 
@@ -13,4 +14,6 @@ class TutorOrganization(models.Model):
   tutor = models.ManyToManyField(Tutor)
   # MANDATORY M-M relation with TutorOrgManager
   tutOrgMan = models.ManyToManyField(TutorOrgManager, blank=False)
+  #OPTIONAL 1-M with TutorSession
+  tutSess = models.ForeignKey(TutorSession, blank=False, null=False, on_delete=models.CASCADE)
   tutOrgName = models.CharField(unique=True, max_length=30)

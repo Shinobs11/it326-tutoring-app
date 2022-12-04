@@ -44,5 +44,13 @@ class PhoneNumberField(models.fields.CharField):
   description: str = "Phone number"
 
   def __init__(self, *args, **kwargs):
-    kwargs['max_length']=31
+    kwargs['max_length']=254
+    super().__init__(*args, **kwargs)
+
+
+class PasswordField(models.fields.CharField):
+  description: str = "password"
+
+  def __init__(self, *args, **kwargs):
+    kwargs['max_length'] = 254
     super().__init__(*args, **kwargs)

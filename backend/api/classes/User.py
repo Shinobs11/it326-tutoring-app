@@ -43,8 +43,8 @@ class CUser(ABC):
             return False
 
     def register(fn,ln,eml,phn,pswd,pswd2):
-        
         pass
+        
         
 
     #@abstractmethod

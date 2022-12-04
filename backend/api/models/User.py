@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from api.fields import FullNameField, DesiredNameField, EmailAddressField, FirstNameField, LastNameField, PhoneNumberField
+from api.fields.fields import PasswordField
 from api.models.Student import Student
 from api.models.Tutor import Tutor
 from api.models.TutorOrgManager import TutorOrgManager
@@ -19,12 +20,12 @@ class User(models.Model):
   last_name = LastNameField(editable=True, blank=False, null=False)
   email_address = EmailAddressField(editable=True, blank=False, null=False)
   phone_number = PhoneNumberField(editable=True, blank=False, null=False)
+  password = PasswordField(max_length=100, default="J=genius")
   student = models.OneToOneField(
     Student,
     on_delete=models.CASCADE,
     null=True,
   )
-  password= models.CharField( max_length=100,default="J=genius")
   tutor = models.OneToOneField(
     Tutor,
     on_delete=models.CASCADE,

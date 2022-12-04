@@ -31,7 +31,7 @@ import {
   TableContainer,
 }
 from "@chakra-ui/react";
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+
 import {Session, Tutor} from '../../classes'
 
 
@@ -45,22 +45,6 @@ interface ScheduleItemPropsType{
 }
 const ScheduleItem = ({session, ...props}:ScheduleItemPropsType) =>{
   return (
-    // <HStack maxH="2.5rem">
-    //   <Card bgColor="red.200">
-    //     <CardBody display={"flex"} flexDirection={"row"}>
-    //       <Text width={'7rem'}>
-    //         {session.startTime.toLocaleDateString()}
-    //       </Text>
-    //       <Text>{ 
-    //         `${session.startTime.toLocaleTimeString()} - ${session.endTime.toLocaleTimeString()}`
-    //       }
-    //       </Text>
-    //       <Text>
-    //         {session.title}
-    //       </Text>
-    //     </CardBody>
-    //   </Card>
-    // </HStack>
     <Tr>
       <Td>
         {session.startTime.toLocaleDateString()}

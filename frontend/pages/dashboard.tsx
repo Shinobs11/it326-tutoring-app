@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../components/Navbar/Navbar';
 import Schedule from '../components/Schedule/Schedule';
+import Profile from '../components/Profile/Profile';
 import {
   Box,
   Flex,
@@ -28,7 +29,84 @@ from "@chakra-ui/react";
 
 import {sampleSessions} from '../sampleData/sessions'
 
+
+enum SelectedButtonEnum {
+  PROFILE,
+  TUTORING_SESSIONS,
+  TUTOR_SESSIONS,
+  ORG_MEMBER,
+  ORG_MANAGE
+
+}
+
+interface ButtonInfoType {
+  name: string;
+  enumValue: number;
+}
+
+const ButtonInfo: ButtonInfoType[] = [
+  {
+    name: 'Profile',
+    enumValue: SelectedButtonEnum.PROFILE
+  },
+  {
+    name: 'Tutoring Sessions',
+    enumValue: SelectedButtonEnum.TUTORING_SESSIONS
+  },
+  {
+    name:'My Sessions',
+    enumValue: SelectedButtonEnum.TUTOR_SESSIONS
+  },
+  {
+    name: 'Org. Membership',
+    enumValue: SelectedButtonEnum.ORG_MEMBER
+  },
+  {
+    name: 'Manage Organizations',
+    enumValue: SelectedButtonEnum.ORG_MANAGE
+  }
+]
+
+
 const Dashboard: NextPage = () =>{
+  const [activeDashButton, setActiveDashButton] = useState<SelectedButtonEnum>(0);
+
+
+  const renderSelectedPage = () =>{
+    switch(activeDashButton){
+      case SelectedButtonEnum.PROFILE:
+        return(
+          <Profile 
+            firstName='John'
+            lastName='Doe'
+            emailAddress='example@example.com'
+            phoneNumber='555-555-5555'
+          />
+        )
+       
+      case SelectedButtonEnum.TUTORING_SESSIONS:
+        return(
+          <Schedule sessions={sampleSessions}/>
+        )
+
+    }
+  }
+  
+
+  const buttonList = ButtonInfo.map(
+    (info)=>{
+      return (
+        <Button 
+        isActive={info.enumValue == activeDashButton}
+        onClick={(e)=>{setActiveDashButton(info.enumValue)}}
+        minWidth={'3xs'}>
+          {info.name}
+        </Button>
+      )
+    }
+  )
+
+
   return (
     <Box height="100vh" bgColor={'gray.100'}>
       <Head>
@@ -39,7 +117,7 @@ const Dashboard: NextPage = () =>{
       <Center>
         <HStack>
           <VStack
-            
+            minW='xs'
             minHeight={'calc(100vh - 64px)'}
             backgroundColor='blue.200'
             height="100%" 
@@ -49,34 +127,24 @@ const Dashboard: NextPage = () =>{
               m="2rem"
               name="Placeholder Name"
               size='xl'
-              
             >
             </Avatar>
-            <ButtonGroup px="2.5rem" orientation='vertical'>
-              <Button>
-                Student
-              </Button>
-              <Button>
-                Tutor
-              </Button>
-              <Button>
-                Organization Manager
-              </Button>
-            </ButtonGroup>
-            
+            //default has profile button available
+            <VStack>
+              {
+                buttonList
+              }
+            </VStack>
           </VStack>
           <Divider orientation='vertical'/>
           <VStack
             minHeight={'calc(100vh - 64px)'}
             backgroundColor='green.200'
+            minW={'4xl'}
           >
-            {/* <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text> */}
-            
-            <Schedule sessions={sampleSessions}/>
-            
-  
+            {
+              renderSelectedPage()
+            }
           </VStack>
         </HStack>
         </Center>

@@ -29,6 +29,10 @@ interface LinkType {
 
 const links:LinkType[] = [
   {
+    name: "Dashboard",
+    url: "/dashboard"
+  },
+  {
     name: "Sessions",
     url: "/sessions"
   },

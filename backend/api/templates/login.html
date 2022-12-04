@@ -73,8 +73,13 @@
           <input type="#{type}" id="#{label}" required="required" name="password2"/>
           <label for="#{label}">Repeat Password</label>
           <div class="bar"></div>
-          {% if message2 %}
-          <h1 {{message2}}
+        <div class="input-container">
+          <input type="text" id="#{label}" required="required" name="usertype"/>
+          <label for="#{label}">Enter User type: 0-Tutor 1-Student 2-TutorOrgManager</label>
+          <div class="bar"></div>
+          {% if msg %}
+          <h1> {{ msg }} <h1/>
+          {% endif %}
         </div>
         <div class="button-container">
           <button><span>Next</span></button>

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from api.models.User import User as UserDB
 from django.shortcuts import render, redirect
+
 # need to pull in user database: should be in form
 # from .models import Stock
 from api.models import User
@@ -10,7 +11,7 @@ class CUser(ABC):
     password: str
     phoneNo: str
     email: str
-    @abstractmethod
+   #@abstractmethod
     def __init__(self, name:str, UID:str, password:str, phoneNumber: str, email: str):
         self.name=name
         self.userID=UID
@@ -46,6 +47,6 @@ class CUser(ABC):
         
         
 
-    @abstractmethod
+    #@abstractmethod
     def update(self, content): # Updates
         pass

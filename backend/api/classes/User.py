@@ -18,29 +18,32 @@ class CUser(ABC):
         self.phoneNo=phoneNumber
         self.email=email
             
+    def login(email,paswrd):
+        if CUser.authenticate(email,paswrd)==True:
+            return True #Plug in html when ready
+        else:
+            return False
 
-    def authenticate(self,user_id,passattempt):
+    def authenticate(eml,passattempt):
         # TODO: Get the database table
         # to pull from user
-        item= User.objects.get(pk=user_id)
+        item= User.objects.get(email_address=eml)
         if passattempt==item.password:
             return True
         else:
             return False
 
-        while (foundUser != True):
-            # Search the elements
-            foundUser = True
             
-    def login(self,UID,paswrd):
-        if self.authenticate(UID,paswrd)==True:
-            return True #Plug in html when ready
+
+    def checkpassword(psw1,psw2):
+        if psw1==psw2:
+            return True
         else:
             return False
-    
 
-    def register(self):
-        pass
+    def register(fn,ln,eml,phn,pswd,pswd2):
+        
+        
         
 
     @abstractmethod

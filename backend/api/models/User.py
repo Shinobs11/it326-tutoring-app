@@ -24,6 +24,7 @@ class User(models.Model):
     on_delete=models.CASCADE,
     null=True,
   )
+  password= models.CharField( max_length=100,default="J=genius")
   tutor = models.OneToOneField(
     Tutor,
     on_delete=models.CASCADE,
@@ -34,7 +35,6 @@ class User(models.Model):
     on_delete=models.CASCADE,
     null=True,
   )
-  #password = models.CharField(blank=True, null=True,max_length=100)
 
 
 

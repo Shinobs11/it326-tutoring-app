@@ -16,6 +16,7 @@ from api.Fuser import Fuser
 urlpatterns = [
   # User facing pages
   path('',Fuser.login,name="login"),
+  path('createprofile',Fuser.createProfile,name="createprofile"),
   path('userhome',Fuser.userhome,name="userhome"),
   path('studenthome',Fstudent.studenthome,name="studenthome"),
   path('registerForSession',Fstudent.register,name='registerForSession'),

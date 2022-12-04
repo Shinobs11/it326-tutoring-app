@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 # need to pull in user database: should be in form
 # from .models import Stock
 from api.models import User
-class User(ABC):
+class CUser(ABC):
     name: str
     userID: str
     password: str
@@ -34,9 +34,9 @@ class User(ABC):
             
     def login(self,UID,paswrd):
         if self.authenticate(UID,paswrd)==True:
-            return redirect('something.html',{}) #Plug in html when ready
+            return True #Plug in html when ready
         else:
-            return redirect('samepage.html',{'message',"retrypass"})# plug in right html file
+            return False
     
 
     def register(self):

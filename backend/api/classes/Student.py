@@ -1,6 +1,6 @@
-from api.classes.User import User
+from api.classes.User import CUser
 
-class Student(User):
+class CStudent(CUser):
     __schoolYear:int
     __tutorSessHour:int
     def __init__(self,nm,UID,paswrd,phnNo,eml,schoolYear):

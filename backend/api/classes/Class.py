@@ -1,7 +1,7 @@
 import string
-from api.classes.ClassResources import ClassResources as CR
+from api.classes.ClassResources import CClassResources as CR
 
-class Class:
+class CClass:
     __classID: int
     __className: string
     __classType: string

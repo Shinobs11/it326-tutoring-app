@@ -1,19 +1,19 @@
 try:
-	from api.classes.Tutor import Tutor
-	from api.classes.TutorSession import TutorSession
-	from api.classes.User import User
-	from api.classes.Student import Student
-	from api.classes.Class import Class
-	from api.classes.TutorOrgManager import TutorOrgManager
+	from api.classes.Tutor import CTutor
+	from api.classes.TutorSession import CTutorSession
+	from api.classes.User import CUser
+	from api.classes.Student import CStudent
+	from api.classes.Class import CClass
+	from api.classes.TutorOrgManager import CTutorOrgManager
 	from api.classes.TutorOrganization import TutorOrganization
-	from api.classes.ClassResources import ClassResources
+	from api.classes.ClassResources import CClassResources
 
 except ImportError:
-	from .Tutor import Tutor
-	from .TutorSession import TutorSession
-	from .User import User
-	from .Student import Student
-	from .Class import Class
-	from .TutorOrgManager import TutorOrgManager
-	from .TutorOrganization import TutorOrganization
-	from .ClassResources import ClassResources
+	from .Tutor import CTutor
+	from .TutorSession import CTutorSession
+	from .User import CUser
+	from .Student import CStudent
+	from .Class import CClass
+	from .TutorOrgManager import CTutorOrgManager
+	from .TutorOrganization import CTutorOrganization
+	from .ClassResources import CClassResources

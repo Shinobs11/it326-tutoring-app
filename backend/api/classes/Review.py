@@ -1,6 +1,6 @@
 #Note: Needs to have a composition relationship with tutorSession and tutorOrganization.
 #TODO: Add ability for Student to provide rating. Assign rating to class (organization AND session)
-class Review():
+class CReview():
     _orgRating: int # Numeric value of the rating for the tutor organization
     _orgFeedback: str # String that contains any feedback given by the student for the tutor organization
 

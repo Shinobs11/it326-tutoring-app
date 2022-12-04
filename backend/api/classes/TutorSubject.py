@@ -1,4 +1,4 @@
-class TutorSubject:
+class CTutorSubject:
     _filler: int
 
 

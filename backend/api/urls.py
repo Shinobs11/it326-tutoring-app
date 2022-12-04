@@ -18,12 +18,14 @@ urlpatterns = [
   path('',Fuser.login,name="login"),
   path('userhome',Fuser.userhome,name="userhome"),
   path('studenthome',Fstudent.studenthome,name="studenthome"),
+  path('registerForSession',Fstudent.register,name='registerForSession'),
   path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
   path('tutorOrgMgrHome',FtutorOrgManager.tutorOrgMgrhome,name="tutorOrgMgrHome"),
   path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
   path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
   path('createSession',FtutorOrg.createSession,name='createSession'),
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
+  
   
   
   

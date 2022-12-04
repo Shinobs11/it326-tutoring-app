@@ -1,24 +1,24 @@
-from api.classes.Student import Student
-from api.classes.Class import Class
-from api.classes.Observable import Observable
+from api.classes.Student import CStudent
+from api.classes.Class import CClass
+from api.classes.Observable import CObservable
 
-class TutorSession(Observable): #Inherits from Observable
+class CTutorSession(CObservable): #Inherits from Observable
     __tutorSessID: int
     __date: str
     __time: float
     __location: str
     __numOfStudents: int
     __numOfTutors: int
-    __tutorSessAttendee: Student
+    __tutorSessAttendee: CStudent
     __content: str # Whenever a session subjet changes, this is updated to retain the current subject
 
     # Default Constructor
     def __init__(self):
         pass
 
-    def getClassInfo(self, classObj: Class) ->str:
+    def getClassInfo(self, classObj: CClass) ->str:
         print("Got class info")
-        return Class.getClassInfo()
+        return CClass.getClassInfo()
 
     def getNumOfAttendees(self) ->int:
         print("Got # of attendees")

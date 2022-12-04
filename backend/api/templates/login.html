@@ -17,14 +17,14 @@
     <div class="card"></div>
     <div class="card">
       <h1 class="title">Login</h1>
-      <form>
+      <form method="POST" action ="{% url 'login' %}">
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
+          <input type="email" id="#{label}" required="required" name="email"/>
           <label for="#{label}">Email</label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
-          <input type="#{type}" id="#{label}" required="required"/>
+          <input type="password" id="#{label}" required="required" name="password"/>
           <label for="#{label}">Password</label>
           <div class="bar"></div>
         </div>

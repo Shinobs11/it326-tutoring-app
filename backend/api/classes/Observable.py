@@ -1,4 +1,4 @@
-class Observable:
+class CObservable:
     # List of Users
     user_list = []
     

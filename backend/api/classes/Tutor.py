@@ -1,5 +1,5 @@
-from api.classes.User import User
-class Tutor(User):
+from api.classes.User import CUser
+class CTutor(CUser):
     __tutorID:int
     __rating: float
     __tutorSubject: str

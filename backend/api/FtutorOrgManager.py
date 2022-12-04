@@ -7,7 +7,6 @@ from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 import random
-from api.classes.TutorOrganization import *
 from api.models.TutorOrgManager import *
 from api.models.TutorOrganization import TutorOrganization
 from api.classes.TutorOrganization import CTutorOrganization

@@ -1,5 +1,5 @@
 #Don't import class: created circular import
-class ClassResources:
+class CClassResources:
     __classData: list
     def __init__(self )-> None:
         pass

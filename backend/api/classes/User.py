@@ -37,7 +37,7 @@ class User(ABC):
             return redirect('something.html',{}) #Plug in html when ready
         else:
             return redirect('samepage.html',{'message',"retrypass"})# plug in right html file
-
+    
 
     def register(self):
         pass

@@ -17,4 +17,7 @@ class Fuser():
   def userhome(request):
     return render(request,'homeuser.html',{})
   
+  def searchtutorsession(request):
+    return render(request,'' ,{})
+  
   

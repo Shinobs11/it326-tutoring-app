@@ -2,5 +2,21 @@
 {% block content %}
 Welcome to the Tutor Organization page, Use the Navbar to select where you want to go
 
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">TutOrgName</th>
+        <th scope="col">TutOrgID</th>
+    </tr>
+    </thead>
+<tbody>
+{% for tut in tutorgs %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ tut.tutOrgName }}</th>
+            <td>${{ tut.tutOrgID }}</td>
+        <tr/>
+{% endfor %}
+
 
 {% endblock %}

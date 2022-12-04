@@ -2,14 +2,14 @@ class Observable:
     # List of Users
     user_list = []
     
-    @AbstractMethod
+    #@AbstractMethod
     def register(self, user):
         pass
 
-    @AbstractMethod
+    #@AbstractMethod
     def unregister(self, user):
         pass
     
-    @AbstractMethod
+    #@AbstractMethod
     def notifyAll(): # Implemented in the TutorSession class
         pass

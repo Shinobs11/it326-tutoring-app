@@ -9,7 +9,7 @@ class Class(models.Model):
     app_label = 'api'
 
   #OPTIONAL 1-M relation with Student
-  student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True, null=True)
+  student = models.ForeignKey(Student,blank=True, null=True, on_delete=models.DO_NOTHING)
 
   #PK, Only class IDs b/w 100-999 are allowed
   classID = models.PositiveSmallIntegerField(primary_key=True,

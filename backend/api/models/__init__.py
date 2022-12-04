@@ -1,5 +1,5 @@
 try:
-	from models.Tutor import Tutor
+	from api.models.Tutor import Tutor
 	from api.models.TutorSession import TutorSession
 	from api.models.User import User
 	from api.models.Student import Student

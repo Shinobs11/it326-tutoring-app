@@ -38,11 +38,10 @@ class Fuser():
       phone=request.POST['PhoneNumber']
       pswd=request.POST['password']
       pswd2=request.POST['password']
-      type=request.POST['usertype']
       if User.checkpassword(pswd,pswd2):
-        User.register(first,last,email,phone,pswd,pswd2,type)
+        User.register(first,last,email,phone,pswd,pswd2)
       else:
-        render(request,'login.html',{'msg':"Incorrect Password"})
+        render(request,'login.html',{'message2':"Incorrect Password"})
         
       
       render(request, )

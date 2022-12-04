@@ -1,5 +1,5 @@
 import string
-from ClassResources import ClassResources as CR
+from api.classes.ClassResources import ClassResources as CR
 
 class Class:
     __classID: int

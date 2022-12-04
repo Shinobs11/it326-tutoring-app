@@ -1,3 +1,33 @@
 
 
 Create your Session here
+
+<form method="POST" action = "{% url 'createSession' %}">
+{% csrf_token %}
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp" 
+        placeholder="Tutor Org ID" name="tutOrg">
+      </div>
+      
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp" 
+        placeholder="ClassID" name="classID">
+      </div>
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp" 
+        placeholder="EX:12/31/22" name="date">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="location" name="location">
+    </div>
+    <br/>
+
+   
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>

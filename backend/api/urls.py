@@ -4,16 +4,28 @@ from django.conf.urls import include
 from api.views import *
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
+from api.Fstudent import Fstudent
+from api.Ftutor import Ftutor
+from api.FtutorOrg import FtutorOrg
+from api.FtutorOrgManager import FtutorOrgManager
+from api.FtutorSess import FtutorSession
+from api.Fuser import Fuser
+
+
 
 urlpatterns = [
   # User facing pages
-  # path('',user.login,name="login"),
-  # path('userhome',user.userhome,name="userhome"),
-  # path('studenthome',Fstudent.studenthome,name="studenthome"),
-  # path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
-  # path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
-  # path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
-  # path('createSession',FtutorOrg.createSession,name='createSession'),
+  path('',Fuser.login,name="login"),
+  path('userhome',Fuser.userhome,name="userhome"),
+  path('studenthome',Fstudent.studenthome,name="studenthome"),
+  path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
+  path('tutorOrgMgrHome',FtutorOrgManager.tutorOrgMgrhome,name="tutorOrgMgrHome"),
+  path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
+  path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
+  path('createSession',FtutorOrg.createSession,name='createSession'),
+  path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
+  
+  
   
   #these are for the API
   path('user/', UserList.as_view()),

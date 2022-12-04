@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
+
 # Create your views here.
 
 
@@ -80,6 +81,5 @@ class TutorSessionList(UserList):
 class TutorSessionDetail(UserDetail):
     queryset = TutorSession.objects.all()
     serializer_class = TutorSessionSerializer
-
 
 

@@ -13,7 +13,7 @@ class User(models.Model):
     app_label = 'api'
 
 
-  uid = models.UUIDField(primary_key=True, editable=False, unique=True, db_index=True, null=False, blank=False)
+  uid = models.UUIDField(primary_key=True,default=uuid.uuid4 ,editable=False, unique=True, db_index=True, null=False, blank=False)
 
   first_name = FirstNameField(editable=True, blank=False, null=False)
   last_name = LastNameField(editable=True, blank=False, null=False)
@@ -29,6 +29,7 @@ class User(models.Model):
     Tutor,
     on_delete=models.CASCADE,
     null=True,
+    editable=True
   )
   tutorOrgManager = models.OneToOneField(
     TutorOrgManager,

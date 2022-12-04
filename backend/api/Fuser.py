@@ -6,8 +6,8 @@ from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 from api.classes.User import CUser
-
-
+from api.models.TutorOrgManager import TutorOrgManager
+from api.classes.UserFactory import UserFactory
 
 class Fuser():
   
@@ -29,24 +29,24 @@ class Fuser():
   
   def searchtutorsession(request):
     return render(request,'' ,{})
-  
+    
   def createProfile(request):
-    if request.method=='POST' and request.POST['name']==None:
+    if request.method=='POST':
       first=request.POST['Fname']
       last=request.POST['Lname']
       email=request.POST['email']
-      phone=request.POST['PhoneNumber']
+      phone=request.POST['Phone Number']
       pswd=request.POST['password']
       pswd2=request.POST['password']
       type=request.POST['usertype']
-      if User.checkpassword(pswd,pswd2):
+      if CUser.checkpassword(pswd,pswd2):
         # Have the user factory create an object of the User type
-        User.register(first,last,email,phone,pswd,pswd2,type)
+        UserFactory.buildUser(first,last,email,phone,pswd,type)
+        return render(request,'homeuser.html',{})
       else:
-        render(request,'login.html',{'msg':"Incorrect Password"})
+        return render(request,'login.html',{'msg':"Passwards do not match"})
         
       
-      render(request, )
     else:
       return render(request,'createProfile.html',{})
   

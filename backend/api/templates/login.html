@@ -17,6 +17,7 @@
     <div class="card"></div>
     <div class="card">
       <h1 class="title">Login</h1>
+
       <form method="POST" action ="{% url 'login' %}">
         {% csrf_token %} 
         <div class="input-container">
@@ -45,26 +46,31 @@
       </h1>
 
 
-      <form>
-        {% csrf_token %}
-        <form method="POST" action ="{% url 'createprofile' %}">
+      
+        
+      <form method="POST" action ="{% url 'createprofile' %}">
+          {% csrf_token %}
           <input type="text" id="#{label}" required="required" name="Fname"/>
           <label for="#{label}">First name</label>
           <div class="bar"></div>
         </div>
+
         <input type="#text" id="#{label}" required="required" name="Lname"/>
           <label for="#{label}">Last Name</label>
           <div class="bar"></div>
         </div>
+
           <input type="email" id="#{label}" required="required" name="email"/>
           <label for="#{label}">Email</label>
           <div class="bar"></div>
         </div>
-      </div>
-      <input type="tel" id="#{label}" required="required" name="Phone Number"/>
-      <label for="#{label}">Phone Number</label>
-      <div class="bar"></div>
+
+        </div>
+        <input type="text" id="#{label}" required="required" name="Phone Number"/>
+        <label for="#{label}">Phone Number</label>
+        <div class="bar"></div>
         <div class="input-container">
+
           <input type="#{type}" id="#{label}" required="required" name="password"/>
           <label for="#{label}">Password</label>
           <div class="bar"></div>

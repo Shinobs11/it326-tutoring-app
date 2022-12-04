@@ -1,3 +1,5 @@
 class Observer():
-    def update(self, inbox, message):
-        pass
+    # Add message to the user's inbox
+    def update(self, message):
+        self.inbox.addMessage(message)
+        print(id(self.inbox))

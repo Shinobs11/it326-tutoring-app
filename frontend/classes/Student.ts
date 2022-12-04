@@ -3,30 +3,34 @@
 interface TutorSession{} //dummy interface
 
 export default class Student{
-  private _schoolYear: number;
-  private _tutorSessionHours: number; //TODOS: What does this mean?
+  private _studentId: string;
+  private _yearInSchool: number;
 
   constructor(
-    schoolYear: number,
-    tutorSessionHours: number
+    studentId: string,
+    yearInSchool: number,
   ){
-    this._schoolYear = schoolYear;
-    this._tutorSessionHours = tutorSessionHours;
+    this._studentId = studentId;
+    this._yearInSchool = yearInSchool;
   }
 
-  public get schoolYear(){
-    return this._schoolYear;
-  }
-  public get tutorSessionHours(){
-    return this._tutorSessionHours;
+
+  public get studentId(){
+    return this._studentId;
   }
 
-  public set schoolYear(schoolYear: number){
-    this._schoolYear = schoolYear;
+  public get yearInSchool(){
+    return this._yearInSchool;
   }
-  public set tutorSessionHours(tutorSessionHours: number){
-    this._tutorSessionHours = tutorSessionHours;
+
+  public set studentId(studentId: string){
+    this._studentId = studentId;
   }
+
+  public set yearInSchool(yearInSchool: number){
+    this._yearInSchool = yearInSchool;
+  }
+
 
   rateTutorSession(tutorSession: TutorSession){
     console.log("rateTutorSession");

@@ -7,9 +7,11 @@ from api.factories.UserFactory import UserFactory
 from api.factories.StudentFactory import StudentFactory
 from api.factories.TutorFactory import TutorFactory
 from api.factories.TutorOrgManagerFactory import TutorOrgManagerFactory
-
+import os
 from random import sample
 
+
+TOGGLE =  os.environ['GENERATE_NEW_DATA']
 
 NUM_USERS = 30
 NUM_STUDENTS = 15
@@ -27,7 +29,8 @@ class Command(BaseCommand):
     # models = [User, Tutor, TutorOrgManager, Student]
     # for m in models:
     #   m.objects.all().delete()
-    
+    if(not TOGGLE):
+      pass
 
     self.stdout.write("Creating new data...")
     users: list[UserFactory]= []

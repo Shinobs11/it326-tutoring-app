@@ -7,9 +7,9 @@ export default class Tutor{
 
   constructor(
     tutorID: string,
-    rating: number,
-    tutorSubject: string,
-    numOfTutorOrgs: number
+    rating?: number,
+    tutorSubject?: string,
+    numOfTutorOrgs?: number
   ){
     this._tutorID = tutorID;
     this._rating = rating;

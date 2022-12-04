@@ -19,7 +19,7 @@ class Student(models.Model):
     GRADUATE = 4, 'Graduate',
     NOT_APPLICABLE = 5, 'N/A'
   #PK
-  studentID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, db_index=True, null=False, blank=False)
+  studentID = models.UUIDField(primary_key=True,  editable=False, unique=True, db_index=True, null=False, blank=False)
   yearInSchool = models.SmallIntegerField(default=None, editable=True, null=True, choices=YearInSchool.choices)
 
 

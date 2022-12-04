@@ -40,6 +40,7 @@ class Fuser():
       pswd2=request.POST['password']
       type=request.POST['usertype']
       if User.checkpassword(pswd,pswd2):
+        # Have the user factory create an object of the User type
         User.register(first,last,email,phone,pswd,pswd2,type)
       else:
         render(request,'login.html',{'msg':"Incorrect Password"})

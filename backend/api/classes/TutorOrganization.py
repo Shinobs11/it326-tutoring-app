@@ -11,8 +11,8 @@ class CTutorOrganization:
         self._tutorOrgID = manager.tutorOrgManagerID
 
     # Creates a tutor organization object
-    def createTutorOrganization(self, request):
-        TOM =TutorOrgManager.objects.filter(pk='4b3f5ea1-debe-47cb-bdfd-5d672604c683')# tutor org manager object
+    def createTutorOrganization(request):
+        TOM =TutorOrgManager.objects.filter(pk='7e5b1e7f-9ca5-499d-804a-e545a0116be5')# tutor org manager object
         name=request.POST['Name']
         instance=TutorOrganization.objects.create(tutOrgName=name) 
         pass

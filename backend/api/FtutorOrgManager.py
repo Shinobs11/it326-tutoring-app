@@ -21,9 +21,10 @@ class FtutorOrgManager():
     def createTutorOrg(request):
         if request.method=="POST":
             CTutorOrganization.createTutorOrganization(request)
+            alltutorgs=TutorOrganization.objects.all
             #fill in parameters later
             # need to create tutor before able to finish
-            return render(request,'tutorOrghome.html',{})
+            return render(request,'tutOrgMgrhome.html',{'tutorgs':alltutorgs})
         
         return render(request,'TutorOrgCreation.html',{})
         #TutorOrgManager= TutorOrgManager.objects.create(tutOrgManID=random.randint(0,99999999))

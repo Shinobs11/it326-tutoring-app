@@ -27,9 +27,6 @@ urlpatterns = [
   path('createSession',FtutorOrg.createSession,name='createSession'),
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
   
-  
-  
-  
   #these are for the API
   path('user/', UserList.as_view()),
   path('user/<str:pk>/', UserDetail.as_view()),

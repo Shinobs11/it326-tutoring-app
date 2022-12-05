@@ -33,7 +33,10 @@ class Command(BaseCommand):
       pass
 
     self.stdout.write("Creating new data...")
-    users: list[UserFactory]= []
+    users: list[User] = []
+    students: list[Student] = []
+    tutors: list[Tutor] = []
+    tutorOrgManagers: list[TutorOrgManager] = []
     student_sample = sample(range(NUM_USERS), k=NUM_STUDENTS)
     tutor_sample = sample(range(NUM_USERS), k=NUM_TUTORS)
     manager_sample = sample(range(NUM_USERS), k=NUM_MANAGERS)
@@ -50,8 +53,14 @@ class Command(BaseCommand):
       manager_range[i] = True
 
     for i in range(NUM_USERS):
-      users.append(UserFactory(is_tutor=tutor_range[i], is_student=student_range[i], is_tutorOrgManager=manager_range[i]))
-
+      users.append(UserFactory.create())
+    for i in student_sample:
+      students.append(StudentFactory.create(user=users[i]))
+    for i in tutor_sample:
+      tutors.append(TutorFactory.create(user=users[i]))
+    for i in manager_sample:
+      tutorOrgManagers.append(TutorOrgManagerFactory.create(user=users[i]))
+    
 
 # https://stackoverflow.com/questions/66381042/how-to-assign-the-attribute-of-subfactory-instead-of-the-subfactory-itself
 # https://factoryboy.readthedocs.io/en/latest/reference.html#maybe

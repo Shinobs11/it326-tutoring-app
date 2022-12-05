@@ -13,7 +13,7 @@ const APIExampleComponent = () => {
     let getUsers = async ()=>{
       let response = await fetch(ExampleRequest);
       setUsers(await response.json());
-      console.log(users);
+      
       setLoaded(true);
     }
     getUsers();

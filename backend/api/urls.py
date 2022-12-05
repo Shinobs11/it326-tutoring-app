@@ -53,6 +53,8 @@ urlpatterns = [
   path('review/', ReviewList.as_view()),
   path('review/<str:pk>/', ReviewDetail.as_view()),
 
+  # path('api/tutor_session', views.TutorSession),
+  # path('api/tutor_session/<str:pk>', views.)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

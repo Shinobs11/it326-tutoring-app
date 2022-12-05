@@ -32,12 +32,7 @@ export default class Student{
   }
 
 
-  rateTutorSession(tutorSession: TutorSession){
-    console.log("rateTutorSession");
-  }
-  attendSession(tutorSession: TutorSession){
-    console.log("attendSession");
-  }
+
 }
 
 

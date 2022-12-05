@@ -1,3 +1,4 @@
+from urllib.request import Request
 from api.models.User import User
 from api.models.Student import Student
 from api.models.Tutor import Tutor
@@ -17,6 +18,8 @@ from api.serializers.ReviewSerializer import ReviewSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
+from rest_framework.generics import CreateAPIView
+from rest_framework.views import APIView
 from django.shortcuts import render
 
 # Create your views here.
@@ -84,6 +87,7 @@ class TutorOrgManDetail(UserDetail):
 class TutorSessionList(UserList):
     queryset = TutorSession.objects.all()
     serializer_class = TutorSessionSerializer
+
 class TutorSessionDetail(UserDetail):
     queryset = TutorSession.objects.all()
     serializer_class = TutorSessionSerializer
@@ -105,7 +109,17 @@ class ClassDetail(UserDetail):
     serializer_class = ClassSerializer
 
 
+class Session(APIView):
+  def get(self, request, format=None):
+    sessions = TutorSession.objects.all()
+    serializer = TutorSessionSerializer(sessions, many=True)
+    return Response(serializer.data)
+  pass
 
+
+
+
+'''
 class ReviewList(UserList):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer

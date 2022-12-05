@@ -55,5 +55,5 @@ class CUser(ABC):
     #TODO If user is NOT a tutOrgMan, error is thrown, fix it
     def getTutOrgMgr(email):
         item = User.objects.get(email_address=email)
-        item=item.tutorOrgManager
+        item=item.tutOrgManger
         return item

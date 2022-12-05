@@ -1,0 +1,30 @@
+{% extends 'studentbase.html' %}
+{% block content %}
+
+Information for students the Tutor Session you have selected
+<h1>SessionName: {{sesInfo.sessName}}<h1/>
+<h1>Apart of {{tutOrg.tutOrgName}} Organization<h1/>
+<h1>Date: {{sesInfo.date}}<h1/>
+<h1>ID: {{sesInfo.tutorSessID}}<h1/>
+
+
+
+Would you like to register. If so enter your email below and press submit
+
+<form method="POST" action = "{% url 'stuRegForSes' %}">
+    {% csrf_token %}
+        <br/>
+        
+        <div class="mb-3">
+            <input type="text" class="form-control" aria-describedby="emailHelp" 
+            placeholder="email" name="email"> Enter your email
+          </div>
+
+     <br/>
+        <div class="mb-3">
+            <input type="text" class="form-control" aria-describedby="emailHelp" 
+            placeholder={{sesInfo.tutorSessID}} name="sesID" value={{sesInfo.tutorSessID}}>Tutor Org ID:Do not change
+          </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+      {% endblock %}

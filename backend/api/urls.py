@@ -19,7 +19,10 @@ urlpatterns = [
   path('createprofile',Fuser.createProfile,name="createprofile"),
   path('userhome',Fuser.userhome,name="userhome"),
   path('studenthome',Fstudent.studenthome,name="studenthome"),
-  #path('registerForSession',Fstudent.register,name='registerForSession'),
+  path('rateSession',Fstudent.ratePage,name='ratesession'),
+  path('createRating',Fstudent.rate,name='sendrating'),
+  path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
+  path('stuRegForSes',Fstudent.registerSess,name='stuRegForSes'),
   path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
   path('tutorOrgMgrHome',FtutorOrgManager.tutorOrgMgrhome,name="tutorOrgMgrHome"),
   path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
@@ -34,6 +37,7 @@ urlpatterns = [
   path('RegisterforSess',Fstudent.registerSess,name='registersess'),
   path('RemoveUserPath', FtutorOrgManager.removeUserPath, name='removeuserpath'),
   path('RemoveUser',FtutorOrgManager.removeUser,name='removeuser'),
+  path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
 
   #these are for the API
   path('user/', UserList.as_view()),

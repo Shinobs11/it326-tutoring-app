@@ -14,6 +14,7 @@ from api.classes.TutorSession import CTutorSession
 from api.classes.User import CUser
 from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.models.User import User as DB_User
+from api.models.TutorOrgManager import TutorOrgManager
 #from api.forms import TutorOrgForm
   
 class FtutorOrgManager():
@@ -57,13 +58,13 @@ class FtutorOrgManager():
             name = request.POST['name']
             if not CUser.registerEmailCheck(email):
                 return render(request, 'TutorOrgCreation.html', {'msg': "Wrong email!"})
-            tutOrgMa = CUser.getTutOrgMgr(email)
+            tutOrgMa = TutorOrgManager.objects.get(user=User.objects.get(email_address=email))
             instance=TutorOrganization.objects.create(tutOrgName=name)
             instance.tutOrgMan.add(tutOrgMa)
             instance.save()
             
             all=TutorOrganization.objects.all()
-            print(all)
+            
             return render(request,'tutOrgMgrhome.html',{'tutorgs':all})
         else:
             return render(request,'TutorOrgCreation.html',{})

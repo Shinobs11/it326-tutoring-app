@@ -6,7 +6,7 @@ from api.FtutorSess import *
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.User import CUser
 from api.classes.Student import CStudent
@@ -15,6 +15,8 @@ from api.classes.TutorSession import CTutorSession
 from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.classes.Student import CStudent
 from api.models.Review import Review
+from api.models.TutorSession import TutorSession
+
 
 
 #The F stands for File. Will make code much easier to read through
@@ -32,6 +34,7 @@ class Fstudent():
     else:
       tutorsess= TutorOrgManager.objects.get(pk='1515a87f-41f0-46ae-83bd-72ba99dc2b4a')
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
+  
   def registerTutorSession(request):
     pass
 
@@ -42,7 +45,8 @@ class Fstudent():
     return render(request, 'reviewTutor.html',{})
 
   def registerSessPage(request):
-    return render(request, 'registerSession.html',{})
+    TS=TutorSession.objects.all()#TS is for tutorsessions
+    return render(request, 'registerSession.html',{'tutsess':TS})
 
   #TODO Fix email check, fix session check (check only sessions in user's account)
   #TODO Drop-down menu for tutor sessions?

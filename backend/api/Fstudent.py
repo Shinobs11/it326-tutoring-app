@@ -28,5 +28,6 @@ class Fstudent():
   def registerTutorSession(request):
     pass
   
-  #def register(request):
+  def rate(request):
+    pass
     

@@ -21,13 +21,10 @@ class CUser(ABC):
             
     
 
-    def authenticate(eml,passattempt):
-        # TODO: Get the database table
-        # to pull from user
-        item= User.objects.get(email_address=eml)
-        if passattempt==item.password:
-            return True
-        else:
+    #Checks if email is already taken
+    def authenticate(eml):
+        item = User.objects.all().filter(email_address=eml)
+        if not item:
             return False
     def login(email,paswrd):
         if CUser.authenticate(email,paswrd)==True:

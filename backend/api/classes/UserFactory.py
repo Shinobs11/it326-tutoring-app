@@ -13,10 +13,8 @@ from api.models.Tutor import Tutor
 class UserFactory():
     # Create Profile
     
-    def buildUser(firstName:str, lastName:str,  email:str, phoneNumber:str, pwrd:str, userType:int) -> User:
+    def buildUser(firstName:str, lastName:str,  email:str, phoneNumber:str, pwrd:str, userType:int):
         instance = User.objects.create(first_name=firstName,last_name=lastName,email_address=email,phone_number=phoneNumber,password=pwrd)
-        print(userType)
-        
         # If the user wants to create a tutor account, we need to ask which subject they want to teach
         if(UserType.TUT.value==int(userType)):
             tutinstance=Tutor.objects.create()
@@ -36,17 +34,5 @@ class UserFactory():
             
         instance.save()
     # Delete Profile
-    def deleteUser(self, user: User):
-        # Get the table of users from the DB
-        # Search for the userID in the table
-        # If the user is in the table
-            # If user.userType is Tutor
-                # call leaveTutorOrganization method (automatically unenrolls from tutor Session as well)
-            # Else If user.UserType is Student
-                # for sessions in user.getSessions():
-                    # sessions.unregister(user)
-            # Else If user.UserType is Tutor Org Manager
-                # for orgs in user.getOrganizations:
-                    # orgs.deleteTutorOrganization(org)
-            # Delete the user from the DB table
-        pass
+    def deleteUser(name):
+        User.objects.filter(first_name='Fernando').delete()

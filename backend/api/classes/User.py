@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 
 # need to pull in user database: should be in form
 # from .models import Stock
+from api.models.Student import Student
 from api.models import User
 class CUser(ABC):
     name: str

@@ -47,19 +47,20 @@ class Fstudent():
   #TODO Fix email check, fix session check (check only sessions in user's account)
   #TODO Check if email is a Student email
   #TODO Drop-down menu for tutor sessions?
+  # TODO Change getUser to getStudent
   def rate(request):
     if request.method =='POST':
       email = request.POST['email']
       session = request.POST['session']
       rating = request.POST['rating']
-      if CUser.registerEmailCheck(email):
+      if not CUser.registerEmailCheck(email):
         return render(request, 'reviewTutor.html', {'msg': "Not your email!"})
-      if CTutorSession.getSess(session):
+      if not CTutorSession.getSess(session):
         return render(request, 'reviewTutor.html', {'msg': "Not a session!"})
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
-      student = CStudent.getStudent(email)
-      Review.objects.create(student=student, rating=rating,tutSess=session)
+      stu = CUser.getUser(email)
+      Review.objects.create(student="866f9db6-a29d-451c-a846-da924a996196", rating=rating,tutSess=session)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
 
     else:

@@ -26,6 +26,7 @@ urlpatterns = [
   path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
   path('createSession',FtutorOrg.createSession,name='createSession'),
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
+  path('CreateTutorOrgPath',FtutorOrgManager.tutorOrgPath,name='createTutorOrgPath'),
   path('deleteProfile', Fuser.deleteProfile,name='deleteprofile'),
   path('rateSession',Fstudent.ratePage,name='ratesession'),
   path('createRating',Fstudent.rate,name='sendrating'),

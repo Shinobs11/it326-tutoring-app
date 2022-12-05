@@ -1,0 +1,29 @@
+
+Remove a User from a Session
+
+<form method="POST" action = "{% url 'deleteprofile' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="User's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="User's password" name="password">
+    </div>
+    <br/>
+
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+<div class="button-container">
+      <button><span>Remove</span></button>
+    </div>
+  </form>

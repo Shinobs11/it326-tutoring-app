@@ -11,10 +11,10 @@ class Review(models.Model):
     #PK
     ratingID = models.UUIDField(primary_key=True, default=uuid.uuid4)
     #MANDATORY 1-1 with Student
-    student = models.OneToOneField(Student, on_delete=models.DO_NOTHING, unique=False)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, unique=False)
     #Optional comment section
     #comment = models.CharField(blank=True, null=True)
     #Ratings from 0 to 5
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
     # OPTIONAL 1-M relation with TutorSession
-    tutSess = models.ForeignKey(TutorSession, on_delete=models.DO_NOTHING, blank=True, null=True)
+    tutSess = models.ForeignKey(TutorSession, on_delete=models.CASCADE, blank=True, null=True)

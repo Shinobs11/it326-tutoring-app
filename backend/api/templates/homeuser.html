@@ -2,14 +2,5 @@
 {% block content %}
 Welcome to Tutor Tim Use the Navbar to select what type of user you will be continuing
 
-<form method="POST" action ="{% url 'deleteprofile' %}">Delete Profile
-    {% csrf_token %}
-    <input type="text" id="#{label}" required="required" name="email"/>
-    <label for="#{label}">Email</label>
-    <div class="bar"></div>
-  </div>
-  <div class="button-container">
-    <button><span>Next</span></button>
-  </div>
-</form>
+
 {% endblock content %}

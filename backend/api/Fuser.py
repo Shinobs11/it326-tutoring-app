@@ -39,15 +39,21 @@ class Fuser():
       pswd=request.POST['password']
       pswd2=request.POST['password']
       type=request.POST['usertype']
-      if CUser.checkpassword(pswd,pswd2):
+      if CUser.authenticate(email):
+        return render(request, 'login.html', {'msg': "Email already taken"})
+      elif CUser.checkpassword(pswd,pswd2):
         # Have the user factory create an object of the User type
         UserFactory.buildUser(first,last,email,phone,pswd,type)
         return render(request,'homeuser.html',{})
       else:
-        return render(request,'login.html',{'msg':"Passwards do not match"})
+        return render(request,'login.html',{'msg':"Passwords do not match"})
         
       
     else:
       return render(request,'createProfile.html',{})
   
-  
+  #TODO
+  #Deletes profile
+  def deleteProfile(request):
+    UserFactory.deleteUser("Fernando")
+    return render(request,'login.html',{})

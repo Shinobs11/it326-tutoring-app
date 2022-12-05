@@ -21,23 +21,7 @@ class User(models.Model):
   email_address = EmailAddressField(editable=True, blank=False, null=False)
   phone_number = PhoneNumberField(editable=True, blank=False, null=False)
   password = PasswordField(max_length=100, default="J=genius")
-  # student = models.OneToOneField(
-  #   Student,
-  #   on_delete=models.CASCADE,
-  #   null=True,
-  # )
-  # tutor = models.OneToOneField(
-  #   Tutor,
-  #   on_delete=models.CASCADE,
-  #   null=True,
-  #   editable=True
-  # )
-  # tutorOrgManager = models.OneToOneField(
-  #   TutorOrgManager,
-  #   on_delete=models.CASCADE,
-  #   null=True,
-  # )
-  
+
 
 
 

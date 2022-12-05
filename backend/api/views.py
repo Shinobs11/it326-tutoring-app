@@ -1,13 +1,19 @@
 from api.models.User import User
 from api.models.Student import Student
 from api.models.Tutor import Tutor
+from api.models.Class import Class
+from api.models.Review import Review
 from api.models.TutorSession import TutorSession
+from api.models.TutorOrganization import TutorOrganization
 from api.serializers.TutorSerializer import TutorSerializer
 from api.models.TutorOrgManager import TutorOrgManager
 from api.serializers.TutorOrgManSerializer import TutorOrgManSerializer
 from api.serializers.StudentSerializer import StudentSerializer
 from api.serializers.UserSerializer import UserSerializer
+from api.serializers.ClassSerializer import ClassSerializer
 from api.serializers.TutorSessionSerializer import TutorSessionSerializer
+from api.serializers.TutorOrganizationSerializer import TutorOrganizationSerializer
+from api.serializers.ReviewSerializer import ReviewSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
@@ -82,4 +88,29 @@ class TutorSessionDetail(UserDetail):
     queryset = TutorSession.objects.all()
     serializer_class = TutorSessionSerializer
 
+class TutorOrganizationList(UserList):
+        queryset = TutorOrganization.objects.all()
+        serializer_class = TutorOrganizationSerializer
+
+class TutorOrganizationDetail(UserDetail):
+        queryset = TutorOrganization.objects.all()
+        serializer_class = TutorOrganizationSerializer
+
+class ClassList(UserList):
+        queryset = Class.objects.all()
+        serializer_class = ClassSerializer
+
+class ClassDetail(UserDetail):
+    queryset = Class.objects.all()
+    serializer_class = ClassSerializer
+
+
+'''
+class ReviewList(UserList):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+class ReviewDetail(UserDetail):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+'''
 

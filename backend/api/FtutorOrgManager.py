@@ -28,19 +28,23 @@ class FtutorOrgManager():
     def tutorOrgPath(request):
         return render(request, 'TutorOrgCreation.html', {})
 
-    #TODO Add functionality to check if session is under user's account
+    #TODO Add functionality to check if that user is registered under that session
+    #TODO Check that user is a student/tutor (to remove)
     def removeUser(request):
         if request.method == "POST":
             email = request.POST['email']
             session = request.POST['name']
-            if CTutorSession.getSess(session):
+            #Checks if session exists
+            if not CTutorSession.getSess(session):
                 return render(request, 'deleteUser.html', {'msg': "Not a session!"})
+            #Checks if user exists via email
             if not CUser.registerEmailCheck(email):
                 return render(request, 'deleteUser.html', {'msg': "Email not in database"})
-            sess = DB_TutorSession.object.filter(sessName=session)
-            user = DB_User.object.filter(email=email)
-            sess.remove(user)
+            sess = DB_TutorSession.objects.get(sessName=session)
+            user = CUser.getUser(email)
+            sess.student.remove(user)
             sess.save()
+            return render(request,'tutOrgMgrhome.html',{'msg': "Removed user"})
         else:
             return render(request, 'deleteUser.html', {'msg': "Enter info"})
 

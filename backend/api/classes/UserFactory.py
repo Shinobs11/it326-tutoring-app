@@ -17,20 +17,20 @@ class UserFactory():
         instance = User.objects.create(first_name=firstName,last_name=lastName,email_address=email,phone_number=phoneNumber,password=pwrd)
         # If the user wants to create a tutor account, we need to ask which subject they want to teach
         if(UserType.TUT.value==int(userType)):
-            tutinstance=Tutor.objects.create()
-            instance.tutor=tutinstance
+            instance=Tutor.objects.create(user=instance)
+
             
 
         # If the user wants to create a student account, we need to ask them to input their Year and Major
         if(UserType.STU.value==int(userType)):
-            stuinstance=Student.objects.create()
-            instance.student=stuinstance
+            instance=Student.objects.create(user=instance)
+
             
         
         # If the user wants to create a tutorOrgManger class, we don't ask for any variables so we just return the object
         if(UserType.TUT_ORG.value==int(userType)):
-            tutinstance=TutorOrgManager.objects.create()
-            instance.tutorOrgManager=tutinstance
+            instance=TutorOrgManager.objects.create(user=instance)
+
             
         instance.save()
     # Delete Profile

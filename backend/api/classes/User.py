@@ -53,5 +53,5 @@ class CUser(ABC):
 
     def getTutOrgMgr(email):
         item = User.objects.get(email_address=email)
-        item=item.tutorOrgManager
+        item=item.tutOrgManger
         return item

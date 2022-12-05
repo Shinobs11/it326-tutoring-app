@@ -6,7 +6,7 @@ try:
 	from api.models.Class import Class
 	from api.models.TutorOrgManager import TutorOrgManager
 	from api.models.TutorOrganization import TutorOrganization
-	from api.models.ClassResources import ClassResources
+	from backend.api.models.SessionResources import ClassResources
 
 except ImportError:
 	from .Tutor import Tutor
@@ -16,4 +16,4 @@ except ImportError:
 	from .Class import Class
 	from .TutorOrgManager import TutorOrgManager
 	from .TutorOrganization import TutorOrganization
-	from .ClassResources import ClassResources
+	from .SessionResources import ClassResources

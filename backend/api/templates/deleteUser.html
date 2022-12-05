@@ -2,7 +2,7 @@
 
 Remove a User from a Session
 
-<form method="POST" action = "{% url 'createTutorOrg' %}">
+<form method="POST" action = "{% url 'removeuser' %}">
 {% csrf_token %}
     <br/>
 
@@ -18,6 +18,11 @@ Remove a User from a Session
       placeholder="Tutor Session Name" name="name">
     </div>
     <br/>
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
 
     <a class="btn btn-primary" href="{% url 'removeuser' %}">Remove</a>
   </form>

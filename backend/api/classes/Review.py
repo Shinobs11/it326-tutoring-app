@@ -10,8 +10,8 @@ class CReview():
     def __init__(self):
         _orgFeedback, _sesFeedback = "N/A"
 
-    def checkRating(self, rating: int):
-        #Rating for Tutor Session
+    def checkRating(rating):
+        rating = int(rating)
         if (rating<=5 or rating>=1):
             return True
         else:

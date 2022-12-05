@@ -26,7 +26,6 @@ class FtutorOrgManager():
         return render(request, 'deleteUser.html', {})
 
     #TODO Add functionality to check if session is under user's account
-    #TODO Data isn't being parsed in...
     def removeUser(request):
         if request.method == "POST":
             email = request.POST['email']
@@ -43,7 +42,7 @@ class FtutorOrgManager():
 
     def createTutorOrg(request):
         if request.method=="POST":
-            CTutorOrgManager.createTutorOrganization(request)
+            CTutorOrganization.createTutorOrganization(request)
             alltutorgs=TutorOrganization.objects.all
             #fill in parameters later
             # need to create tutor before able to finish

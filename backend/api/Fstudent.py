@@ -11,6 +11,8 @@ from api.classes.User import CUser
 from api.classes.Review import CReview
 from api.classes.TutorSession import CTutorSession
 from api.models.TutorOrgManager import TutorOrgManager
+from api.classes.User import CUser
+from api.classes.Student import CStudent
 from api.models.Review import Review
 from api.models.Student import Student as DB_Student
 
@@ -40,7 +42,7 @@ class Fstudent():
     return render(request, 'registerSession.html',{})
 
   #TODO Fix email check, fix session check (check only sessions in user's account)
-  #TODO Get it to recognize user inputs
+  #TODO Check if email is a Student email
   #TODO Drop-down menu for tutor sessions?
   def rate(request):
     if request.method =='POST':
@@ -53,7 +55,7 @@ class Fstudent():
         return render(request, 'reviewTutor.html', {'msg': "Not a session!"})
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
-      student = DB_Student.getStudent(email)
+      student = CStudent.getStudent(email)
       Review.objects.create(student=student, rating=rating,tutSess=session)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
 

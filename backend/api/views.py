@@ -15,6 +15,8 @@ from api.serializers.ClassSerializer import ClassSerializer
 from api.serializers.TutorSessionSerializer import TutorSessionSerializer
 from api.serializers.TutorOrganizationSerializer import TutorOrganizationSerializer
 from api.serializers.ReviewSerializer import ReviewSerializer
+from api.models.SessionResource import SessionResource
+from api.serializers.SessionResourceSerializer import SessionResourceSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
@@ -109,12 +111,25 @@ class ClassDetail(UserDetail):
     serializer_class = ClassSerializer
 
 
-class Session(APIView):
-  def get(self, request, format=None):
-    sessions = TutorSession.objects.all()
-    serializer = TutorSessionSerializer(sessions, many=True)
-    return Response(serializer.data)
-  pass
+class SessionResourceList(UserList):
+  queryset = SessionResource.objects.all()
+  serializer_class = SessionResourceSerializer
+
+class SessionResourceDetail(UserList):
+  queryset = SessionResource.objects.all()
+  serializer_class = SessionResourceSerializer
+
+
+# class Session(APIView):
+#   def get(self, request, format=None):
+#     sessions = TutorSession.objects.all()
+#     serializer = TutorSessionSerializer(sessions, many=True)
+#     return Response(serializer.data)
+#   pass
+
+
+
+
 
 
 class ReviewList(UserList):

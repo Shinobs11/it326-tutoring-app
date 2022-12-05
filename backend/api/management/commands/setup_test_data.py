@@ -11,6 +11,11 @@ from api.factories.ClassFactory import ClassFactory
 import os
 from random import sample, randint
 from api.utils.sample_fast import iter_sample_fast
+from ...factories.MessageFactory import MessageFactory
+from ...factories.InboxFactory import InboxFactory
+from ...factories.ReviewFactory import ReviewFactory
+from ...factories.SessionResourceFactory import SessionResourceFactory
+from ...models.SessionResource import SessionResource
 from ...factories.TutorSessionFactory import TutorSessionFactory
 
 from ...factories.TutorOrganizationFactroy import TutorOrganizationFactory
@@ -24,6 +29,7 @@ NUM_TUTORS = 30
 NUM_MANAGERS = 30
 NUM_TUTOR_ORGS = 10
 NUM_SESSIONS = 20
+NUM_MESSAGES = 5
 class Command(BaseCommand):
   help = "Generates test data"
 
@@ -40,6 +46,7 @@ class Command(BaseCommand):
 
     self.stdout.write("Creating new data...")
     users: list[User] = []
+    user_inboxes: list[Inbox] = []
     students: list[Student] = []
     tutors: list[Tutor] = []
     tutorOrgManagers: list[TutorOrgManager] = []
@@ -58,8 +65,16 @@ class Command(BaseCommand):
     for i in manager_sample:
       manager_range[i] = True
 
+
+    user_messages:list[list[Message]] = []
     for i in range(NUM_USERS):
       users.append(UserFactory.create())
+      user_inboxes.append(InboxFactory.create(user=users[i]))
+      cur_user_messages:list[Message] = []
+      for j in range(NUM_MESSAGES):
+        cur_user_messages.append(MessageFactory.create(inbox=user_inboxes[i]))
+      user_messages.append(cur_user_messages)
+      
     for i in student_sample:
       students.append(StudentFactory.create(user=users[i]))
     for i in tutor_sample:
@@ -75,7 +90,7 @@ class Command(BaseCommand):
       tutorOrgs.append(TutorOrganizationFactory.create())
       tutorOrgs[i].tutor.set(orgTutorSample[i])
       tutorOrgs[i].tutOrgMan.set(orgManagerSample[i])
-
+      
 
 
 
@@ -93,12 +108,15 @@ class Command(BaseCommand):
       class_instance_set = []
       for name in set:
         class_instance_set.append(ClassFactory.create(className=name))
+
       class_sets.append(class_instance_set)
 
     
+    
 
     sessions: list[TutorSession] = []
-    
+    session_resources: list[list[SessionResource]] = []
+    session_reviews: list[list[Review]] = []
     for i in range(NUM_SESSIONS):
       tutorOrg = sample(tutorOrgs, k=1)[0]
       sessions.append(TutorSessionFactory.create(tutorOrgID=tutorOrg))
@@ -109,6 +127,17 @@ class Command(BaseCommand):
       sessions[i].tutor.set(session_tutors)
       sessions[i].student.set(session_students)
       sessions[i].classID.set(class_sample)
+      session_resources.append(
+        [SessionResourceFactory.create(sessionID=sessions[i]) for j in range(randint(0, 5))]
+      )
+      cur_session_reviews: list[Review] = []
+      for s in session_students:
+        cur_session_reviews.append(
+          ReviewFactory.create(student=s, rating=randint(0,5), tutSess=sessions[i])
+        )
+      session_reviews.append(cur_session_reviews)
+
+      
 
 
 

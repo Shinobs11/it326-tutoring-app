@@ -20,7 +20,7 @@ class TutorSession(models.Model):
   tutor = models.ManyToManyField(Tutor, blank=True)
   student = models.ManyToManyField(Student, blank=True)
 
-  date = models.DateTimeField(default=now)
+  date = models.DateTimeField()
   sessName = models.CharField(blank=False,null=False,max_length=50, unique=True)
   location= models.CharField(max_length=100, null=True)
   conferenceURL = models.URLField(max_length=256, null=True)

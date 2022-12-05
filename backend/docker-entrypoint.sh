@@ -6,7 +6,7 @@
 
 
 
-sleep 5
+sleep 3
 
 # paranoia
 su root

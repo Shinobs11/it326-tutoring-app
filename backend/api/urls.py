@@ -58,7 +58,11 @@ urlpatterns = [
   path('review/', ReviewList.as_view()),
   path('review/<str:pk>/', ReviewDetail.as_view()),
   path('sessionresource/', SessionResourceList.as_view()),
-  path('sessionresource/<str:pk>', SessionResourceDetail.as_view())
+  path('sessionresource/<str:pk>', SessionResourceDetail.as_view()),
+    path('inbox/', InboxList.as_view()),
+  path('inbox/<str:pk>', InboxDetail.as_view()),
+    path('message/', MessageList.as_view()),
+  path('message/<str:pk>', MessageDetail.as_view()),
   # path('api/tutor_session', views.TutorSession),
   # path('api/tutor_session/<str:pk>', views.)
 ]

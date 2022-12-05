@@ -13,7 +13,7 @@ class TutorOrganization(models.Model):
   #MANDATORY M-M relation with Tutor
   tutor = models.ManyToManyField(Tutor)
   # MANDATORY M-M relation with TutorOrgManager
-  tutOrgMan = models.ManyToManyField(TutorOrgManager, blank=False)
+  tutOrgMan = models.ManyToManyField(TutorOrgManager, blank=True)
   #OPTIONAL 1-M with TutorSession
-  tutSess = models.ForeignKey(TutorSession, blank=False, null=False, on_delete=models.CASCADE)
+  tutSess = models.ForeignKey(TutorSession, blank=True, null=True, on_delete=models.CASCADE)
   tutOrgName = models.CharField(unique=True, max_length=30)

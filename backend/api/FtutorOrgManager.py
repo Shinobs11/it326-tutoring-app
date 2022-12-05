@@ -14,12 +14,14 @@ from api.classes.TutorSession import CTutorSession
 from api.classes.User import CUser
 from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.models.User import User as DB_User
+from api.classes.TutorOrgManager import CTutorOrgManager
 #from api.forms import TutorOrgForm
   
 class FtutorOrgManager():
     
     def tutorOrgMgrhome(request):
         alltutorgs=TutorOrganization.objects.all
+        print(alltutorgs)
         return render(request, 'tutOrgMgrhome.html',{'tutorgs':alltutorgs}) 
 
     def removeUserPath(request):

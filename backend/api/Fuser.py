@@ -57,7 +57,9 @@ class Fuser():
 
   def deleteProfilePath(request):
     return render(request,'deleteProfile.html',{})
-  #TODO Functionality to only delete your own account
+
+
+
   def deleteProfile(request):
     if request.method=='POST':
       email=request.POST['email']

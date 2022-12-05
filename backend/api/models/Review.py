@@ -16,7 +16,7 @@ class Review(models.Model):
     ratingID = models.UUIDField(primary_key=True, default=uuid.uuid4)
     #MANDATORY 1-1 with Student
     # student = models.OneToOneField(Student, on_delete=models.DO_NOTHING)
-    student = models.ForeignKey(Student, on_delete=models.DO_NOTHING)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
     #Optional comment section
     #comment = models.CharField(blank=True, null=True)
     #Ratings from 0 to 5

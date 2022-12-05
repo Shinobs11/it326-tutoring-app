@@ -19,3 +19,6 @@ class CTutorOrganization:
         TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)
     # Creates a tutor organization object
     
+    def getTutorOrg(name):
+        return(TutorOrganization.objects.get(tutOrgName=name))
+    

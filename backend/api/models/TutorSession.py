@@ -13,8 +13,7 @@ class TutorSession(models.Model):
   # OPTIONAL M- M with TutorOrgManager
   student = models.ManyToManyField(Student, blank=True, null=True)
   #MANDATORY 1-M relation with Class
-  classID = models.ForeignKey(Class,blank=False, null=False, on_delete=models.DO_NOTHING)
+  classID = models.ForeignKey(Class,blank=False, null=True, on_delete=models.DO_NOTHING)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)
-  date = models.DateTimeField(default=now)
+  date = models.CharField(max_length=50)#changing from datetime field, don't know how to work with Dates in html
   sessName = models.CharField(blank=False,null=False,max_length=50, unique=True)
-  location= models.CharField(max_length=50)

@@ -10,46 +10,25 @@ import {
   Stack,
   Heading,
   Container,
+  Link,
   Image,
   Icon,
-  Center,
-  Link,
-  VStack
+  Center
 }
 from "@chakra-ui/react";
-import ThemeButton from '../components/ThemeButton/ThemeButton';
 const Home: NextPage = () => {
   return (
-    <Box>
+    <div>
       <Head>
         <title>Tutor Tim</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar/>
-      <Center>
-        <Box 
-          h={'calc(100vh - 64px)'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          display='flex'
-          w='5xl'
-          >
-          <VStack spacing={6}>
-            <Link href={"/signup"}>
-              <ThemeButton>
-                Sign Up
-              </ThemeButton >
-            </Link>
-            <Link href={"/login"}>
-              <ThemeButton>
-                Log In
-              </ThemeButton>
-            </Link>
-          </VStack>
+      <Box bg={useColorModeValue('red.50', 'red.50')} px={4}>
+      
 
-        </Box>
-      </Center>
-    </Box>
+      </Box>
+    </div>
   )
 }
 

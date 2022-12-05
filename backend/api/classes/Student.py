@@ -1,5 +1,5 @@
 from api.classes.User import CUser
-from api.models.Student import Student
+
 class CStudent(CUser):
     __schoolYear:int
     __tutorSessHour:int
@@ -17,6 +17,5 @@ class CStudent(CUser):
         TutorSession.rate(rating)
 
     #@Override
-    def getStudent(email):
-        item = Student.objects.filter(email_address=email)
-        return item
+    def update(self, content):
+        pass #Student Update Method

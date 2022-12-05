@@ -1,7 +1,6 @@
 from api.classes.Student import CStudent
 from api.classes.Class import CClass
 from api.classes.Observable import CObservable
-from api.models.TutorSession import TutorSession
 
 class CTutorSession(CObservable): #Inherits from Observable
     __tutorSessID: int
@@ -47,11 +46,3 @@ class CTutorSession(CObservable): #Inherits from Observable
     def notifyAll(self):
         for user in self.user_list:
             user.update(self.__content)
-
-    #Checks if session by that name exists
-    def getSess(session):
-        item = TutorSession.objects.all().filter(sessname=session)
-        if not item:
-            return False
-        else:
-            return True

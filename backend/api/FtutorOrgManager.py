@@ -24,25 +24,6 @@ class FtutorOrgManager():
         print(alltutorgs)
         return render(request, 'tutOrgMgrhome.html',{'tutorgs':alltutorgs}) 
 
-    def removeUserPath(request):
-        return render(request, 'deleteUser.html', {})
-
-    #TODO Add functionality to check if session is under user's account
-    #TODO Data isn't being parsed in...
-    def removeUser(request):
-        if request.method == "POST":
-            email = request.POST['email']
-            session = request.POST['name']
-            if CTutorSession.getSess(session):
-                return render(request, 'deleteUser.html', {'msg': "Not a session!"})
-            if not CUser.registerEmailCheck(email):
-                return render(request, 'deleteUser.html', {'msg': "Email not in database"})
-            sess = DB_TutorSession.object.filter(sessName=session)
-            user = DB_User.object.filter(email=email)
-            sess.student.remove(user)
-        else:
-            return render(request, 'deleteUser.html', {'msg': "Enter info"})
-
     def createTutorOrg(request):
         if request.method=="POST":
             CTutorOrgManager.createTutorOrganization(request)

@@ -29,17 +29,17 @@ import Navbar from '../../components/Navbar/Navbar';
 
 
 
-const SessionPage:NextPage = () =>{
+const TutorProfile:NextPage = () =>{
 
   const router = useRouter();
-  const {sessionID} = router.query;
+  const {tutorId} = router.query;
 
 
   return (
   <Box>
     <Navbar/>
     <Text>
-      {uid}
+      {tutorId}
     </Text>
   </Box>
   )

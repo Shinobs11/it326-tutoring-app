@@ -31,21 +31,6 @@ export default class User{
     this._tutorOrgManager = tutorOrgManager;
   }
 
-
-  static fromUser(user: User): User{
-    return new User(
-      user.uid,
-      user._first_name,
-      user._last_name,
-      user._email_address,
-      user._phone_number,
-      user._student,
-      user._tutor,
-      user._tutorOrgManager
-    );
-  }
-
-
   public get firstName(){
     return this._first_name;
   }
@@ -94,8 +79,6 @@ export default class User{
   public set tutorOrgManager(tutorOrgManager: TutorOrgManager){
     this._tutorOrgManager = tutorOrgManager;
   }
-
-  
 
 
   login(uid: string, password: string): void{

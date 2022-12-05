@@ -3,28 +3,28 @@
 interface TutorSession{} //dummy interface
 
 export default class Student{
-  private _studentID: string;
+  private _studentId: string;
   private _yearInSchool: number;
 
   constructor(
-    studentID: string,
+    studentId: string,
     yearInSchool: number,
   ){
-    this._studentID = studentID;
+    this._studentId = studentId;
     this._yearInSchool = yearInSchool;
   }
 
 
-  public get studentID(){
-    return this._studentID;
+  public get studentId(){
+    return this._studentId;
   }
 
   public get yearInSchool(){
     return this._yearInSchool;
   }
 
-  public set studentID(studentID: string){
-    this._studentID = studentID;
+  public set studentId(studentId: string){
+    this._studentId = studentId;
   }
 
   public set yearInSchool(yearInSchool: number){

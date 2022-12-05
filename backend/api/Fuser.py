@@ -51,7 +51,8 @@ class Fuser():
       
     else:
       return render(request,'createProfile.html',{})
-
+  
+  #TODO
   #Deletes profile
   def deleteProfile(request):
     UserFactory.deleteUser(request)

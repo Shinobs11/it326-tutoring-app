@@ -27,7 +27,7 @@ import {
 from "@chakra-ui/react";
 
 
-import {sessionSample} from '../sampleData/sessionSample'
+import {sampleSessions} from '../sampleData/sessions'
 
 
 enum SelectedButtonEnum {
@@ -86,7 +86,7 @@ const Dashboard: NextPage = () =>{
        
       case SelectedButtonEnum.TUTORING_SESSIONS:
         return(
-          <Schedule sessions={sessionSample}/>
+          <Schedule sessions={sampleSessions}/>
         )
 
     }
@@ -108,14 +108,14 @@ const Dashboard: NextPage = () =>{
 
 
   return (
-    <Box  height="100vh" >
+    <Box height="100vh" bgColor={'gray.100'}>
       <Head>
         <title>Dashboard | Tutor Tim</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar/>
       <Center>
-        <HStack >
+        <HStack>
           <VStack
             minW='xs'
             minHeight={'calc(100vh - 64px)'}

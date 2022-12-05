@@ -12,6 +12,4 @@ class FtutorSession():
     
   def gettutorSession():
     return TutorSession.objects.all
-
-  #TODO Make sure you can't reuse TutorSession names
   

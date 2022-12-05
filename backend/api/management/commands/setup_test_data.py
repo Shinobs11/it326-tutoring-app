@@ -13,10 +13,10 @@ from random import sample
 
 TOGGLE =  os.environ['GENERATE_NEW_DATA']
 
-NUM_USERS = 60
-NUM_STUDENTS = 30
-NUM_TUTORS = 30
-NUM_MANAGERS = 30
+NUM_USERS = 30
+NUM_STUDENTS = 15
+NUM_TUTORS = 15
+NUM_MANAGERS = 15
 
 class Command(BaseCommand):
   help = "Generates test data"

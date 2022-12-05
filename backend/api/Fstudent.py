@@ -75,5 +75,5 @@ class Fstudent():
     UsrObj=User.objects.get(email_address=request.POST['email'])
     StuObj=UsrObj.student
     TSObj=TutorSession.objects.get(tutorSessID=request.POST['sesID'])
-    TSObj.student.append(StuObj)
+    TSObj.student.append(StuObj)# need to figure out how to add
     return redirect(Fstudent.registerSessPage)

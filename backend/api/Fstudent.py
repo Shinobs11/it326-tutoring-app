@@ -10,8 +10,10 @@ from django.shortcuts import render
 from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.User import CUser
 from api.classes.Student import CStudent
+from api.classes.Review import CReview
+from api.classes.TutorSession import CTutorSession
+from api.classes.Student import CStudent
 from api.models.Review import Review
-from api.models.Student import Student as DB_Student
 
 
 #The F stands for File. Will make code much easier to read through
@@ -24,19 +26,17 @@ class Fstudent():
   def showtutorSessions(request):# will create seperate method for searching for specific criteria
     import json
     if request.method== 'POST':
-      #if the button is pushed  get
+      #if the button is pushed get
       pass
     else:
       tutorsess= TutorOrgManager.objects.get(pk='1515a87f-41f0-46ae-83bd-72ba99dc2b4a')
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
   def registerTutorSession(request):
     pass
-  
-<<<<<<< HEAD
+
   def rate(request):
     pass
-    
-=======
+
   def ratePage(request):
     return render(request, 'reviewTutor.html',{})
 
@@ -59,6 +59,7 @@ class Fstudent():
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
       stu = CUser.getUser(email)
+      #TODO Fix this issue
       Review.objects.create(student="866f9db6-a29d-451c-a846-da924a996196", rating=rating,tutSess=session)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
 
@@ -68,4 +69,3 @@ class Fstudent():
     #TODO
   def registerSess(request):
     pass
->>>>>>> aa4f2d76d8a91c659f4254ef8efc187d89ba76b9

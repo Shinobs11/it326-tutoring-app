@@ -12,22 +12,10 @@ class CReview():
 
     def checkRating(rating):
         rating = int(rating)
-        if (rating<=5 or rating>=1):
-            # TODO Front-end functionality
-            self._sesFeedback = str(input("Enter feedback"))
+        if (rating <= 5 or rating >= 1):
+            return True
         else:
-            print("Invalid rating value")
+            return False
 
         # TODO: Return values to the Tutor Sess
 
-    def rateTutorOrg(self):
-        #Rating for Tutor Org
-        while (_orgRating > 5 or _orgRating < 0):
-            _orgRating = int(input("Enter rating (0-5: ")) # User input to provide the rating
-            if (_orgRating > 5 or _orgRating < 0): # User did not enter a value in range. Restart loop
-                print("Rating not within proper range. Please enter a value between 0-5")
-
-        #Feedback for Tutor Org
-        _orgFeedback = str(input("Enter any feedback you'd like to add: "))
-
-        # TODO: Return values to the Tutor Org

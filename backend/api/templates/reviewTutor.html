@@ -1,0 +1,33 @@
+
+
+Review a Tutor Session Here
+
+<form method="POST" action = "{% url 'sendrating' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="Your Email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor Session Name" name="session">
+    </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Ranking (1-5)" name="rating">
+    </div>
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>

@@ -46,3 +46,11 @@ class CTutorSession(CObservable): #Inherits from Observable
     def notifyAll(self):
         for user in self.user_list:
             user.update(self.__content)
+
+    #Checks if session by that name exists
+    def getSess(session):
+        item = TutorSession.objects.all().filter(sessName=session)
+        if not item:
+            return False
+        else:
+            return True

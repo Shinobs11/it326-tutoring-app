@@ -1,6 +1,6 @@
 
 
-Create your Session here
+Create your Tutor Organization here
 
 <form method="POST" action = "{% url 'createTutorOrg' %}">
 {% csrf_token %}
@@ -10,15 +10,19 @@ Create your Session here
     <br/>
     <div class="mb-3">
         <input type="text" class="form-control" aria-describedby="emailHelp" 
-        placeholder="tutOrgMan ID" name="tutOrgManID">
+        placeholder="Tutor Organization Manager email" name="email">
       </div>
     <br/>
     <div class="mb-3">
       <input type="text" class="form-control" aria-describedby="emailHelp" 
-      placeholder="Name" name="Name">
+      placeholder="Tutor Organization Name" name="name">
     </div>
     <br/>
-
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
 
    
     <button type="submit" class="btn btn-primary">Create</button>

@@ -27,8 +27,13 @@ urlpatterns = [
   path('createSession',FtutorOrg.createSession,name='createSession'),
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
   path('deleteProfile', Fuser.deleteProfile,name='deleteprofile'),
-  #path('rateSession',Fstudent)
-  
+  path('rateSession',Fstudent.ratePage,name='ratesession'),
+  path('createRating',Fstudent.rate,name='sendrating'),
+  path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
+  path('RegisterforSess',Fstudent.registerSess,name='registersess'),
+  path('RemoveUser', FtutorOrgManager.removeUserPath, name='removeuserpath'),
+  path('RemoveUser',FtutorOrgManager.removeUser,name='removeuser'),
+
   #these are for the API
   path('user/', UserList.as_view()),
   path('user/<str:pk>/', UserDetail.as_view()),

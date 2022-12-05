@@ -22,12 +22,24 @@ import {
   VStack,
   Divider,
   HStack,
-  ButtonGroup
+  ButtonGroup,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  FormControl,
+  FormLabel,
+  Input,
 }
 from "@chakra-ui/react";
 
 
-import {sampleSessions} from '../sampleData/sessions'
+import {sessionSample} from '../sampleData/sessionSample'
+import TutoredSessions from '../components/TutoredSessions/TutoredSessions';
 
 
 enum SelectedButtonEnum {
@@ -70,7 +82,7 @@ const ButtonInfo: ButtonInfoType[] = [
 
 const Dashboard: NextPage = () =>{
   const [activeDashButton, setActiveDashButton] = useState<SelectedButtonEnum>(0);
-
+  const {isOpen, onOpen, onClose} = useDisclosure();
 
   const renderSelectedPage = () =>{
     switch(activeDashButton){
@@ -88,7 +100,40 @@ const Dashboard: NextPage = () =>{
         return(
           <Schedule sessions={sampleSessions}/>
         )
+      
+      case SelectedButtonEnum.TUTOR_SESSIONS:
+        
 
+        return(
+          <>
+          <TutoredSessions sessions={sessionSample}/>
+          <Button onClick={onOpen}>Add Session</Button>
+          <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay/>
+            <ModalContent>
+              <ModalHeader>Add Session</ModalHeader>
+              <ModalCloseButton/>
+              <ModalBody>
+                <FormControl onSubmit={}>
+                  <FormLabel>Title</FormLabel>
+                  <Input/>
+                  <FormLabel>Start Date</FormLabel>
+                  <Input type='datetime-local'/>
+                </FormControl>
+              </ModalBody>
+              <ModalFooter>
+                <Button mr={3} onClick={onClose}>
+                  Close
+                </Button>
+                <Button>
+                  Add Session
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+
+          </Modal>
+          </>
+        )
     }
   }
   
@@ -115,11 +160,11 @@ const Dashboard: NextPage = () =>{
       </Head>
       <Navbar/>
       <Center>
-        <HStack>
+        <HStack bg='white' >
           <VStack
             minW='xs'
             minHeight={'calc(100vh - 64px)'}
-            backgroundColor='blue.200'
+
             height="100%" 
             justify='flex-start'
             >
@@ -136,10 +181,14 @@ const Dashboard: NextPage = () =>{
               }
             </VStack>
           </VStack>
-          <Divider orientation='vertical'/>
+          <Box
+            height={'calc(100vh - 64px)'}
+            bg='gray.100'
+            zIndex={1}
+            width={'2px'}
+          ></Box>
           <VStack
             minHeight={'calc(100vh - 64px)'}
-            backgroundColor='green.200'
             minW={'4xl'}
           >
             {

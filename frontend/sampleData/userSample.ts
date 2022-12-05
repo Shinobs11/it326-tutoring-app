@@ -318,7 +318,7 @@ export const userMap = new Map<string, User>(userData.map(
   )] 
 ))
 
-export const userArray = Array.from(userMap.values());
+export const userArray:User[] = Array.from(userMap.values());
 
 export const userArrayByTutor = userArray.filter((user)=>{
   return user.tutor ? true : false;

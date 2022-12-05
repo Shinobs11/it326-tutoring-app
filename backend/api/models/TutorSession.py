@@ -9,9 +9,9 @@ class TutorSession(models.Model):
   class Meta:
     app_label = 'api'
   #OPTIONAL M-M with Tutor
-  tutor = models.ManyToManyField(Tutor, blank=True, null=True)
+  tutor = models.ManyToManyField(Tutor, blank=True)
   # OPTIONAL M- M with TutorOrgManager
-  student = models.ManyToManyField(Student, blank=True, null=True)
+  student = models.ManyToManyField(Student, blank=True)
   #MANDATORY 1-M relation with Class
   classID = models.ForeignKey(Class,blank=False, null=True, on_delete=models.DO_NOTHING)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)

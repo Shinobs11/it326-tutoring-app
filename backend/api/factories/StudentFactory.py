@@ -14,10 +14,10 @@ class StudentFactory(DjangoModelFactory):
 
 
 
-  studentID = factory.Faker("uuid4")
+  # studentID = factory.Faker("uuid4")
   # yearInSchool = fake.random_element(elements=Student.YearInSchool.choices)[0]
   yearInSchool = factory.Faker('random_element', elements=[x[0] for x in Student.YearInSchool.choices])
-
+  user = None
 
 
   # tutorSessHours = factory.Faker("tutorSessHours")

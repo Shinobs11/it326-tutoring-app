@@ -12,6 +12,7 @@ sleep 5
 su root
 
 #uncomment when starting to clear DB and run migrations on launch
+
 echo "Clearing database and migrations"
 python manage.py reset_db --no-input
 
@@ -19,8 +20,10 @@ python manage.py reset_db --no-input
 echo "Revert all database migrations"
 python manage.py migrate api zero
 
+
 # Plan database migrations
 echo "Plan database migrations"
+python manage.py makemigrations
 python manage.py makemigrations api
 
 # Apply database migrations

@@ -3,6 +3,8 @@ from django.db import models
 
 import uuid
 
+from api.models.User import User
+
 YEAR_CHOICE_ENUM = Enum('year_choice', ['Freshman', 'Sophomore', 'Junior', 'Senior'])
 
 class Student(models.Model):
@@ -19,8 +21,10 @@ class Student(models.Model):
     GRADUATE = 4, 'Graduate'
     NOT_APPLICABLE = 5, 'N/A'
   #PK
-  studentID = models.UUIDField(primary_key=True,default=uuid.uuid4 ,editable=False, unique=True, db_index=True, null=False, blank=False)
+  user = models.OneToOneField(User, primary_key=True, db_index=True,  on_delete=models.CASCADE)
   yearInSchool = models.SmallIntegerField(default=None, editable=True, null=True, choices=YearInSchool.choices)
+
+
 
 
   # tutorSessHours= models.PositiveSmallIntegerField(default=0)

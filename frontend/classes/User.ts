@@ -81,12 +81,6 @@ export default class User{
   }
 
 
-  login(uid: string, password: string): void{
-    console.log("login");
-  }
-  authenticate(): void{
-    console.log("authenticate");
-  }
 }
 
 

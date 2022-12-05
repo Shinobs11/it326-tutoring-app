@@ -19,14 +19,7 @@ export default class TutorOrgManager{
     this._tutorOrgManagerID = tutorOrgManagerID;
   }
   
-  createTutorOrganization(): TutorOrganization{
-    console.log("createTutorOrganization");
-    return{};
-  }
-  createTutorSession(tutorOrg: TutorOrganization): TutorSession{
-    console.log("createTutorSession");
-    return{};
-  }
+
 
 
 }

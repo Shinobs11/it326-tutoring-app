@@ -39,7 +39,7 @@ class Fuser():
       pswd=request.POST['password']
       pswd2=request.POST['password']
       type=request.POST['usertype']
-      if CUser.authenticate(email):
+      if CUser.registerEmailCheck(email):
         return render(request, 'login.html', {'msg': "Email already taken"})
       elif CUser.checkpassword(pswd,pswd2):
         # Have the user factory create an object of the User type

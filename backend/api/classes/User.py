@@ -26,6 +26,7 @@ class CUser(ABC):
         item = User.objects.all().filter(email_address=eml)
         if not item:
             return False
+        
     def login(email,paswrd):
         if CUser.authenticate(email,paswrd)==True:
             return True #Plug in html when ready

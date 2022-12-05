@@ -55,5 +55,5 @@ class Fuser():
   #TODO
   #Deletes profile
   def deleteProfile(request):
-    UserFactory.deleteUser("Fernando")
-    return render(request,'login.html',{})
+    UserFactory.deleteUser(request)
+    return render(request,'login.html',{'messagedelete':'Successfully Deleted'})

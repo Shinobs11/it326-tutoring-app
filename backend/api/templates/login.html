@@ -16,6 +16,10 @@
   <div class="container">
     <div class="card"></div>
     <div class="card">
+      {% if messagedelete %}
+        {{messagedelete}}
+      {%endif%}
+
       <h1 class="title">Login</h1>
 
       <form method="POST" action ="{% url 'login' %}">

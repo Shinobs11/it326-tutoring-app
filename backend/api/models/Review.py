@@ -7,11 +7,16 @@ class Review(models.Model):
 
     class Meta:
         app_label = 'api'
+        # unique_together=(('student', 'tutSess'),)
+        constraints=[
+          models.UniqueConstraint(fields=['student', 'tutSess'], name='student_tutSess_pk')
+        ]
 
     #PK
     ratingID = models.UUIDField(primary_key=True, default=uuid.uuid4)
     #MANDATORY 1-1 with Student
-    student = models.OneToOneField(Student, on_delete=models.DO_NOTHING, unique=False)
+    # student = models.OneToOneField(Student, on_delete=models.DO_NOTHING)
+    student = models.ForeignKey(Student, on_delete=models.DO_NOTHING)
     #Optional comment section
     #comment = models.CharField(blank=True, null=True)
     #Ratings from 0 to 5

@@ -42,12 +42,7 @@ const links:LinkType[] = [
   },
   {
     name:"Tutor Organizations",
-    url: "/tutor-orgs"
-  }
-  ,
-  {
-    name: "Testing",
-    url: "/testing"
+    url: "/orgs"
   }
 ]
 
@@ -81,9 +76,11 @@ export default function Navbar() {
           />
           <HStack spacing={8} alignItems={'center'}>
             <Box>
-              <Text color={useColorModeValue('red.50', 'red.50')}>
-                Tutor Tim 
-              </Text>
+              <Link href={'/'}>
+                <Text color={useColorModeValue('white', 'white')}>
+                  Tutor Tim 
+                </Text>
+              </Link>
             </Box>
             <HStack
               as={'nav'}
@@ -91,7 +88,7 @@ export default function Navbar() {
               display={{ base: 'none', md: 'flex' }}>
               {links.map((link) => (
                 <NavLink key={link.name} href={link.url}>
-                  <Text color={useColorModeValue('red.50', 'red.50')}>
+                  <Text color={useColorModeValue('white', 'white')}>
                     {link.name}
                   </Text>
                 </NavLink>
@@ -100,19 +97,20 @@ export default function Navbar() {
           </HStack>
           
           <HStack spacing={2} alignItems={'center'}>
-              <IconButton
-                size={'lg'}
-                icon={<EmailIcon />}
-                aria-label={'Messages'}
-                display={{ base: 'none', md: 'flex' }}
-                onClick={() => console.log('Messages button clicked')}
-                variant="solid"
-                color={useColorModeValue('red.50', 'red.50')}
-                backgroundColor={useColorModeValue('red.600', 'red.700')}
-                _hover={{
-                  backgroundColor: useColorModeValue('red.700', 'red.700'),
-                }}
-              />
+              <Link href={"/inbox"}>
+                <IconButton
+                  size={'lg'}
+                  icon={<EmailIcon />}
+                  aria-label={'Messages'}
+                  display={{ base: 'none', md: 'flex' }}
+                  variant="solid"
+                  color={useColorModeValue('white', 'white')}
+                  backgroundColor={useColorModeValue('red.600', 'red.700')}
+                  _hover={{
+                    backgroundColor: useColorModeValue('red.700', 'red.700'),
+                  }}
+                />
+              </Link>
               <IconButton
                 size={'lg'}
                 icon={<BellIcon />}
@@ -120,7 +118,7 @@ export default function Navbar() {
                 display={{ base: 'none', md: 'flex' }}
                 onClick={() => console.log('Messages button clicked')}
                 variant="solid"
-                color={useColorModeValue('red.50', 'red.50')}
+                color={useColorModeValue('white', 'white')}
                 backgroundColor={useColorModeValue('red.600', 'red.700')}
                 _hover={{
                   backgroundColor: useColorModeValue('red.700', 'red.700'),
@@ -151,7 +149,7 @@ export default function Navbar() {
                       }
                     }
                     key={link}>
-                      <Text color={useColorModeValue('red.50', 'red.50')}>
+                      <Text color={useColorModeValue('white', 'white')}>
                         {link}
                       </Text>
                     </MenuItem>
@@ -167,7 +165,7 @@ export default function Navbar() {
             <Stack as={'nav'} spacing={4}>
               {links.map((link) => (
                 <NavLink key={link.name} href={link.url}>
-                  <Text color={useColorModeValue('red.50', 'red.50')}>
+                  <Text color={useColorModeValue('white', 'white')}>
                     {link.name}
                   </Text>
                 </NavLink>

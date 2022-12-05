@@ -17,6 +17,15 @@ export default class Tutor{
     this._numOfTutorOrgs = numOfTutorOrgs;
   }
 
+  static fromTutor(tutor: Tutor): Tutor{
+    return new Tutor(
+      tutor.tutorID,
+      tutor.rating,
+      tutor.tutorSubject,
+      tutor.numOfTutorOrgs
+    );
+  }
+
   public get tutorID(){
     return this._tutorID;
   }

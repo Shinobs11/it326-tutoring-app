@@ -7,8 +7,8 @@ class TutorFactory(DjangoModelFactory):
     class Meta:
         model = Tutor
 
-
-    tutorID = factory.Faker("uuid4")
+    user = None
+    # tutorID = factory.Faker("uuid4")
     # rating = factory.Faker("rating")
     # tutor_subj = factory.Faker("tutor_subj")
     # Num_Tut_Orgs = factory.Faker("Num_Tut_Orgs")

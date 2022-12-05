@@ -129,7 +129,7 @@ TIME_ZONE = 'UTC' #if deciding to change this, make sure to update postgres conf
 
 USE_I18N = True
 
-USE_TZ = True #if deciding to change this, make sure to update postgres config
+USE_TZ = False #if deciding to change this, make sure to update postgres config
 
 
 # Static files (CSS, JavaScript, Images)

@@ -10,5 +10,5 @@ class Class(models.Model):
 
   #PK, Only class IDs b/w 100-999 are allowed
   classID = models.UUIDField(primary_key=True, default=uuid.uuid4, db_index=True)
-  className = models.CharField(max_length=12, null=False, editable=True)
+  className = models.CharField(max_length=12, null=False, blank=True, editable=True)
   classDescription = models.CharField(max_length=1500, null=True, editable=True)

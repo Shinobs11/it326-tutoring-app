@@ -22,4 +22,4 @@ class Review(models.Model):
     #Ratings from 0 to 5
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
     # OPTIONAL 1-M relation with TutorSession
-    tutSess = models.ForeignKey(TutorSession, on_delete=models.DO_NOTHING, blank=True, null=True)
+    tutSess = models.ForeignKey(TutorSession, on_delete=models.CASCADE, blank=True, null=True)

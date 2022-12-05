@@ -16,6 +16,10 @@ from api.serializers.TutorSessionSerializer import TutorSessionSerializer
 from api.serializers.TutorOrganizationSerializer import TutorOrganizationSerializer
 from api.serializers.ReviewSerializer import ReviewSerializer
 from api.models.SessionResource import SessionResource
+from api.models.Message import Message
+from api.models.Inbox import Inbox
+from api.serializers.InboxSerializer import InboxSerializer
+from api.serializers.MessageSerializer import MessageSerializer
 from api.serializers.SessionResourceSerializer import SessionResourceSerializer
 from rest_framework.response import Response
 from rest_framework import status, mixins, generics
@@ -118,6 +122,23 @@ class SessionResourceList(UserList):
 class SessionResourceDetail(UserList):
   queryset = SessionResource.objects.all()
   serializer_class = SessionResourceSerializer
+
+class InboxList(UserList):
+  queryset = Inbox.objects.all()
+  serializer_class = InboxSerializer
+
+class InboxDetail(UserList):
+  queryset = Inbox.objects.all()
+  serializer_class = InboxSerializer
+
+class MessageList(UserList):
+  queryset = Message.objects.all()
+  serializer_class = MessageSerializer
+
+class MessageDetail(UserList):
+  queryset = Message.objects.all()
+  serializer_class = MessageSerializer
+
 
 
 # class Session(APIView):

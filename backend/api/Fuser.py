@@ -15,6 +15,8 @@ class Fuser():
     if request.method=='POST':
       email=request.POST['email']
       pswd=request.POST['password']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'login.html', {'message': "Email not in database"})
       if CUser.login(email,pswd)==True:
         return render(request,'homeuser.html',{})
       else:
@@ -52,7 +54,18 @@ class Fuser():
     else:
       return render(request,'createProfile.html',{})
 
+
+  def deleteProfilePath(request):
+    return render(request,'deleteProfile.html',{})
   #TODO Functionality to only delete your own account
   def deleteProfile(request):
-    UserFactory.deleteUser(request)
-    return render(request,'login.html',{'messagedelete':'Successfully Deleted'})
+    if request.method=='POST':
+      email=request.POST['email']
+      password=request.POST['password']
+      if not CUser.authenticate(email,password):
+        return render(request, 'deleteProfile.html', {'msg': 'Wrong password'})
+      UserFactory.deleteUser(request)
+      return render(request,'login.html',{'messagedelete':'Successfully Deleted'})
+
+    else:
+      return render(request, 'deleteProfile.html', {'msg': 'Input data'})

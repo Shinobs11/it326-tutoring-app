@@ -11,11 +11,8 @@ from api.classes.User import CUser
 from api.classes.Review import CReview
 from api.classes.TutorSession import CTutorSession
 from api.models.TutorOrgManager import TutorOrgManager
-<<<<<<< HEAD
 from api.classes.User import CUser
 from api.classes.Student import CStudent
-=======
->>>>>>> parent of e0dc76b (Revert "Merge branch 'main' of https://github.com/Shinobs11/it326-tutoring-app")
 from api.models.Review import Review
 from api.models.Student import Student as DB_Student
 

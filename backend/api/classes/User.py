@@ -18,14 +18,17 @@ class CUser(ABC):
         self.password=password
         self.phoneNo=phoneNumber
         self.email=email
-            
-    
 
-    #Checks if email is already taken
-    def authenticate(eml):
+    # Checks if email is already taken
+    def registerEmailCheck(eml):
         item = User.objects.all().filter(email_address=eml)
         if not item:
             return False
+    def authenticate(eml,passattempt):
+        # TODO: Get the database table
+        item= User.objects.get(email_address=eml)
+        if passattempt==item.password:
+            return True
         
     def login(email,paswrd):
         if CUser.authenticate(email,paswrd)==True:

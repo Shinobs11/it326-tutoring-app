@@ -31,6 +31,8 @@ urlpatterns = [
   path('createRating',Fstudent.rate,name='sendrating'),
   path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
   path('RegisterforSess',Fstudent.registerSess,name='registersess'),
+  path('RemoveUserPath', FtutorOrgManager.removeUserPath, name='removeuserpath'),
+  path('RemoveUser',FtutorOrgManager.removeUser,name='removeuser'),
 
   #these are for the API
   path('user/', UserList.as_view()),

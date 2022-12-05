@@ -1,0 +1,23 @@
+
+
+Remove a User from a Session
+
+<form method="POST" action = "{% url 'createTutorOrg' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="User's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor Session Name" name="name">
+    </div>
+    <br/>
+
+    <a class="btn btn-primary" href="{% url 'removeuser' %}">Remove</a>
+  </form>

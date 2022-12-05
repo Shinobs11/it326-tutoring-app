@@ -43,7 +43,7 @@ class Fstudent():
   #TODO Get it to recognize user inputs
   #TODO Drop-down menu for tutor sessions?
   def rate(request):
-    if request.method=='POST':
+    if request.method =='POST':
       email = request.POST['email']
       session = request.POST['session']
       rating = request.POST['rating']
@@ -56,6 +56,7 @@ class Fstudent():
       student = DB_Student.getStudent(email)
       Review.objects.create(student=student, rating=rating,tutSess=session)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
+
     else:
       return render(request, 'reviewTutor.html', {'msg': "Enter info"})
 

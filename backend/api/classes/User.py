@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 
 # need to pull in user database: should be in form
 # from .models import Stock
+from api.models.Student import Student
 from api.models import User
 class CUser(ABC):
     name: str
@@ -38,19 +39,12 @@ class CUser(ABC):
         else:
             return False
 
-            
-
-    def checkpassword(psw1,psw2):
-        if psw1==psw2:
+    def checkpassword(pswd,psw2):
+        if(pswd==psw2):
             return True
         else:
             return False
 
-    def register(fn,ln,eml,phn,pswd,pswd2):
-        pass
-        
-        
-
-    #@abstractmethod
-    def update(self, content): # Updates
-        pass
+    def getUser(email):
+        item = User.objects.get(student="866f9db6-a29d-451c-a846-da924a996196")
+        return item

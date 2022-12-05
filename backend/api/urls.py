@@ -26,6 +26,7 @@ urlpatterns = [
   path('tutorOrghome',FtutorOrg.tutorOrghome,name='tutorOrghome'),
   path('createSession',FtutorOrg.createSession,name='createSession'),
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
+  path('CreateTutorOrgPath',FtutorOrgManager.tutorOrgPath,name='createTutorOrgPath'),
   path('deleteProfile', Fuser.deleteProfile,name='deleteprofile'),
   path('rateSession',Fstudent.ratePage,name='ratesession'),
   path('createRating',Fstudent.rate,name='sendrating'),
@@ -44,7 +45,13 @@ urlpatterns = [
   path('tutororgman/', TutorOrgManList.as_view()),
   path('tutororgman/<str:pk>/', TutorOrgManDetail.as_view()),
   path('tutorsession/', TutorSessionList.as_view()),
-  path('tutorsession/<str:pk>/', TutorSessionDetail.as_view())
+  path('tutorsession/<str:pk>/', TutorSessionDetail.as_view()),
+  path('tutororganization/', TutorOrganizationList.as_view()),
+  path('tutororganization/<str:pk>/', TutorOrganizationDetail.as_view()),
+  path('class/', ClassList.as_view()),
+  path('class/<str:pk>/', ClassDetail.as_view()),
+  path('review/', ReviewList.as_view()),
+  path('review/<str:pk>/', ReviewDetail.as_view()),
 
 ]
 

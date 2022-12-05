@@ -9,7 +9,7 @@ from django.shortcuts import render
 import random
 from api.models.TutorOrgManager import *
 from api.models.TutorOrganization import TutorOrganization
-from api.classes.TutorOrganization import CTutorOrganization
+from api.classes.TutorOrgManager import CTutorOrgManager
 #from api.forms import TutorOrgForm
   
 class FtutorOrgManager():
@@ -20,7 +20,7 @@ class FtutorOrgManager():
 
     def createTutorOrg(request):
         if request.method=="POST":
-            CTutorOrganization.createTutorOrganization(request)
+            CTutorOrgManager.createTutorOrganization(request)
             alltutorgs=TutorOrganization.objects.all
             #fill in parameters later
             # need to create tutor before able to finish

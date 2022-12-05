@@ -7,6 +7,7 @@ from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 import random
+from api.classes.TutorOrganization import CTutorOrganization
 #from api.classes.TutorOrganization import *
 
   
@@ -20,11 +21,7 @@ class FtutorOrg():
     sessionID= FtutorOrg.createID()
     
     if request.method =="POST":
-      DclassID=request.POST['classID']
-      DtutorSessID=sessionID
-      Ddate= request.POST['date']
-      Drate= '0'
-      TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)        
+      CTutorOrganization.createSession(request)       
       return render(request,'tutorOrghome.html',{})
       
     else:

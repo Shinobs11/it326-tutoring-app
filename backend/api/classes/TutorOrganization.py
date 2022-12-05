@@ -1,6 +1,7 @@
 from api.models.TutorOrganization import TutorOrganization
 from api.models.TutorOrgManager import TutorOrgManager
 import random
+from api.models.TutorSession import TutorSession
 class CTutorOrganization:
     _tutorOrgID: int
     _numOfSessions: int
@@ -10,9 +11,11 @@ class CTutorOrganization:
     def __init__(self, manager):
         self._tutorOrgID = manager.tutorOrgManagerID
 
+    def createSession(request):
+        DclassID=request.POST['classID']
+        DtutorSessID=sessionID
+        Ddate= request.POST['date']
+        Drate= '0'
+        TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)
     # Creates a tutor organization object
-    def createTutorOrganization(request):
-        TOM =TutorOrgManager.objects.filter(pk='7e5b1e7f-9ca5-499d-804a-e545a0116be5')# tutor org manager object
-        name=request.POST['Name']
-        instance=TutorOrganization.objects.create(tutOrgName=name) 
-        pass
+    

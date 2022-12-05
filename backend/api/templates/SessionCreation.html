@@ -5,9 +5,10 @@ Create your Session here
 <form method="POST" action = "{% url 'createSession' %}">
 {% csrf_token %}
     <br/>
+    
     <div class="mb-3">
         <input type="text" class="form-control" aria-describedby="emailHelp" 
-        placeholder="Tutor Org ID" name="tutOrg">
+        placeholder="Email" name="email"> Enter your email
       </div>
       
     <br/>

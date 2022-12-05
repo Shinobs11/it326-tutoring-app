@@ -24,6 +24,8 @@ class CUser(ABC):
         item = User.objects.all().filter(email_address=eml)
         if not item:
             return False
+        else:
+            return True
     def authenticate(eml,passattempt):
         # TODO: Get the database table
         item= User.objects.get(email_address=eml)

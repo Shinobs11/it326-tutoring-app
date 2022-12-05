@@ -16,3 +16,4 @@ class TutorSession(models.Model):
   classID = models.ForeignKey(Class,blank=False, null=False, on_delete=models.DO_NOTHING)
   tutorSessID = models.PositiveSmallIntegerField(primary_key=True)
   date = models.DateTimeField(default=now)
+  location = models.CharField(default="No Location",max_length=50)

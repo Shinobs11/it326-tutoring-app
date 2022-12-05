@@ -9,9 +9,9 @@ class CTutorOrgManager(CUser):
         self.__tutorOrgManagerID = tomID
 
     def createTutorOrganization(request):
-        TOM =TutorOrgManager.objects.filter(pk='e3e70682-c209-4cac-a29f-6fbed82c07cd')# tutor org manager object
+        TOM =TutorOrgManager.objects.filter(pk='7e5b1e7f-9ca5-499d-804a-e545a0116be5')# tutor org manager object
         name=request.POST['Name']
-        instance=TutorOrganization.objects.create() 
+        instance=TutorOrganization.objects.create(tutOrgName=name) 
         pass
 
     def createTutorSession(self, TutorOrganization) -> CTutorSession:

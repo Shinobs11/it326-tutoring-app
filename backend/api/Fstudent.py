@@ -12,6 +12,7 @@ from api.classes.User import CUser
 from api.classes.Student import CStudent
 from api.classes.Review import CReview
 from api.classes.TutorSession import CTutorSession
+from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.classes.Student import CStudent
 from api.models.Review import Review
 
@@ -47,6 +48,7 @@ class Fstudent():
   #TODO Check if email is a Student email
   #TODO Drop-down menu for tutor sessions?
   # TODO Change getUser to getStudent
+  #TODO Allow same student to make multiple reviews
   def rate(request):
     if request.method =='POST':
       email = request.POST['email']
@@ -59,13 +61,28 @@ class Fstudent():
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
       stu = CUser.getUser(email)
-      #TODO Fix this issue
-      Review.objects.create(student="866f9db6-a29d-451c-a846-da924a996196", rating=rating,tutSess=session)
+      sess = DB_TutorSession.objects.get(sessName=session)
+      Review.objects.create(student=stu, rating=rating,tutSess=sess)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
 
     else:
       return render(request, 'reviewTutor.html', {'msg': "Enter info"})
 
-    #TODO
+    #TODO Check for already enrolled users
+    #TODO Make sure user is a student/tutor
+    #TODO Test edge cases
   def registerSess(request):
-    pass
+    if request.method == 'POST':
+      email = request.POST['email']
+      session = request.POST['name']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'registerSession.html', {'msg': "Not your email!"})
+      if not CTutorSession.getSess(session):
+        return render(request, 'registerSession.html', {'msg': "Not a session!"})
+      sess = DB_TutorSession.objects.get(sessName=session)
+      stu = CUser.getUser(email)
+      sess.student.add(stu)
+      sess.save()
+      return render(request, 'studenthome.html', {'msg': "Enrolled"})
+    else:
+      return render(request, 'registerSession.html', {'msg': "Enter info"})

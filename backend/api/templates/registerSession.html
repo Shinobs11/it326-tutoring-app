@@ -1,55 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Form</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<title>Contact</title>
-</head>
-<body>
-        <div class="header">
-            <img src = "snake.png" class="logo" width="100px" height="100px">
-            <div class="header-right">
-              <a href="index.html">CURRENT APPT</a>
-              <a href="cover.html">SETTINGS</a>
-              <a class="active" href="reg.html">CLASS REGISTRATION</a>
-              <a href="reviewTutor.html">REVIEW</a>
-            </div>
-          </div>
+Enroll in a Session
 
-          <div style="padding-left:20px">
-
-          </div>
-<div align="center">
-<!--Adds a heading to the form-->
-<h1>CLASS REGISTRATION</h1>
-Select Class Name:
-<!-- Input type text for small texts, specify size -->
-<input type="text" name="UserName" size=35 maxlength=35 value="">
-<!--Adds spaces - remove and see what happens -->
-</br></br>
-Select Session Date:
-<input type="text" name="Deptt" size=35 maxlength=35 value=""> </br> </br>
-</p>
-Select Time for Tutor Session
-<p>
-<!--Checkbox lets you select multiple options -->
-<input type="checkbox" name="Books">10 am
-<input type="checkbox" name="Web">11 am
-<input type="checkbox" name="Phone">12 pm
-<input type="checkbox" name="Magazines">1 pm
-</p>
-
-</br></br>
-<!--submits the information entered in the form by the user -->
-
-<a href="mailto:dbobzin3@gmail.com">  <input type=submit Submit form></a>
+<form method="POST" action = "{% url 'registersess' %}">
+{% csrf_token %}
+    <br/>
 
 
-</div>
-</form>
-</body>
-</html>
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="User's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor Session Name" name="name">
+    </div>
+    <br/>
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+
+    <div class="button-container">
+      <button><span>Remove</span></button>
+    </div>
+  </form>

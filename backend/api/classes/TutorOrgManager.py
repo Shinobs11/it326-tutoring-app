@@ -1,4 +1,6 @@
 from api.classes.User import CUser
+from api.models.User import User
+from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.TutorSession import CTutorSession
 from api.classes.TutorOrganization import CTutorOrganization
 from api.models.TutorOrgManager import TutorOrgManager
@@ -21,5 +23,13 @@ class CTutorOrgManager(CUser):
     def assignTutor(self,Tutor, TutorSession):
         TutorSession.register()
         pass
-      
 
+        # Checks if email is a tutorOrgMan
+    def tutorOrgManEmailCheck(eml):
+        item = User.objects.get(email_address=eml)
+        item = TutorOrgManager.objects.filter(user=item)
+        # If empty...
+        if not item:
+            return True
+        else:
+            return False

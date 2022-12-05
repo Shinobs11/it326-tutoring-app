@@ -14,6 +14,8 @@ from api.classes.Review import CReview
 from api.classes.TutorSession import CTutorSession
 from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.classes.Student import CStudent
+from api.classes.TutorOrgManager import CTutorOrgManager
+from api.classes.Tutor import CTutor
 from api.models.Review import Review
 from api.models.TutorSession import TutorSession
 
@@ -48,7 +50,7 @@ class Fstudent():
     TS=TutorSession.objects.all()#TS is for tutorsessions
     return render(request, 'registerSession.html',{'tutsess':TS})
 
-  #TODO Fix email check, fix session check (check only sessions in user's account)
+  #TODO Fix session check (check only sessions in user's account)
   #TODO Drop-down menu for tutor sessions?
   #TODO Allow same student to make multiple reviews
   def rate(request):
@@ -56,6 +58,9 @@ class Fstudent():
       email = request.POST['email']
       session = request.POST['session']
       rating = request.POST['rating']
+      #Checks if email is in DB
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'registerSession.html', {'msg': "Email not in DB"})
       #Checks if email is of a student
       if CStudent.studentEmailCheck(email):
         return render(request, 'reviewTutor.html', {'msg': "Not a student email!"})
@@ -74,15 +79,17 @@ class Fstudent():
     else:
       return render(request, 'reviewTutor.html', {'msg': "Enter info"})
 
-    #TODO Check for already enrolled users
-    #TODO Make sure user is a student/tutor
     #TODO Test edge cases
-  def registerSess(request):
+    # TODO What if a user is also a tutOrgMan and Tutor????
+  def registerStudentSess(request):
     if request.method == 'POST':
       email = request.POST['email']
       session = request.POST['name']
       if not CUser.registerEmailCheck(email):
         return render(request, 'registerSession.html', {'msg': "Not your email!"})
+        #CHecks if a student or not
+      if CStudent.studentEmailCheck(email):
+        return render(request, 'registerSession.html', {'msg': "Not a student email!"})
       if not CTutorSession.getSess(session):
         return render(request, 'registerSession.html', {'msg': "Not a session!"})
       sess = DB_TutorSession.objects.get(sessName=session)

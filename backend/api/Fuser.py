@@ -52,6 +52,7 @@ class Fuser():
     else:
       return render(request,'createProfile.html',{})
 
+  #TODO Functionality to only delete your own account
   def deleteProfile(request):
     UserFactory.deleteUser(request)
     return render(request,'login.html',{'messagedelete':'Successfully Deleted'})

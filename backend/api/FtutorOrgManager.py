@@ -9,9 +9,12 @@ from django.shortcuts import render
 import random
 from api.models.TutorOrgManager import *
 from api.models.TutorOrganization import TutorOrganization
+from api.classes.TutorOrgManager import CTutorOrgManager
 from api.classes.TutorOrganization import CTutorOrganization
 from api.classes.TutorSession import CTutorSession
 from api.classes.User import CUser
+from api.classes.Student import CStudent
+from api.classes.Tutor import CTutor
 from api.models.TutorSession import TutorSession as DB_TutorSession
 from api.models.User import User as DB_User
 from api.models.TutorOrgManager import TutorOrgManager
@@ -29,8 +32,9 @@ class FtutorOrgManager():
     def tutorOrgPath(request):
         return render(request, 'TutorOrgCreation.html', {})
 
+
+
     #TODO Add functionality to check if that user is registered under that session
-    #TODO Check that user is a student/tutor (to remove)
     def removeUser(request):
         if request.method == "POST":
             email = request.POST['email']
@@ -48,6 +52,8 @@ class FtutorOrgManager():
             return render(request,'tutOrgMgrhome.html',{'msg': "Removed user"})
         else:
             return render(request, 'deleteUser.html', {'msg': "Enter info"})
+
+
 
     #TODO Add other values (tutors, tutor sess)
     # TODO Check if email is a TutOrgMan email

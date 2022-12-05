@@ -21,8 +21,6 @@ urlpatterns = [
   path('studenthome',Fstudent.studenthome,name="studenthome"),
   path('rateSession',Fstudent.ratePage,name='ratesession'),
   path('createRating',Fstudent.rate,name='sendrating'),
-  path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
-  path('stuRegForSes',Fstudent.registerSess,name='stuRegForSes'),
   path('tutorhome',Ftutor.tutorhome,name="tutorhome"),
   path('tutorOrgMgrHome',FtutorOrgManager.tutorOrgMgrhome,name="tutorOrgMgrHome"),
   path('tutorsessions',Fstudent.showtutorSessions,name='tutorsession'),
@@ -34,10 +32,12 @@ urlpatterns = [
   path('rateSession',Fstudent.ratePage,name='ratesession'),
   path('createRating',Fstudent.rate,name='sendrating'),
   path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
-  path('RegisterforSess',Fstudent.registerSess,name='registersess'),
+  path('RegisterforSess',Fstudent.registerStudentSess,name='registersess'),
   path('RemoveUserPath', FtutorOrgManager.removeUserPath, name='removeuserpath'),
   path('RemoveUser',FtutorOrgManager.removeUser,name='removeuser'),
   path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
+  path('RegisterforSessTutorPath',Ftutor.registerTutorSessPage, name='registerforsesstutpage'),
+  path('RegisterforSessTutor',Ftutor.registerTutorSess,name='registersesstut'),
 
   #these are for the API
   path('user/', UserList.as_view()),

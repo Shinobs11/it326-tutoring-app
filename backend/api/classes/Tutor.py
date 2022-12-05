@@ -1,4 +1,6 @@
 from api.classes.User import CUser
+from api.models.User import User
+from api.models.Tutor import Tutor
 class CTutor(CUser):
     __tutorID:int
     __rating: float
@@ -21,3 +23,13 @@ class CTutor(CUser):
     #@Override
     def update(self, content):
         pass # Tutor's Update method
+
+    #Checks if email is a tutor
+    def tutorEmailCheck(eml):
+        item = User.objects.get(email_address=eml)
+        item = Tutor.objects.filter(user=item)
+        #If empty...
+        if not item:
+            return True
+        else:
+            return False

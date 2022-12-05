@@ -11,17 +11,11 @@ class CTutorOrganization:
     def __init__(self, manager):
         self._tutorOrgID = manager.tutorOrgManagerID
 
-    def createSession(request,sesID):
-        
-        DtutorSessID=sesID
+    def createSession(request):
+        DclassID=request.POST['classID']
+        DtutorSessID=sessionID
         Ddate= request.POST['date']
-        SesName=request.POST['SessionName']
-        loca=request.POST['location']
-        instance=TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate,sessName=SesName,location=loca)
-        
-        TOinstance=TutorOrganization.objects.get(tutOrgName=request.POST['TutorOrgName'])
-        TOinstance.tutorSessID=instance
-        TOinstance.save()
-        
+        Drate= '0'
+        TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)
     # Creates a tutor organization object
     

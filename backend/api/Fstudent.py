@@ -17,6 +17,7 @@ from api.classes.Student import CStudent
 from api.classes.TutorOrgManager import CTutorOrgManager
 from api.classes.Tutor import CTutor
 from api.models.Review import Review
+from api.classes.Review import CReview
 from api.models.TutorSession import TutorSession
 
 
@@ -67,10 +68,10 @@ class Fstudent():
       #Checks if session exists
       if not CTutorSession.getSess(session):
         return render(request, 'reviewTutor.html', {'msg': "Not a session!"})
-      #if CTutorSession.userInSess(email,session):
-       #return render(request, 'reviewTutor.html', {'msg': "Not in this session!"})
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
+      if CReview.ifRatingExists(email,session):
+        return render(request, 'reviewTutor.html', {'msg': "Review already filed with this tutor session"})
       stu = CUser.getStudent(email)
       sess = DB_TutorSession.objects.get(sessName=session)
       Review.objects.create(student=stu, rating=rating,tutSess=sess)

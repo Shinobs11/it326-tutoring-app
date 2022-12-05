@@ -117,9 +117,6 @@ class Session(APIView):
   pass
 
 
-
-
-'''
 class ReviewList(UserList):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer

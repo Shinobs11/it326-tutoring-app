@@ -31,7 +31,11 @@ urlpatterns = [
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
   path('CreateTutorOrgPath',FtutorOrgManager.tutorOrgPath,name='createTutorOrgPath'),
   path('deleteProfile', Fuser.deleteProfile,name='deleteprofile'),
-  path('RemoveUser', FtutorOrgManager.removeUserPath, name='removeuserpath'),
+  path('rateSession',Fstudent.ratePage,name='ratesession'),
+  path('createRating',Fstudent.rate,name='sendrating'),
+  path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
+  path('RegisterforSess',Fstudent.registerSess,name='registersess'),
+  path('RemoveUserPath', FtutorOrgManager.removeUserPath, name='removeuserpath'),
   path('RemoveUser',FtutorOrgManager.removeUser,name='removeuser'),
   path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
 

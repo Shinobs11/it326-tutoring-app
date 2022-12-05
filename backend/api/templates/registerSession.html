@@ -1,21 +1,28 @@
-Select the Tutor Session you would like to register 
+Enroll in a Session
+
+<form method="POST" action = "{% url 'registersess' %}">
+{% csrf_token %}
+    <br/>
 
 
-<table class="table table-striped table-bordered table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">TutSessionName</th>
-      <th scope="col">Date</th>
-      <th scope="col">Register</th>
-  </tr>
-  </thead>
-<tbody>
-{% for tut in tutsess %}
-  <tbody>
-      <tr>
-          <th scope="row">{{ tut.sessName }}</th>
-          <td> {{ tut.date }}</td>
-          <td><a href="{% url 'TutSesInfoPg' tut.tutorSessID %}">Register
-      <tr/>
-{% endfor %}
-{{tutsess}}
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="User's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor Session Name" name="name">
+    </div>
+    <br/>
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+
+    <div class="button-container">
+      <button><span>Remove</span></button>
+    </div>
+  </form>

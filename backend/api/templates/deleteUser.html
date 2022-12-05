@@ -18,11 +18,13 @@ Remove a User from a Session
       placeholder="Tutor Session Name" name="name">
     </div>
     <br/>
+
     <div>
         {% if msg %}
           <h1> {{ msg }} </h1>
           {% endif %}
     </div>
-
-    <a class="btn btn-primary" href="{% url 'removeuser' %}">Remove</a>
+<div class="button-container">
+      <button><span>Remove</span></button>
+    </div>
   </form>

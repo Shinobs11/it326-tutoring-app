@@ -46,7 +46,8 @@ class CUser(ABC):
             return False
 
     def getUser(email):
-        item = User.objects.get(student="866f9db6-a29d-451c-a846-da924a996196")
+        item = User.objects.get(email_address=email)
+        item = item.student
         return item
 
 

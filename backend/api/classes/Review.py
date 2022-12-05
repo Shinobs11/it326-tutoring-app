@@ -10,13 +10,12 @@ class CReview():
     def __init__(self):
         _orgFeedback, _sesFeedback = "N/A"
 
-    def rateTutorSess(self, rating: int):
+    def checkRating(self, rating: int):
         #Rating for Tutor Session
         if (rating<=5 or rating>=1):
-            # TODO Front-end functionality
-            self._sesFeedback = str(input("Enter feedback"))
+            return True
         else:
-            print("Invalid rating value")
+            return False
 
         # TODO: Return values to the Tutor Sess
 

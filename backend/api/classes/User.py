@@ -38,19 +38,8 @@ class CUser(ABC):
         else:
             return False
 
-            
-
-    def checkpassword(psw1,psw2):
-        if psw1==psw2:
+    def checkpassword(pswd,psw2):
+        if(pswd==psw2):
             return True
         else:
             return False
-
-    def register(fn,ln,eml,phn,pswd,pswd2):
-        pass
-        
-        
-
-    #@abstractmethod
-    def update(self, content): # Updates
-        pass

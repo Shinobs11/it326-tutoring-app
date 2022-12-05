@@ -4,304 +4,664 @@ import { tutorOrgManagerMap } from "./tutorOrgManagerSample"
 import {User, Student, Tutor, TutorOrgManager} from "../classes"
 const userData = [
   {
-      "uid": "28259b01-306c-47e6-a164-86ba9cc76843",
-      "first_name": "Megan",
-      "last_name": "Chang",
-      "email_address": "gwilliams@example.com",
-      "phone_number": "(475)938-2421x9489",
-      "student": "95116ed7-7e3d-497d-9229-15156807715d",
-      "tutor": null,
-      "tutorOrgManager": null
+      "uid": "e3e70682-c209-4cac-a29f-6fbed82c07cd",
+      "first_name": "Robert",
+      "last_name": "Green",
+      "email_address": "ysullivan@example.com",
+      "phone_number": "593.824.2194x8924",
+      "student": null,
+      "tutor": "e61a441c-12e0-48b2-bad6-40fb19488dec",
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "45b8d2f3-2424-47f6-8467-1b572f2b376f",
-      "first_name": "Kyle",
-      "last_name": "Blair",
-      "email_address": "thomas15@example.com",
-      "phone_number": "938-778-4080x16097",
+      "uid": "78de5857-5487-4e1e-af19-922ad9b8a714",
+      "first_name": "Anita",
+      "last_name": "Gomez",
+      "email_address": "cheryl38@example.com",
+      "phone_number": "840.801.6097x535",
+      "student": null,
+      "tutor": "30e9c5cc-101f-4ccc-9ed7-33e8b421eaeb",
+      "tutorOrgManager": "3d15eef7-38c1-462e-9148-624feac1c14f",
+      "password": "J=genius"
+  },
+  {
+      "uid": "cd9d2b7d-247a-4333-b7b0-b7d2cda8056c",
+      "first_name": "Amy",
+      "last_name": "Davis",
+      "email_address": "nancy71@example.com",
+      "phone_number": "+1-418-583-9894",
+      "student": "3dfabc08-935d-4d72-9129-fb7c6288e1a5",
+      "tutor": "cc457821-98a6-416d-9775-336d71eacd05",
+      "tutorOrgManager": "2fcd81b5-d24b-4ce4-b07b-f3262f120554",
+      "password": "J=genius"
+  },
+  {
+      "uid": "a81ad477-fb36-45b8-9cde-b3e60870e15c",
+      "first_name": "Jordan",
+      "last_name": "Jones",
+      "email_address": "nancymclean@example.org",
+      "phone_number": "001-868-483-3969x477",
+      "student": null,
+      "tutor": "b341facd-ff0a-40f1-a425-799aa905d750",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "5b7c709a-cb17-4a5a-bb82-860deabca8d0",
+      "first_name": "Christopher",
+      "last_name": "Salazar",
+      "email_address": "vmatthews@example.org",
+      "phone_number": "041.352.5601",
       "student": null,
       "tutor": null,
-      "tutorOrgManager": "5e82501f-935b-4d11-99d1-b420a8344020"
+      "tutorOrgManager": "b29a8b06-daf6-4c5f-a577-bffac87a7463",
+      "password": "J=genius"
   },
   {
-      "uid": "1d822224-290f-4368-a730-d55b8b9aa8bb",
-      "first_name": "Maria",
-      "last_name": "Cook",
-      "email_address": "jane13@example.net",
-      "phone_number": "328.711.5871",
-      "student": "c1ecc1b6-7bfd-4d72-bb35-d4462a39eddf",
-      "tutor": "fa7b12ae-092e-4db4-9945-9607b0ee9b28",
-      "tutorOrgManager": "6cdb3b93-1370-4e9d-9282-c38728df5dc2"
-  },
-  {
-      "uid": "819cbf75-834e-489c-a8b7-e3ef9bcbd112",
-      "first_name": "Andrea",
-      "last_name": "Mann",
-      "email_address": "lisa83@example.net",
-      "phone_number": "+1-947-196-5934",
+      "uid": "92e8e269-d12e-4bc4-8b94-75b138018b47",
+      "first_name": "Cynthia",
+      "last_name": "Zuniga",
+      "email_address": "johnsoncynthia@example.net",
+      "phone_number": "001-161-510-9032",
       "student": null,
       "tutor": null,
-      "tutorOrgManager": "e70f10fd-8399-4bfb-b996-84d73c137826"
+      "tutorOrgManager": "35e8579a-7aaf-4e89-9fb7-97fab7d6467b",
+      "password": "J=genius"
   },
   {
-      "uid": "6dd4085e-7bb7-4785-a39d-d5bcd3788551",
-      "first_name": "Ivan",
-      "last_name": "Underwood",
-      "email_address": "salazardiane@example.com",
-      "phone_number": "122-018-6848",
+      "uid": "efdd35f8-0fa3-4266-8cfd-ba9bba26d851",
+      "first_name": "Erin",
+      "last_name": "Stephens",
+      "email_address": "huffchad@example.org",
+      "phone_number": "+1-456-208-7091x6345",
+      "student": null,
+      "tutor": "d69c91c2-7860-4602-bb4a-06cbe786ab37",
+      "tutorOrgManager": "2b5f6932-91dc-49ef-ab21-a3f6e6fd68e8",
+      "password": "J=genius"
+  },
+  {
+      "uid": "f76fbfb8-3412-4c12-ac32-2c12b29c467d",
+      "first_name": "Katrina",
+      "last_name": "Kramer",
+      "email_address": "meganpeterson@example.com",
+      "phone_number": "972-076-9845",
+      "student": "403d1f83-a859-490c-9670-f668637e0edc",
+      "tutor": null,
+      "tutorOrgManager": "753c7c99-032f-46ca-b0d9-c2aa8f837ef7",
+      "password": "J=genius"
+  },
+  {
+      "uid": "bd30291a-55fe-408e-943e-2e04bdd7d19b",
+      "first_name": "Brandon",
+      "last_name": "Campbell",
+      "email_address": "kathleenolson@example.net",
+      "phone_number": "599-246-6109x3523",
       "student": null,
       "tutor": null,
-      "tutorOrgManager": null
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "fa165aba-0ea4-4529-bcfa-19ae75d1f60f",
-      "first_name": "Lisa",
-      "last_name": "Atkinson",
-      "email_address": "criley@example.com",
-      "phone_number": "+1-515-917-9533x04135",
-      "student": "77994567-6e5e-474b-8a4e-8479bb8efd87",
-      "tutor": "b9a5fbac-0893-48d5-80b7-0c520db3ad75",
-      "tutorOrgManager": "52c41b06-0f38-42b2-95d6-158e5c128440"
-  },
-  {
-      "uid": "593bebb3-9db4-44b3-91b8-26822f582457",
-      "first_name": "Marvin",
-      "last_name": "Cabrera",
-      "email_address": "loganmelissa@example.org",
-      "phone_number": "9891013991",
-      "student": null,
-      "tutor": "06edfa00-6832-4a80-9860-d3e304bac8a2",
-      "tutorOrgManager": "15d05543-af83-48f3-bb33-b0aaedc5b473"
-  },
-  {
-      "uid": "a3a0c45b-fbb7-49b6-b928-6ff602734fb6",
-      "first_name": "Peter",
-      "last_name": "Wood",
-      "email_address": "johnsonandrew@example.org",
-      "phone_number": "001-173-008-6914x131",
-      "student": "df673db1-c991-4c1c-a960-77c2f1a3cc45",
-      "tutor": "91dcef25-893e-4346-b5a3-5407df91c1fb",
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "8175b1cb-7f76-42e1-995c-bcbc32a70bd0",
-      "first_name": "Kevin",
-      "last_name": "Graham",
-      "email_address": "gordonbenjamin@example.org",
-      "phone_number": "001-634-579-2302x258",
-      "student": "485c45ee-6919-472e-92e9-264264f4e49f",
-      "tutor": "1f3699b4-18d2-4bad-beaf-c047a1aac07b",
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "7e648ac7-b988-49dd-bb43-c8ca164e8fbc",
-      "first_name": "David",
-      "last_name": "Morse",
-      "email_address": "alexandermaldonado@example.net",
-      "phone_number": "456.428.0715x08423",
-      "student": null,
-      "tutor": null,
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "5c641b34-2ac1-4e9a-969f-25cb08d7f7a5",
-      "first_name": "Kathleen",
-      "last_name": "Olson",
-      "email_address": "emily99@example.org",
-      "phone_number": "001-466-109-3523x376",
-      "student": "71f364ba-4846-42f4-ab8e-5cd92d867492",
-      "tutor": null,
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "e3972195-94cd-46fa-a83b-f2c3a8112573",
-      "first_name": "Nancy",
-      "last_name": "Carroll",
+      "uid": "60ef1471-72b8-4f39-a32c-9b6f391cf046",
+      "first_name": "Jennifer",
+      "last_name": "Nunez",
       "email_address": "sjohnson@example.net",
       "phone_number": "(027)142-7878x90075",
-      "student": "790b9862-4891-4038-ae5d-80d5a8baf1b0",
+      "student": "0cc36d8c-7786-4fe5-9675-ebf74fe30c9a",
       "tutor": null,
-      "tutorOrgManager": null
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "1f3c3c3e-130a-4155-b765-92252cccc7fe",
-      "first_name": "Mary",
-      "last_name": "Williams",
-      "email_address": "olopez@example.org",
-      "phone_number": "001-206-650-3008x9131",
+      "uid": "f689a4a5-ffda-4336-8c6e-90373020da5c",
+      "first_name": "Cynthia",
+      "last_name": "Miller",
+      "email_address": "valeriemorales@example.net",
+      "phone_number": "(503)008-9131x93442",
+      "student": "0597aab6-14d3-4dbc-a0ac-f4c9658de17e",
+      "tutor": "ec3aa314-da9b-4017-b9c1-47c719a5711b",
+      "tutorOrgManager": "cad6e514-ccc1-4d51-b3f6-60d8e9f41cc0",
+      "password": "J=genius"
+  },
+  {
+      "uid": "2227d96d-41a9-4f90-9c82-15271da3b7e2",
+      "first_name": "Desiree",
+      "last_name": "Roth",
+      "email_address": "darin24@example.org",
+      "phone_number": "0348559097",
       "student": null,
-      "tutor": "427609c4-7690-46fc-b378-71306d9e6a69",
-      "tutorOrgManager": "c8482411-bda3-4da6-ab88-88beec46c06f"
+      "tutor": "756b0715-e718-4322-a4e6-95c9b65d1226",
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "ffb573c8-fe83-41ea-bd68-2b2d207bd63b",
-      "first_name": "Charlene",
-      "last_name": "Gonzalez",
-      "email_address": "joshua21@example.com",
-      "phone_number": "(104)714-2851x2400",
-      "student": "875f0b6a-daac-4ca7-9878-7d26b788c3b5",
-      "tutor": null,
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "1fef0ad6-f943-47fb-b3e3-ca1a6544229d",
-      "first_name": "Jamie",
-      "last_name": "Green",
-      "email_address": "stacey90@example.net",
-      "phone_number": "001-977-658-2369x402",
-      "student": "a58feb0c-66fd-4494-8c01-60e459c50268",
-      "tutor": null,
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "70e69f3d-0549-4f60-a40f-f6b14fb70757",
-      "first_name": "Joseph",
-      "last_name": "Morgan",
-      "email_address": "jennifer59@example.org",
-      "phone_number": "4229456824",
-      "student": "8dbb491c-7e1c-4396-bd12-2d7c90a0a2d7",
-      "tutor": "d0a30558-78a6-4050-aa2c-d349de9021ca",
-      "tutorOrgManager": "ba91beeb-567a-46bb-853c-fdde26c63718"
-  },
-  {
-      "uid": "5cf73fb6-d816-4435-a745-31083e6c0a50",
-      "first_name": "Timothy",
-      "last_name": "Allen",
-      "email_address": "parkermelody@example.net",
-      "phone_number": "465-461-1877",
-      "student": null,
-      "tutor": null,
-      "tutorOrgManager": "c4d3bf6e-7ca3-44d1-b24e-438082c2cd8b"
-  },
-  {
-      "uid": "6eff27f2-2dbc-4eb9-a372-0341077ab0dd",
-      "first_name": "Matthew",
-      "last_name": "Yates",
-      "email_address": "david17@example.com",
-      "phone_number": "4522961113",
-      "student": "ff5f3154-d485-4357-ba66-72cccf339465",
-      "tutor": null,
-      "tutorOrgManager": "9645a6fb-3265-4ac2-a570-7e038b42435a"
-  },
-  {
-      "uid": "9e929e4b-37e0-4d51-a96b-22a2da7723d2",
-      "first_name": "Jeffrey",
-      "last_name": "Cruz",
-      "email_address": "longapril@example.com",
-      "phone_number": "936.153.4926x3511",
-      "student": null,
-      "tutor": null,
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "9cdd49cc-35d7-435a-af78-db2975da549b",
-      "first_name": "Lynn",
-      "last_name": "Farrell",
-      "email_address": "leachshannon@example.net",
-      "phone_number": "176.430.3921",
-      "student": null,
-      "tutor": "029977b9-4aac-446d-ad05-5530b837396b",
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "581a3d35-cc30-4682-8ee6-570250975869",
-      "first_name": "James",
-      "last_name": "Gray",
-      "email_address": "danielcarlson@example.com",
-      "phone_number": "(966)875-7738",
-      "student": "2717b29e-e915-420c-bf9f-fda2a17c01fd",
-      "tutor": "7235051b-5860-47a9-92ff-414ad197070e",
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "99a23e65-cbfa-42ad-bebb-aeb66d5b3270",
-      "first_name": "Sarah",
-      "last_name": "Smith",
-      "email_address": "lisa08@example.org",
-      "phone_number": "926-947-1180x132",
-      "student": null,
-      "tutor": "a0747f33-871f-4d31-bf03-718d8fb262c2",
-      "tutorOrgManager": null
-  },
-  {
-      "uid": "58bc22e6-585c-4bf5-b94d-59580cae32b4",
-      "first_name": "Billy",
-      "last_name": "Smith",
-      "email_address": "krivera@example.org",
-      "phone_number": "+1-758-688-0918x9163",
-      "student": "2fa3e084-276d-4d01-b80d-6c780b7e6250",
-      "tutor": "46dfe3ef-e568-4916-a2e6-a4c9fb24a0df",
-      "tutorOrgManager": "9260c46c-2ffd-4a42-a7a7-a4067f537f94"
-  },
-  {
-      "uid": "71843fd7-a91b-40d7-9521-983af009c2d4",
+      "uid": "df14c612-5f58-45b5-af79-0959a3e04b3b",
       "first_name": "Amanda",
-      "last_name": "George",
-      "email_address": "ybruce@example.net",
-      "phone_number": "001-300-248-9451",
-      "student": null,
-      "tutor": "bcbacec8-4e19-4f1b-993f-7abeb106147b",
-      "tutorOrgManager": "269d2c4f-00d3-437d-a2d8-1c2321a558d6"
+      "last_name": "Clark",
+      "email_address": "alan24@example.com",
+      "phone_number": "515-900-4229x45682",
+      "student": "4ed13553-0c5a-476f-af0a-81ed3d5d60bc",
+      "tutor": "bb0378eb-7a62-422e-9d69-d9fc4b1cb8bd",
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "3cfdec86-6539-4bc3-b99b-b56143c79d0b",
-      "first_name": "Trevor",
-      "last_name": "Green",
-      "email_address": "kendra66@example.org",
-      "phone_number": "(234)500-7627",
-      "student": null,
-      "tutor": "05288a80-b8d2-480b-a6b3-fa93a73a1a40",
-      "tutorOrgManager": "197c8bd0-1cf5-4333-957b-08ad9cf77b38"
-  },
-  {
-      "uid": "9a9132d2-f3ec-4815-ba6a-8c21cf7b22c1",
-      "first_name": "Pamela",
-      "last_name": "Guzman",
-      "email_address": "nunezedward@example.com",
-      "phone_number": "(097)670-1720x09925",
+      "uid": "122411e6-ba89-42dd-85e6-9ea9db66bfda",
+      "first_name": "Kevin",
+      "last_name": "Houston",
+      "email_address": "robert18@example.com",
+      "phone_number": "551.717.6045x2296",
       "student": null,
       "tutor": null,
-      "tutorOrgManager": null
+      "tutorOrgManager": "a38d8afc-fdd2-4d7a-b97c-cc57ce5dc807",
+      "password": "J=genius"
   },
   {
-      "uid": "2252096f-f70a-469f-a52c-cd3e0d3a939d",
-      "first_name": "Daniel",
-      "last_name": "Dunn",
-      "email_address": "james71@example.org",
-      "phone_number": "+1-795-194-2641x830",
+      "uid": "15ace7a1-ceca-4ee3-90da-8a9516408169",
+      "first_name": "James",
+      "last_name": "Walker",
+      "email_address": "zsmith@example.net",
+      "phone_number": "477.936.1534x92635",
+      "student": "e72bb5b7-0712-4911-b3b6-8b57da54f267",
+      "tutor": "dd138266-d26d-4396-9058-fe8c1d7173e5",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "33a1d1c2-ad4a-4155-809f-cd8f739cd488",
+      "first_name": "David",
+      "last_name": "Sanders",
+      "email_address": "danielleshea@example.org",
+      "phone_number": "+1-213-765-8219x729",
       "student": null,
+      "tutor": "6c596216-ae0f-4bc8-a36b-cb0167e98363",
+      "tutorOrgManager": "ade7cef3-7ed2-4c2f-856f-3d95e0ae1a1b",
+      "password": "J=genius"
+  },
+  {
+      "uid": "d5627386-528c-4241-a345-ac72eac39204",
+      "first_name": "Vernon",
+      "last_name": "Jimenez",
+      "email_address": "amyvelazquez@example.org",
+      "phone_number": "550-824-9269x47118",
+      "student": "10fc9eee-0a17-47f7-aa5f-24b6de6fec4b",
       "tutor": null,
-      "tutorOrgManager": null
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "73312c33-5620-4fd9-af65-4ee863be9191",
-      "first_name": "Kimberly",
-      "last_name": "Wallace",
-      "email_address": "stanleyclarke@example.org",
-      "phone_number": "0740899331",
-      "student": null,
-      "tutor": "e6dae9eb-d13e-4c73-ab03-192189eb5a15",
-      "tutorOrgManager": "3059a91b-924d-4dae-aa09-45663863aa11"
+      "uid": "03e9ba02-4cea-4df0-8a66-dc4e21681081",
+      "first_name": "Katherine",
+      "last_name": "West",
+      "email_address": "laurenmelton@example.com",
+      "phone_number": "(868)809-1891x634",
+      "student": "d872298c-7b72-490b-b8f8-f071d360da69",
+      "tutor": "6af79ad2-993e-48c6-a6b1-06e289110af0",
+      "tutorOrgManager": "d9efe28b-3bcb-40b3-961d-8dcf9b8086da",
+      "password": "J=genius"
   },
   {
-      "uid": "e261aa9f-06dc-46bb-b29c-a12fb26d864a",
-      "first_name": "Kimberly",
-      "last_name": "Wilkerson",
+      "uid": "a83023ab-053e-4b42-8c4d-a021dd620222",
+      "first_name": "Nicole",
+      "last_name": "Yang",
+      "email_address": "william45@example.org",
+      "phone_number": "446.660.2234x5007",
+      "student": "e3d48408-7de8-4234-a412-579d6af944e0",
+      "tutor": null,
+      "tutorOrgManager": "b2ddc481-ac6d-4df8-94e5-064cb799ae8e",
+      "password": "J=genius"
+  },
+  {
+      "uid": "5a4f4145-fc98-4279-8f6f-111c26c06e67",
+      "first_name": "Robert",
+      "last_name": "Carr",
+      "email_address": "gellis@example.com",
+      "phone_number": "001-200-992-5185x36710",
+      "student": "a6855857-567e-4862-af15-1673a1df3da7",
+      "tutor": "9d44c93e-7799-48e2-b368-c5539c30ceaa",
+      "tutorOrgManager": "9f3dd894-b6af-48b2-aeba-42d0f8303249",
+      "password": "J=genius"
+  },
+  {
+      "uid": "208a393e-d960-4f85-89df-7e444bdffa7d",
+      "first_name": "Susan",
+      "last_name": "Hughes",
+      "email_address": "sabrina18@example.org",
+      "phone_number": "6753751007",
+      "student": "f1dd50bf-06d2-4d7c-a6ac-9d8a4160ff92",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "e0397e67-9261-46de-91ba-cf80aaa07996",
+      "first_name": "Jason",
+      "last_name": "Davis",
       "email_address": "hhunter@example.org",
       "phone_number": "(961)161-1620x76607",
-      "student": "3caff8eb-2f47-4537-af85-62e2bf47caf7",
-      "tutor": "1385cc5c-ea03-4d23-9b08-671c2febce90",
-      "tutorOrgManager": "9f591444-c27e-455c-a42f-585b780b1830"
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
   },
   {
-      "uid": "f0430d96-7e9e-4973-b802-98b76bff825a",
+      "uid": "53125ffd-f655-460b-9d32-e231eb561699",
       "first_name": "Jennifer",
       "last_name": "Miller",
       "email_address": "martinezheather@example.com",
       "phone_number": "(203)519-2303x104",
-      "student": "8639bc11-4672-4227-b8d1-18056433f2f2",
+      "student": "2452bc39-dbf2-4ed1-bb9c-ea959ad7558f",
+      "tutor": "eecb325b-064f-468d-b080-e0035e7f503c",
+      "tutorOrgManager": "582dd972-7a08-4ca8-9cc5-a8a0743c7e9d",
+      "password": "J=genius"
+  },
+  {
+      "uid": "215203c7-421a-415e-b58c-43ceb51d70d8",
+      "first_name": "Anthony",
+      "last_name": "Clark",
+      "email_address": "thomas44@example.net",
+      "phone_number": "+1-529-118-9426x2235",
+      "student": null,
       "tutor": null,
-      "tutorOrgManager": "13f5ce6f-b053-405e-bad7-f7fd57afcb8c"
+      "tutorOrgManager": "c13e66af-3c95-40d3-be2a-ad3e82221345",
+      "password": "J=genius"
+  },
+  {
+      "uid": "6b770df1-5f59-4a2c-8a82-e06a2f16fb50",
+      "first_name": "Elizabeth",
+      "last_name": "Callahan",
+      "email_address": "longjacqueline@example.org",
+      "phone_number": "(486)296-4513x75806",
+      "student": "f642c8f3-6acf-49eb-8228-4fd9689bba65",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "3438b4e4-70f8-4d99-9217-7eb7e6b920da",
+      "first_name": "Nathan",
+      "last_name": "Farley",
+      "email_address": "clementslaura@example.com",
+      "phone_number": "892-762-6623",
+      "student": "766229cc-5af9-4c78-a47f-4d9785fa2d5c",
+      "tutor": "efe6171b-5723-4959-b415-1accf5a3e893",
+      "tutorOrgManager": "c149fa8e-7bb8-42f1-9624-d318a32652e8",
+      "password": "J=genius"
+  },
+  {
+      "uid": "d4864482-0078-4b12-8b73-50d13421beaf",
+      "first_name": "Holly",
+      "last_name": "Montgomery",
+      "email_address": "robinsondanny@example.net",
+      "phone_number": "892-671-7386x4014",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": "00109824-0a61-4be3-ab22-12c9e23b580e",
+      "password": "J=genius"
+  },
+  {
+      "uid": "e3fbdbda-86ae-4d5c-a5ff-6adc41aef3f7",
+      "first_name": "Bonnie",
+      "last_name": "Foster",
+      "email_address": "francismichael@example.net",
+      "phone_number": "910.144.8518",
+      "student": "eb83af16-e404-4808-bfc1-8c00dc0520a4",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "4a294067-dc66-427b-aa32-5333116e8a64",
+      "first_name": "Justin",
+      "last_name": "Taylor",
+      "email_address": "amandajenkins@example.net",
+      "phone_number": "+1-644-759-2211",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": "77cb1a27-974f-4edc-a6b6-208761a53fdd",
+      "password": "J=genius"
+  },
+  {
+      "uid": "4c88b9d8-ab12-4b53-8f42-cebe23b870f3",
+      "first_name": "Michael",
+      "last_name": "Kennedy",
+      "email_address": "frobinson@example.net",
+      "phone_number": "570.742.7093x05760",
+      "student": "11035083-fa99-4f9b-86de-3365d8a230de",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "f305ee95-afb1-40f4-94d4-dad6ddfae808",
+      "first_name": "Judy",
+      "last_name": "Caldwell",
+      "email_address": "warddarren@example.org",
+      "phone_number": "432-943-1675x625",
+      "student": null,
+      "tutor": "affe2554-e5ae-4699-a5e3-a7196bf52dfd",
+      "tutorOrgManager": "eee84bcb-7281-48a9-a5e4-979d6f6ddf79",
+      "password": "J=genius"
+  },
+  {
+      "uid": "50ea1324-862f-48e1-a5c2-9b6ab575bc6e",
+      "first_name": "David",
+      "last_name": "Lozano",
+      "email_address": "ybailey@example.com",
+      "phone_number": "633.739.0603x1250",
+      "student": "2c623ac3-ad70-47cf-a358-cb1dbe3feafd",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "162d5c72-9ccd-4e1f-8c2a-bdaa9c5c11eb",
+      "first_name": "Janet",
+      "last_name": "Hunt",
+      "email_address": "kelsey56@example.com",
+      "phone_number": "8869774735",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "0d742256-0b36-43cd-8acf-eba4441030ae",
+      "first_name": "Francisco",
+      "last_name": "Smith",
+      "email_address": "taylorkristin@example.net",
+      "phone_number": "968.373.5919",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "51abf5e5-cb77-4e24-95eb-3a3de2014a45",
+      "first_name": "Marcus",
+      "last_name": "Bryant",
+      "email_address": "jonathan80@example.org",
+      "phone_number": "(138)533-4448x647",
+      "student": "8d4e2753-ef26-45b7-8e49-df560b648acd",
+      "tutor": "3d6e2667-b665-4d6e-9f39-ccaa580c79fc",
+      "tutorOrgManager": "b97fb3bb-7ecc-440c-b5ff-93f0025b7c5f",
+      "password": "J=genius"
+  },
+  {
+      "uid": "cf1accc1-eaca-4811-8c26-e5d9702dc88a",
+      "first_name": "Robert",
+      "last_name": "Snyder",
+      "email_address": "fwilson@example.org",
+      "phone_number": "263-791-6860",
+      "student": "deffed7a-d728-4256-a0ca-35ab38553ac8",
+      "tutor": "7d718591-3fee-4fc7-ae2d-ffdff57b8a92",
+      "tutorOrgManager": "fea2a33a-51d1-4bcd-9a23-754bef38d426",
+      "password": "J=genius"
+  },
+  {
+      "uid": "e64ddd91-8e9b-485e-9b77-0deb6f51ea78",
+      "first_name": "Justin",
+      "last_name": "Weaver",
+      "email_address": "jenniferwaters@example.net",
+      "phone_number": "+1-784-430-1912x633",
+      "student": null,
+      "tutor": "ff4533fe-bc6f-46ac-a139-d15d48d8b9ef",
+      "tutorOrgManager": "89181ba3-bdee-4231-81a6-009ea8dce886",
+      "password": "J=genius"
+  },
+  {
+      "uid": "0cbdc014-dbed-442e-ada3-13e783e9973b",
+      "first_name": "David",
+      "last_name": "Brewer",
+      "email_address": "maddoxannette@example.org",
+      "phone_number": "+1-843-318-4535x74922",
+      "student": "a2834536-95de-4d6e-9df2-e07353f04099",
+      "tutor": "813dd49a-8d99-443c-83f7-ba05cf4bb315",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "6544c97d-e078-4f97-a13c-121ccfdef303",
+      "first_name": "Eric",
+      "last_name": "Thompson",
+      "email_address": "taylorjamie@example.com",
+      "phone_number": "001-332-365-9927",
+      "student": "989bb030-86c4-4b06-86a8-e22fd57caf0d",
+      "tutor": "9db3466d-1ba6-4c61-aaf9-4919e69b7971",
+      "tutorOrgManager": "033c1469-4f06-4a18-b4a2-64447d3c279b",
+      "password": "J=genius"
+  },
+  {
+      "uid": "a71b80ef-8e36-482f-b856-be31f568c9c6",
+      "first_name": "Frank",
+      "last_name": "Koch",
+      "email_address": "tpayne@example.org",
+      "phone_number": "296-354-6030x535",
+      "student": null,
+      "tutor": "b9cde60c-ab1e-4794-b0f2-297adceb2013",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "42965873-39d5-4552-a867-a0f0a8e6a772",
+      "first_name": "Max",
+      "last_name": "Martin",
+      "email_address": "kellyamber@example.net",
+      "phone_number": "+1-250-700-3003x5105",
+      "student": null,
+      "tutor": "22c71d04-6c32-4aff-a9fa-4ea6f8db1a4d",
+      "tutorOrgManager": "72ef7dce-376e-42a6-ac07-1cf1e47638ec",
+      "password": "J=genius"
+  },
+  {
+      "uid": "4fdc1351-5ba8-40dc-a45d-b6ca6f6a2196",
+      "first_name": "Gregory",
+      "last_name": "Murphy",
+      "email_address": "areyes@example.com",
+      "phone_number": "+1-870-916-6208",
+      "student": null,
+      "tutor": "a9774b71-de6d-4d7e-9f31-2acb2362dbc1",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "b3191702-bb80-498d-970d-a545839137a6",
+      "first_name": "Eddie",
+      "last_name": "Rivera",
+      "email_address": "johnjohnson@example.org",
+      "phone_number": "001-821-691-9729x9045",
+      "student": "606375b8-bb93-4826-bcee-9d29ce4f1ca0",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "094c0230-e3b4-4f81-aeb3-462ca032149d",
+      "first_name": "Tyler",
+      "last_name": "Howard",
+      "email_address": "stephenromero@example.org",
+      "phone_number": "001-654-760-4848x7089",
+      "student": "afd4fc7b-ef20-4346-832f-b3088d56206d",
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "1eb95739-b8ac-4d81-a522-ff4674b7061c",
+      "first_name": "Richard",
+      "last_name": "Crawford",
+      "email_address": "nelsonwendy@example.com",
+      "phone_number": "+1-943-885-6431x95398",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "299cf16b-5a75-43c0-a02a-35e9ae6b4c8e",
+      "first_name": "Sabrina",
+      "last_name": "Lam",
+      "email_address": "meghan09@example.org",
+      "phone_number": "001-255-445-7696",
+      "student": "c9d0a7f4-0042-4fc6-ab87-71dffccae6b8",
+      "tutor": null,
+      "tutorOrgManager": "20379089-711f-410a-8b29-75c6918ff358",
+      "password": "J=genius"
+  },
+  {
+      "uid": "f2d7fe55-0262-45aa-adec-31ef57627626",
+      "first_name": "Jennifer",
+      "last_name": "Browning",
+      "email_address": "julie31@example.net",
+      "phone_number": "(428)212-9188x96644",
+      "student": null,
+      "tutor": "c74dd25c-6dbf-459c-837d-975248f3531c",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "47caf779-b7c9-4da8-91db-32f8fda834ea",
+      "first_name": "Sophia",
+      "last_name": "Medina",
+      "email_address": "veronica36@example.org",
+      "phone_number": "8296570869",
+      "student": "8772c347-5cba-4be3-8404-64c0e65a3ae4",
+      "tutor": "3a72017d-c29e-4120-8ddb-2316cc68fd3f",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "5abec113-a183-4fdb-b1cb-5e8eae2562ca",
+      "first_name": "Courtney",
+      "last_name": "Crawford",
+      "email_address": "ashleyallen@example.org",
+      "phone_number": "001-619-737-8132x71664",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "c1fa924e-e1bc-4fb2-afed-6cc540b000a4",
+      "first_name": "Kiara",
+      "last_name": "Lynch",
+      "email_address": "parkertravis@example.com",
+      "phone_number": "666.609.7592",
+      "student": "79460978-65e9-4753-8638-9bd3d26eeeba",
+      "tutor": "53ff6644-4741-4e56-b5e2-834d907d8532",
+      "tutorOrgManager": "90e0172f-14dc-41bc-8aa5-658322a5a421",
+      "password": "J=genius"
+  },
+  {
+      "uid": "01267789-5c6b-4596-98f1-6c91dd6d47e4",
+      "first_name": "Chad",
+      "last_name": "Love",
+      "email_address": "bwilliams@example.com",
+      "phone_number": "(246)292-6480x2227",
+      "student": "c399fd7f-b75d-471e-a453-1fe9b48f653e",
+      "tutor": null,
+      "tutorOrgManager": "85050a17-d2e1-4d4d-bad4-c2880bf56ed8",
+      "password": "J=genius"
+  },
+  {
+      "uid": "b0f1bb1d-8e10-4ed6-92d0-72230b20ee0f",
+      "first_name": "Julie",
+      "last_name": "Welch",
+      "email_address": "melvinwillis@example.org",
+      "phone_number": "824-345-4487",
+      "student": null,
+      "tutor": "c1b5468a-27bb-4580-a8f5-8c5dffa08419",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "271f2772-8d7f-4ba5-b2e6-316ee6710ad2",
+      "first_name": "Benjamin",
+      "last_name": "Richards",
+      "email_address": "huangleslie@example.org",
+      "phone_number": "793.782.5278",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "d21276c2-1519-401c-8b1f-11370ea255e0",
+      "first_name": "Zachary",
+      "last_name": "Smith",
+      "email_address": "garciacathy@example.net",
+      "phone_number": "568.512.5022x059",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": "a5387901-69f1-4ccd-8b4c-ba0a317eeb1d",
+      "password": "J=genius"
+  },
+  {
+      "uid": "cbf8e26a-4fae-467b-b2e7-4e770fe1cedf",
+      "first_name": "Perry",
+      "last_name": "Williams",
+      "email_address": "michaelconley@example.org",
+      "phone_number": "(075)994-4976x20743",
+      "student": "59cd012a-06b4-4b6f-9f94-e3c818a77594",
+      "tutor": "5b8c4949-1068-41d3-a33d-9c54f30459cc",
+      "tutorOrgManager": "b0c952af-9db3-4510-a75d-08552d5590c9",
+      "password": "J=genius"
+  },
+  {
+      "uid": "52a33c33-037e-4725-a5a1-bdaea747795e",
+      "first_name": "Stephen",
+      "last_name": "Spencer",
+      "email_address": "dalvarez@example.net",
+      "phone_number": "(408)115-5170x2840",
+      "student": "259a2b28-b22b-4974-8c5c-192ff1c51dda",
+      "tutor": "28280370-5672-4bc7-a06e-8502002f9cc4",
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "28b299bc-ebbe-4a41-8781-e11f2cb38568",
+      "first_name": "Danielle",
+      "last_name": "Sanchez",
+      "email_address": "sonya76@example.org",
+      "phone_number": "345.235.3267",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": "2353d455-90bc-4b66-a063-14505d005716",
+      "password": "J=genius"
+  },
+  {
+      "uid": "03729e33-c550-4d2b-909e-7f7862f25291",
+      "first_name": "Fernando",
+      "last_name": "Silva",
+      "email_address": "lhiggins@example.org",
+      "phone_number": "0580001992",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": "c96ef1a5-ac70-4464-a734-f9bbc7405255",
+      "password": "J=genius"
+  },
+  {
+      "uid": "6b325d48-06c4-4109-89a6-e611613f718d",
+      "first_name": "Samuel",
+      "last_name": "Mcintyre",
+      "email_address": "jennifer25@example.net",
+      "phone_number": "861.269.5166",
+      "student": null,
+      "tutor": null,
+      "tutorOrgManager": null,
+      "password": "J=genius"
+  },
+  {
+      "uid": "399bcb79-61ba-4a39-b89c-3c723ee29e68",
+      "first_name": "Sabrina",
+      "last_name": "Allen",
+      "email_address": "lsanders@example.org",
+      "phone_number": "485-809-9734x095",
+      "student": "e0acf9ff-88d3-481a-9b4e-1428a0483bb2",
+      "tutor": "f6d080c4-6409-4f32-8c4e-66dade0989b9",
+      "tutorOrgManager": null,
+      "password": "J=genius"
   }
 ]
 
@@ -318,20 +678,20 @@ export const userMap = new Map<string, User>(userData.map(
   )] 
 ))
 
-export const userArray = Array.from(userMap.values());
-
+export const userArray:User[] = Array.from(userMap.values());
+console.log(userArray);
 export const userArrayByTutor = userArray.filter((user)=>{
-  return user.tutor ? true : false;
+  return user.getTutor() ? true : false;
 })
-
+console.log(userArrayByTutor)
 export const userArrayByStudent = userArray.filter((user)=>{
-  return user.student ? true : false;
+  return user.getStudent() ? true : false;
 })
 
 export const userArrayByTutorOrgManager = userArray.filter((user)=>{
-  return user.tutorOrgManager ? true : false;
+  return user.getTutorOrgManager() ? true : false;
 })
 
-export const userMapByTutor = new Map<string, User>(userArrayByTutor.map((user)=>[user.tutor.tutorID, user]));
-export const userMapByStudent = new Map<string, User>(userArrayByStudent.map((user)=>[user.student.studentId, user]));
-export const userMapByTutorOrgManager = new Map<string, User>(userArrayByTutorOrgManager.map((user)=>[user.tutorOrgManager.tutorOrgManagerID, user]));
+export const userMapByTutor = new Map<string, User>(userArrayByTutor.map((user)=>[user.getTutor().tutorID, user]));
+export const userMapByStudent = new Map<string, User>(userArrayByStudent.map((user)=>[user.getStudent().studentID, user]));
+export const userMapByTutorOrgManager = new Map<string, User>(userArrayByTutorOrgManager.map((user)=>[user.getTutorOrgManager().tutorOrgManagerID, user]));

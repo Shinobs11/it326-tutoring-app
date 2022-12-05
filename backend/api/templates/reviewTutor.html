@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<form method="POST" action = "{% url 'createTutorOrg' %}">
+{% csrf_token %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorTime</title>
+    <link rel="stylesheet" href="loginStyle.scss">
+    <script src="/loginLog.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src = "snake.png" class="logo" width="100px" height="100px">   
+        <div class="header-right">
+          <a href="index.html">CURRENT APPT</a>
+          <a href="cover.html">SETTINGS</a>
+          <a class="active" href="reg.html">CLASS REGISTRATION</a>
+          <a href="reviewTutor.html">REVIEW</a>
+        </div>
+      </div>
+      
+      <div style="padding-left:20px">
+       
+      </div>
+<div align="center">
+    <h1>Submit a Review!</h1>
+    Enter your Email:
+    <input type="text" name="email" size=35 maxlength=35 value="">
+    Enter The Class being reviewed:
+    <input type="text" name="session" size=35 maxlength=35 value="">
+    Rate Your Experience 1-5:
+    <input type="text" name="rating" size=35 maxlength=35 value="">
+    <br>
+        <a class="btn btn-primary" href="{% url 'sendrating' %}">Rate Tutor Session</a>
+</div>
+</body>
+</form>

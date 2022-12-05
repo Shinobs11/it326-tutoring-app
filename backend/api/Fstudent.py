@@ -25,6 +25,8 @@ class Fstudent():
     else:
       tutorsess= TutorOrgManager.objects.get(pk='1515a87f-41f0-46ae-83bd-72ba99dc2b4a')
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
+  def registerTutorSession(request):
+    pass
   
   #def register(request):
     

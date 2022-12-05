@@ -19,11 +19,7 @@ class CUser(ABC):
         self.phoneNo=phoneNumber
         self.email=email
             
-    def login(email,paswrd):
-        if CUser.authenticate(email,paswrd)==True:
-            return True #Plug in html when ready
-        else:
-            return False
+    
 
     def authenticate(eml,passattempt):
         # TODO: Get the database table
@@ -31,6 +27,11 @@ class CUser(ABC):
         item= User.objects.get(email_address=eml)
         if passattempt==item.password:
             return True
+        else:
+            return False
+    def login(email,paswrd):
+        if CUser.authenticate(email,paswrd)==True:
+            return True #Plug in html when ready
         else:
             return False
 

@@ -35,4 +35,4 @@ class UserFactory():
         instance.save()
     # Delete Profile
     def deleteUser(request):
-        User.objects.filter(email=request.POST['email']).delete()
+        User.objects.filter(email_address=request.POST['email']).delete()

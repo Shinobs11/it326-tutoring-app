@@ -4,8 +4,8 @@ from api.models.Tutor import Tutor
 from api.models.Student import Student
 from django.utils.timezone import now
 import uuid
+from api.models.TutorOrganization import TutorOrganization
 
-from .TutorOrganization import TutorOrganization
 class TutorSession(models.Model):
 
 

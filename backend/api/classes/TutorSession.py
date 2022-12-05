@@ -2,6 +2,8 @@ from api.classes.Student import CStudent
 from api.classes.Class import CClass
 from api.classes.Observable import CObservable
 from api.models.TutorSession import TutorSession
+from api.models.Student import Student
+from api.models.User import User
 class CTutorSession(CObservable): #Inherits from Observable
     __tutorSessID: int
     __date: str
@@ -47,7 +49,6 @@ class CTutorSession(CObservable): #Inherits from Observable
         for user in self.user_list:
             user.update(self.__content)
 
-    #TODO FIX THIS, Doesn't work
     #Checks if session by that name exists
     def getSess(session):
         item = TutorSession.objects.all().filter(sessName=session)
@@ -55,3 +56,15 @@ class CTutorSession(CObservable): #Inherits from Observable
             return False
         else:
             return True
+
+    #Checks if student is in a given tutor session
+    #TODO Fix this
+    def userInSess(email, session):
+        stu = item = User.objects.get(email_address=email)
+        stu = Student.objects.get(user=item)
+        item = TutorSession.objects.get(sessName=session)
+        item2 = TutorSession.objects.get(student=stu)
+        if item==item2:
+            return True
+        else:
+            return False

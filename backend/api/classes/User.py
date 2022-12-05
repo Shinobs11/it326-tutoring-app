@@ -45,12 +45,14 @@ class CUser(ABC):
         else:
             return False
 
-    def getUser(email):
+    # TODO If user is NOT a student, error is thrown, fix it
+    def getStudent(email):
         item = User.objects.get(email_address=email)
         item = item.student
         return item
 
 
+    #TODO If user is NOT a tutOrgMan, error is thrown, fix it
     def getTutOrgMgr(email):
         item = User.objects.get(email_address=email)
         item=item.tutorOrgManager

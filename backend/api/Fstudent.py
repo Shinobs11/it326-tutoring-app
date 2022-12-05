@@ -45,22 +45,24 @@ class Fstudent():
     return render(request, 'registerSession.html',{})
 
   #TODO Fix email check, fix session check (check only sessions in user's account)
-  #TODO Check if email is a Student email
   #TODO Drop-down menu for tutor sessions?
-  # TODO Change getUser to getStudent
   #TODO Allow same student to make multiple reviews
   def rate(request):
     if request.method =='POST':
       email = request.POST['email']
       session = request.POST['session']
       rating = request.POST['rating']
-      if not CUser.registerEmailCheck(email):
-        return render(request, 'reviewTutor.html', {'msg': "Not your email!"})
+      #Checks if email is of a student
+      if CStudent.studentEmailCheck(email):
+        return render(request, 'reviewTutor.html', {'msg': "Not a student email!"})
+      #Checks if session exists
       if not CTutorSession.getSess(session):
         return render(request, 'reviewTutor.html', {'msg': "Not a session!"})
+      #if CTutorSession.userInSess(email,session):
+       #return render(request, 'reviewTutor.html', {'msg': "Not in this session!"})
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
-      stu = CUser.getUser(email)
+      stu = CUser.getStudent(email)
       sess = DB_TutorSession.objects.get(sessName=session)
       Review.objects.create(student=stu, rating=rating,tutSess=sess)
       return render(request, 'studenthome.html', {'msg': "Review sent"})
@@ -80,7 +82,7 @@ class Fstudent():
       if not CTutorSession.getSess(session):
         return render(request, 'registerSession.html', {'msg': "Not a session!"})
       sess = DB_TutorSession.objects.get(sessName=session)
-      stu = CUser.getUser(email)
+      stu = CUser.getStudent(email)
       sess.student.add(stu)
       sess.save()
       return render(request, 'studenthome.html', {'msg': "Enrolled"})

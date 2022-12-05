@@ -1,5 +1,6 @@
 from api.classes.User import CUser
-
+from api.models.Student import Student
+from api.models.User import User
 class CStudent(CUser):
     __schoolYear:int
     __tutorSessHour:int
@@ -19,3 +20,13 @@ class CStudent(CUser):
     #@Override
     def update(self, content):
         pass #Student Update Method
+
+    #Checks if email is registered to a student
+    def studentEmailCheck(eml):
+        item = User.objects.get(email_address=eml)
+        item = Student.objects.filter(user=item)
+        #If empty...
+        if not item:
+            return True
+        else:
+            return False

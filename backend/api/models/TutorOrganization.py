@@ -1,7 +1,6 @@
 from django.db import models
 from api.models.TutorOrgManager import TutorOrgManager
 from api.models.Tutor import Tutor
-from api.models.TutorSession import TutorSession
 import uuid
 
 

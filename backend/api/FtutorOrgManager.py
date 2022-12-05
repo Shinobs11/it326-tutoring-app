@@ -51,16 +51,10 @@ class FtutorOrgManager():
         if request.method == "POST":
             email = request.POST['email']
             name = request.POST['name']
-            if not CUser.registerEmailCheck(email):
+            if CUser.registerEmailCheck(email):
                 return render(request, 'TutorOrgCreation.html', {'msg': "Wrong email!"})
-            tutOrgMa = CUser.getTutOrgMgr(email)
-            instance=TutorOrganization.objects.create(tutOrgName=name)
-            instance.tutOrgMan.add(tutOrgMa)
-            instance.save()
-            
-            all=TutorOrganization.objects.all()
-            print(all)
-            return render(request,'tutOrgMgrhome.html',{'tutorgs':all})
+            tutOrgMan = CUser.getUser(email)
+            TutorOrganization.objects.create(tutOrgMan=tutOrgMan,tutOrgName=name)
         else:
             return render(request,'TutorOrgCreation.html',{})
         #TutorOrgManager= TutorOrgManager.objects.create(tutOrgManID=random.randint(0,99999999))

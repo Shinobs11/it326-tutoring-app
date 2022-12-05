@@ -12,6 +12,6 @@ class TutorOrganization(models.Model):
   tutor = models.ManyToManyField(Tutor, blank=True)
   tutOrgMan = models.ManyToManyField(TutorOrgManager, blank=False)
   tutOrgName = models.CharField(unique=True, max_length=30)
-  tutOrgDescription = models.CharField(max_length=1500)
+  tutOrgDescription = models.CharField(max_length=1500, default="")
 
   

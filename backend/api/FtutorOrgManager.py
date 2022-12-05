@@ -58,6 +58,7 @@ class FtutorOrgManager():
     #TODO Add other values (tutors, tutor sess)
     # TODO Check if email is a TutOrgMan email
     #TODO Change getUser to getTutOrgMan
+
     def createTutorOrg(request):
         if request.method == "POST":
             email = request.POST['email']

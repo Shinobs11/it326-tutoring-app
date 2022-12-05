@@ -11,7 +11,7 @@ from api.models.TutorOrganization import TutorOrganization
 
 class FtutorSession():
     
-  def gettutorSession():
+  def gettutorSession(request):
     return TutorSession.objects.all
   
   def loadSesPg(request,tutSesID):

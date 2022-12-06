@@ -51,9 +51,6 @@ class Fstudent():
     TS=TutorSession.objects.all()#TS is for tutorsessions
     return render(request, 'registerSession.html',{'tutsess':TS})
 
-  #TODO Fix session check (check only sessions in user's account)
-  #TODO Drop-down menu for tutor sessions?
-  #TODO Allow same student to make multiple reviews
   def rate(request):
     if request.method =='POST':
       email = request.POST['email']
@@ -70,6 +67,8 @@ class Fstudent():
         return render(request, 'reviewTutor.html', {'msg': "Not a session!"})
       if not CReview.checkRating(rating):
         return render(request, 'reviewTutor.html', {'msg': "Invalid input"})
+      if CStudent.isStudentinSession(email,session):
+        return render(request, 'reviewTutor.html', {'msg': "Not in session"})
       if CReview.ifRatingExists(email,session):
         return render(request, 'reviewTutor.html', {'msg': "Review already filed with this tutor session"})
       stu = CUser.getStudent(email)
@@ -80,8 +79,7 @@ class Fstudent():
     else:
       return render(request, 'reviewTutor.html', {'msg': "Enter info"})
 
-    #TODO Test edge cases
-    # TODO What if a user is also a tutOrgMan and Tutor????
+
   def registerStudentSess(request):
     if request.method == 'POST':
       email = request.POST['email']

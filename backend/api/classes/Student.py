@@ -1,6 +1,7 @@
 from api.classes.User import CUser
 from api.models.Student import Student
 from api.models.User import User
+from api.models.TutorSession import TutorSession
 class CStudent(CUser):
     __schoolYear:int
     __tutorSessHour:int
@@ -27,6 +28,18 @@ class CStudent(CUser):
         item = Student.objects.filter(user=item)
         #If they are not a student return True
         if not item:
+            return True
+        else:
+            return False
+
+    def isStudentinSession(email, session):
+        item = User.objects.get(email_address=email)
+        #student obj
+        item = item.student
+        #session obj
+        ses = TutorSession.objects.filter(sessName=session,student=item)
+        #If no student found in session, return True
+        if not ses:
             return True
         else:
             return False

@@ -1,7 +1,29 @@
+{% extends 'studentbase.html' %}
+{% block content %}
 
+Current Sessions Registered
 
-
-This will show a table of all TutorSessions
-
-
-<p>{{ tutorsession }}</p>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Session Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Session ID</th>
+    </tr>
+    </thead>
+<tbody>
+<div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+{% for s in tutsess %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ s.sessName }}</th>
+            <td>{{ s.date }}</td>
+            <td>{{ s.tutorSessID }}</td>
+        <tr/>
+  </tbody>
+{% endfor %}
+{% endblock %}

@@ -98,6 +98,7 @@ class FtutorOrg():
       sess = TutorSession.objects.get(sessName = session)
       theClass = Class.objects.create(className = name, classDescription = desc)
       sess.classID.add(theClass)
+
       sess.save()
       theClass.save()
       

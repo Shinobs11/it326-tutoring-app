@@ -68,3 +68,22 @@ class Ftutor():
       return render(request, 'tutorhome.html', {'msg': "Enrolled"})
     else:
       return render(request, 'registerSessTutor.html', {'msg': "Enter info"})
+
+  def unregisterFromOrg(request):
+    if request.method == 'POST':
+      email = request.POST['email']
+      Organization = request.POST['name']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'registerTutOrgTutor.html', {'msg': "Email not in Database"})
+        #Checks if tutor email
+      if CTutor.tutorEmailCheck(email):
+        return render(request, 'registerTutOrgTutor.html', {'msg': "Not a tutor email!"})
+      if not CTutorOrganization.getOrg(Organization):
+        return render(request, 'registerTutOrgTutor.html', {'msg': "Not an Organization!"})
+      Org = TutorOrganization.objects.get(tutOrgName=Organization)
+      tut = CUser.getTutor(email)
+      Org.tutor.remove(tut)
+      Org.save()
+      return render(request, 'tutorhome.html', {'msg': "Unregistered from Tutor Org!"})
+    else:
+      return render(request, 'unregisterFromOrg.html', {})

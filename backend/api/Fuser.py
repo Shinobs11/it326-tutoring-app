@@ -83,10 +83,53 @@ class Fuser():
       return render(request,'createProfile.html',{})
 
 
+  def editProfile(request):
+    if request.method == 'POST':
+      curEmail = request.POST['curEmail']
+      newEmail = request.POST['email']
+      newPhone = request.POST['phoneNumber']
+      newPass = request.POST['password']
+      validate = request.POST['repeat']
+      foundUser = False
+      # Check if the email and phoneNumber are not already in the DB
+      #TODO: Add functionality to check if the curEmail is the account's email
+      for users in User.objects.all():
+        if (users.email_address == curEmail):
+          foundUser = True
+        if (users.email_address == newEmail):
+          return render(request, 'editProfile.html',{'msg': "Email already taken"})
+        elif (users.phone_number == newPhone):
+          return render(request, 'editProfile.html',{'msg': "Phone Number already taken"})
+      
+      # Make sure the passwords matched up
+      if CUser.checkpassword(newPass,validate):
+        return render(request, 'editProfile.html',{'msg': "Phone Number already taken"})
+
+      # Get the entry from the DB
+      if (not foundUser):
+        return render(request, 'editProfile.html',{'msg': "That email does not exist"})
+      
+      user = User.objects.get(email_address = curEmail)
+      
+      # Update the user's fields
+      if (len(newEmail) > 0):
+        user.email_address = newEmail
+      
+      if (len(newPhone) > 0):
+        user.phone_number = newPhone
+
+      if (len(newPass) > 0):
+        user.password = newPass
+      
+      user.save()
+
+      
+      return render(request, 'homebase.html', {'msg': "Profile successfully updated!"})
+    else:
+      return render(request, 'editProfile.html',{})
+
   def deleteProfilePath(request):
     return render(request,'deleteProfile.html',{})
-
-
 
   def deleteProfile(request):
     if request.method=='POST':

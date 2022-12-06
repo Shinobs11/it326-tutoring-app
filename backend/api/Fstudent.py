@@ -100,3 +100,27 @@ class Fstudent():
       return render(request, 'studenthome.html', {'msg': "Enrolled"})
     else:
       return render(request, 'registerSession.html', {'msg': "Enter info"})
+
+  def unenrollSession(request):
+    if request.method == 'POST':
+      # Get the user inputs
+      email = request.POST['stuEmail']
+      sess = request.POST['sessName']
+
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'unenrollSession.html', {'msg': "Not your email!"})
+        #CHecks if a student or not
+      if CStudent.studentEmailCheck(email):
+        return render(request, 'unenrollSession.html', {'msg': "Not a student email!"})
+      if not CTutorSession.getSess(sess):
+        return render(request, 'unenrollSession.html', {'msg': "Not a session!"})
+
+      sess = DB_TutorSession.objects.get(sessName=sess)
+      stu = CUser.getStudent(email)
+      sess.student.remove(stu)
+      sess.save()
+
+
+      return render(request, "homebase.html", {'msg': "Unenrolled from the session!"})
+    else:
+      return render(request, "unenrollSession.html", {})

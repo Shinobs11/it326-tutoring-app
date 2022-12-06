@@ -32,6 +32,11 @@ Create your Session here
     </div>
     <br/>
 
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
    
     <button type="submit" class="btn btn-primary">Create</button>
   </form>

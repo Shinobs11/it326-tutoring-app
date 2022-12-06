@@ -18,12 +18,7 @@ class FtutorOrg():
   def tutorOrghome(request):
     return render(request, 'tutorOrghome.html',{})
   
-  def createSession(request):
-    #creating session ID here
-    SessionID=0
-    for i in TutorSession.objects.all():
-      SessionID = SessionID+1
-    
+  def createSession(request):    
     if request.method =="POST":
       Organization=request.POST['name']
       sessionName=request.POST['SessName']
@@ -44,3 +39,38 @@ class FtutorOrg():
       
     else:
       return render(request,'SessionCreation.html',{})
+    
+  def removeSession(request):
+    if request.method =="POST":
+      # Get the values
+      sessname = CTutorSession.getTutorSession(request.POST['SessName'])
+
+      # Make sure the name was found
+      if (sessname):
+        TutorSession.objects.filter(sessName=sessname).delete()
+        print("DELETING IT", sessname)
+        return render(request, 'tutorOrghome.html', {'msg': "Session successfully deleted!"})
+      else:
+        return render(request, 'removeSession.html', {'msg': "Session not found. Please try again"})
+    else:
+      return render(request, 'removeSession.html', {})
+  
+  def insertResource(request):
+    if request.method == "POST":
+      sessname = CTutorSession.getTutorSession(request.POST['sessName'])
+
+      if (sessname):
+        # Create an instance of the class resource
+        classData = request.POST['classData']
+        resourceID = 0
+        for resources in SessionResource.object.all():
+          resourceID = resourceID + 1
+
+        #SessionResource.object.create(sessionID = )
+        print(classData)
+        print(resourceID)
+        return render(request, 'tutorOrghome.html', {'msg': "Class Resource successfully inserted!"})
+
+      return render(request, 'insertResource.html', {})
+    else:
+      return render(request, 'insertResource.html', {})

@@ -1,0 +1,31 @@
+
+
+Insert a class resource here
+
+<form method="POST" action = "{% url 'insertResource' %}">
+{% csrf_token %}
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Class Data" name="classData"> Type the Class Resource
+    </div>
+    <br/>
+
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Session Name" name="sessName"> Type the Tutor Session you want to insert the Class Resource to
+    </div>
+    <br/>
+
+    </div>
+    <br/>
+
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Insert</button>
+  </form>

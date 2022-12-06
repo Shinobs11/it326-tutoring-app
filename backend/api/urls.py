@@ -39,7 +39,8 @@ urlpatterns = [
   path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
   path('RegisterforSessTutorPath',Ftutor.registerTutorSessPage, name='registerforsesstutpage'),
   path('RegisterforSessTutor',Ftutor.registerTutorSess,name='registersesstut'),
-
+  path('registerTutorOrgPage',Ftutor.registerTutorOrgPage,name='registerTutorOrgPage'),
+  path('registerOrgtut',Ftutor.registerOrgtut,name='registerOrgtut'),
   #these are for the API
   path('user/', UserList.as_view()),
   path('user/<str:pk>/', UserDetail.as_view()),

@@ -1,0 +1,51 @@
+
+{% extends 'tutorbase.html' %}
+{% block content %}
+Register for Tutor Organization
+
+<form method="POST" action = "{% url 'registerOrgtut' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="Tutor's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor organization Name" name="name">
+    </div>
+    <br/>
+
+
+    <div class="button-container">
+      <button><span>Join</span></button>
+    </div>
+  </form>
+
+  <div>
+    {% if msg %}
+      <h1> {{ msg }} </h1>
+      {% endif %}
+</div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">TutorOrganization</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+<tbody>
+
+{% for s in tuts %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ s.tutOrgName }}</th>
+            <td>{{ s.tutOrgDescription }}</td>
+        <tr/>
+{% endfor %}
+{% endblock %}

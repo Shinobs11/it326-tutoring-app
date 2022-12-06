@@ -22,3 +22,10 @@ class CTutorOrganization:
     def getTutorOrg(name):
         return(TutorOrganization.objects.get(tutOrgName=name))
     
+    def getOrg(session):
+        item = TutorOrganization.objects.all().filter(sessName=session)
+        if not item:
+            return False
+        else:
+            return True
+    

@@ -79,13 +79,13 @@ class FtutorOrgManager():
             email = request.POST['email']
             name = request.POST['name']
             if not CTutorOrganization.getOrg(name):
-                return render(request, 'TutorOrgCreation.html', {'msg': "Not an Organization!"})
-            if not CTutorOrganization.getOrg(name):
                 pass
             else:
                 return render(request, 'TutorOrgCreation.html', {'msg': "Tutor Org Name already taken!"})
             if not CUser.registerEmailCheck(email):
-                return render(request, 'TutorOrgCreation.html', {'msg': "Wrong email!"})
+                return render(request, 'TutorOrgCreation.html', {'msg': "Invalid User email, Does not exist!"})
+            if CTutorOrgManager.tutorOrgManEmailCheck(email):
+                return render(request, 'TutorOrgCreation.html', {'msg': "Not a Tutor Org Manager email email!"})
             tutOrgMa = TutorOrgManager.objects.get(user=User.objects.get(email_address=email))
             instance=TutorOrganization.objects.create(tutOrgName=name)
             instance.tutOrgMan.add(tutOrgMa)

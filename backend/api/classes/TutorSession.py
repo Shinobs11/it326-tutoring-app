@@ -56,12 +56,22 @@ class CTutorSession(CObservable): #Inherits from Observable
 
     #Checks if student is in a given tutor session
     #TODO Fix this
-    def userInSess(email, session):
-        stu = item = User.objects.get(email_address=email)
-        stu = Student.objects.get(user=item)
-        item = TutorSession.objects.get(sessName=session)
-        item2 = TutorSession.objects.get(student=stu)
-        if item==item2:
-            return True
-        else:
+    def studentInSess(email, session):
+        item = User.objects.get(email_address=email)
+        item = item.student
+        item = TutorSession.objects.filter(sessName=session,student=item)
+        #If they are not in session, return False
+        if not item:
             return False
+        else:
+            return True
+
+    def tutorInSess(email, session):
+        item = User.objects.get(email_address=email)
+        item = item.tutor
+        item = TutorSession.objects.filter(sessName=session,tutor=item)
+        #If they are not in session, return False
+        if not item:
+            return False
+        else:
+            return True

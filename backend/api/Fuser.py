@@ -6,6 +6,7 @@ from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 from api.classes.User import CUser
+from api.classes.Tutor import CTutor
 from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.UserFactory import UserFactory
 
@@ -15,6 +16,8 @@ class Fuser():
     if request.method=='POST':
       email=request.POST['email']
       pswd=request.POST['password']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'login.html', {'message': "Email not in database"})
       if CUser.login(email,pswd)==True:
         return render(request,'homeuser.html',{})
       else:
@@ -29,7 +32,24 @@ class Fuser():
   
   def searchtutorsession(request):
     return render(request,'' ,{})
-    
+
+  def searchForTutorPath(request):
+    return render(request,'searchTutor.html',{})
+
+
+  def searchTutor(request):
+    if request.method == 'POST':
+      email = request.POST['email']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'searchTutor.html', {'msg': "Email not in database"})
+      if CTutor.tutorEmailCheck(email):
+        return render(request, 'searchTutor.html', {'msg': "Not a tutor email"})
+      item = User.objects.get(email_address=email)
+      return render(request, 'searchTutor.html', {'item': item})
+    else:
+      return render(request, 'searchTutor.html', {'msg': "Enter info"})
+
+
   def createProfile(request):
     if request.method=='POST':
       first=request.POST['Fname']
@@ -52,7 +72,20 @@ class Fuser():
     else:
       return render(request,'createProfile.html',{})
 
-  #TODO Functionality to only delete your own account
+
+  def deleteProfilePath(request):
+    return render(request,'deleteProfile.html',{})
+
+
+
   def deleteProfile(request):
-    UserFactory.deleteUser(request)
-    return render(request,'login.html',{'messagedelete':'Successfully Deleted'})
+    if request.method=='POST':
+      email=request.POST['email']
+      password=request.POST['password']
+      if not CUser.authenticate(email,password):
+        return render(request, 'deleteProfile.html', {'msg': 'Wrong password'})
+      UserFactory.deleteUser(request)
+      return render(request,'login.html',{'messagedelete':'Successfully Deleted'})
+
+    else:
+      return render(request, 'deleteProfile.html', {'msg': 'Input data'})

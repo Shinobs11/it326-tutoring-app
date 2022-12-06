@@ -45,9 +45,24 @@ class FtutorOrgManager():
             #Checks if user exists via email
             if not CUser.registerEmailCheck(email):
                 return render(request, 'deleteUser.html', {'msg': "Email not in database"})
+            if CStudent.studentEmailCheck(email):
+                if CTutor.tutorEmailCheck(email):
+                    return render(request, 'deleteUser.html', {'msg': "Not a tutor or student email"})
             sess = DB_TutorSession.objects.get(sessName=session)
-            user = CUser.getStudent(email)
-            sess.student.remove(user)
+            #If they're a student, remove
+            if not CStudent.studentEmailCheck(email):
+                if CTutorSession.studentInSess(email,session):
+                    user = CUser.getStudent(email)
+                    sess.student.remove(user)
+                else:
+                    return render(request, 'deleteUser.html', {'msg': "Student not in tutor session"})
+            #If they're a tutor, remove
+            if not CTutor.tutorEmailCheck(email):
+                if CTutorSession.tutorInSess(email, session):
+                    user = CUser.getTutor(email)
+                    sess.tutor.remove(user)
+                else:
+                    return render(request, 'deleteUser.html', {'msg': "Tutor not in tutor session"})
             sess.save()
             return render(request,'tutOrgMgrhome.html',{'msg': "Removed user"})
         else:

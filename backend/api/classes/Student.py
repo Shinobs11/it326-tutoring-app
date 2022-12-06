@@ -25,7 +25,7 @@ class CStudent(CUser):
     def studentEmailCheck(eml):
         item = User.objects.get(email_address=eml)
         item = Student.objects.filter(user=item)
-        #If empty...
+        #If they are not a student return True
         if not item:
             return True
         else:

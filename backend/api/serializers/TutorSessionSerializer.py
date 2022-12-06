@@ -6,4 +6,4 @@ from api.serializers.UserSerializer import UserSerializer
 class TutorSessionSerializer(serializers.ModelSerializer):
   class Meta:
     model = TutorSession
-    fields = ['tutor', 'student', 'classID','date','sessName', 'location','conferenceURL']
+    fields = ['tutorSessID','tutor', 'student', 'classID','date','sessName', 'location','conferenceURL']

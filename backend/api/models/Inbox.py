@@ -1,11 +1,11 @@
 from django.db import models
 from api.models.User import User
 
-class Inbox:
+class Inbox(models.Model):
 
-    class Meta:
-        app_label = 'api'
+  class Meta:
+    app_label = 'api'
 
-        #MANDATORY 1-1 with User
-        user = models.OneToOneField(User, on_delete=models.CASCADE)
+  #MANDATORY 1-1 with User
+  user = models.OneToOneField(User, primary_key=True, db_index=True, on_delete=models.CASCADE)
 

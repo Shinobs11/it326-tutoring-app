@@ -31,6 +31,7 @@ urlpatterns = [
   path('CreateTutorOrg',FtutorOrgManager.createTutorOrg,name='createTutorOrg'),
   path('CreateTutorOrgPath',FtutorOrgManager.tutorOrgPath,name='createTutorOrgPath'),
   path('deleteProfile', Fuser.deleteProfile,name='deleteprofile'),
+  path('deleteProfilePath', Fuser.deleteProfilePath,name='deleteprofilepath'),
   path('rateSession',Fstudent.ratePage,name='ratesession'),
   path('createRating',Fstudent.rate,name='sendrating'),
   path('RegisterforSessPath',Fstudent.registerSessPage, name='registerforsesspage'),
@@ -40,6 +41,8 @@ urlpatterns = [
   path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
   path('RegisterforSessTutorPath',Ftutor.registerTutorSessPage, name='registerforsesstutpage'),
   path('RegisterforSessTutor',Ftutor.registerTutorSess,name='registersesstut'),
+  path('searchForTutorPath', Fuser.searchForTutorPath, name='searchtutorpage'),
+  path('searchForTutor', Fuser.searchTutor, name='searchtutor'),
 
   #these are for the API
   path('user/', UserList.as_view()),
@@ -58,7 +61,12 @@ urlpatterns = [
   path('class/<str:pk>/', ClassDetail.as_view()),
   path('review/', ReviewList.as_view()),
   path('review/<str:pk>/', ReviewDetail.as_view()),
-
+  path('sessionresource/', SessionResourceList.as_view()),
+  path('sessionresource/<str:pk>', SessionResourceDetail.as_view()),
+    path('inbox/', InboxList.as_view()),
+  path('inbox/<str:pk>', InboxDetail.as_view()),
+    path('message/', MessageList.as_view()),
+  path('message/<str:pk>', MessageDetail.as_view()),
   # path('api/tutor_session', views.TutorSession),
   # path('api/tutor_session/<str:pk>', views.)
 ]

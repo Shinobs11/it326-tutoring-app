@@ -9,6 +9,8 @@ from api.classes.User import CUser
 from api.classes.Tutor import CTutor
 from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.UserFactory import UserFactory
+from api.classes.TutorSession import CTutorSession
+from api.models.TutorSession import TutorSession
 
 class Fuser():
   
@@ -49,6 +51,15 @@ class Fuser():
     else:
       return render(request, 'searchTutor.html', {'msg': "Enter info"})
 
+  def searchSession(request):
+    if request.method == 'POST':
+      sess = request.POST['TutSesName']
+      if not CTutorSession.SessionCheck(sess):
+        return render(request, 'searchSession.html', {'msg': "Tutor Session not in database"})
+      item = TutorSession.objects.get(sessName=sess)
+      return render(request, 'searchSession.html', {'item': item})
+    else:
+      return render(request, 'searchSession.html', {'msg': "Enter info"})
 
   def createProfile(request):
     if request.method=='POST':

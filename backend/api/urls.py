@@ -39,6 +39,8 @@ urlpatterns = [
   path('TutSesInfoPg/<tutSesID>',FtutorSession.loadSesPg,name='TutSesInfoPg'),
   path('RegisterforSessTutorPath',Ftutor.registerTutorSessPage, name='registerforsesstutpage'),
   path('RegisterforSessTutor',Ftutor.registerTutorSess,name='registersesstut'),
+  path('searchForTutorPath', Fuser.searchForTutorPath, name='searchtutorpage'),
+  path('searchForTutor', Fuser.searchTutor, name='searchtutor'),
 
   #these are for the API
   path('user/', UserList.as_view()),

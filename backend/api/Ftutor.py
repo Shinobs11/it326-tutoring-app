@@ -20,6 +20,7 @@ class Ftutor():
   def registerTutorSessPage(request):
     return render(request, 'registerSessTutor.html', {})
 
+  #TODO Add check to make sure tutor is part of that tutor org (when that use case is done)
   #Register tutor for session
   def registerTutorSess(request):
     if request.method == 'POST':

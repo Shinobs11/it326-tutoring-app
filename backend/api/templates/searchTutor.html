@@ -1,0 +1,31 @@
+Search for a Tutor
+
+<form method="POST" action = "{% url 'searchtutor' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="Tutor's email" name="email">
+      </div>
+
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+<div class="button-container">
+      <button><span>Search</span></button>
+    </div>
+  </form>
+
+{%if item %}
+
+            Email: <h3>{{item.email_address }}</h3><br>
+            First Name: <h3>{{item.first_name}}</h3><br>
+            Last Name: <h3>{{item.last_name}}</h3><br>
+            Phone Number: <h3>{{item.phone_number}}</h3><br>
+
+{% endif %}

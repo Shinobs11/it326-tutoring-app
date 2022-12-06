@@ -1,6 +1,8 @@
 from api.classes.User import CUser
 from api.models.User import User
 from api.models.Tutor import Tutor
+from api.models.TutorOrganization import TutorOrganization
+from api.models.TutorSession import TutorSession
 class CTutor(CUser):
     __tutorID:int
     __rating: float
@@ -30,6 +32,21 @@ class CTutor(CUser):
         item = Tutor.objects.filter(user=item)
         #If no tutor found, returns True
         if not item:
+            return True
+        else:
+            return False
+
+    def isTutorInOrganization(email, session):
+        item = User.objects.get(email_address=email)
+        #tutor obj
+        item = item.tutor
+        #session obj
+        ses = TutorSession.objects.get(sessName=session)
+        ses = ses.tutorOrgID
+        ses = ses.tutOrgID
+        org = TutorOrganization.objects.all().filter(tutOrgID=ses,tutor=item)
+        #If no tutor found in organization, return True
+        if not org:
             return True
         else:
             return False

@@ -24,7 +24,6 @@ class Ftutor():
     TS=TutorSession.objects.all()#TS is for tutorsessions
     return render(request, 'registerSessTutor.html', {'tutsess':TS})
 
-  #TODO Add check to make sure tutor is part of that tutor org (when that use case is done)
   #Register tutor for session
   def registerTutorSess(request):
     if request.method == 'POST':
@@ -37,6 +36,8 @@ class Ftutor():
         return render(request, 'registerSessTutor.html', {'msg': "Not a tutor email!"})
       if not CTutorSession.getSess(session):
         return render(request, 'registerSessTutor.html', {'msg': "Not a session!"})
+      if CTutor.isTutorInOrganization(email,session):
+        return render(request, 'registerSessTutor.html', {'msg': "Not in this tutor organization!"})
       sess = DB_TutorSession.objects.get(sessName=session)
       tut = CUser.getTutor(email)
       sess.tutor.add(tut)

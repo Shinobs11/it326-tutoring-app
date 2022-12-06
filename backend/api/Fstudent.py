@@ -29,6 +29,7 @@ class Fstudent():
   def studenthome(request):
     return render(request, 'studenthome.html',{})
   
+  #NOTE: TO BE DELETED?
   def showtutorSessions(request):# will create seperate method for searching for specific criteria
     import json
     if request.method== 'POST':

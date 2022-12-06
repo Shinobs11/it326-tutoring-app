@@ -1,27 +1,26 @@
 
 
-Insert a class resource here
+Add a Class to a Session Here
 
-<form method="POST" action = "{% url 'insertResource' %}">
+<form method="POST" action = "{% url 'addClassToSession' %}">
 {% csrf_token %}
     <br/>
     <br/>
     <div class="mb-3">
       <input type="text" class="form-control" aria-describedby="emailHelp" 
-      placeholder="Class Resource Name" name="className"> Enter the name of the class resource
+      placeholder="Class Name" name="className"> Enter the name for the class
     </div>
     <br/>
 
     <div class="mb-3">
       <input type="text" class="form-control" aria-describedby="emailHelp" 
-      placeholder="Class Data" name="classData"> Enter the content for the class resource
+      placeholder="Class Description" name="classDesc"> Enter the description for the class
     </div>
     <br/>
 
-    <br/>
     <div class="mb-3">
       <input type="text" class="form-control" aria-describedby="emailHelp" 
-      placeholder="Session Name" name="sessName"> Type the Tutor Session you want to insert the Class Resource to
+      placeholder="Session Name" name="sessName"> Enter the session you want to add the class to
     </div>
     <br/>
 
@@ -34,5 +33,5 @@ Insert a class resource here
         {% endif %}
     </div>
    
-    <button type="submit" class="btn btn-primary">Insert</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>

@@ -1,0 +1,34 @@
+
+{% extends 'tutorbase.html' %}
+{% block content %}
+Unregister from Tutor Organization
+
+<form method="POST" action = "{% url 'unregisterFromOrg' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+        <input type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="Tutor's email" name="email">
+      </div>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Tutor organization Name" name="name">
+    </div>
+    <br/>
+
+
+    <div class="button-container">
+      <button><span>Unregister</span></button>
+    </div>
+  </form>
+
+  <div>
+    {% if msg %}
+      <h1> {{ msg }} </h1>
+      {% endif %}
+  </div>
+{% endblock %}

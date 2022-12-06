@@ -1,0 +1,28 @@
+
+
+Unenroll from a Session Here
+
+<form method="POST" action = "{% url 'unenrollSession' %}">
+{% csrf_token %}
+    <br/>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Student Email" name="stuEmail"> Enter the email of the student who wishes to leave
+    </div>
+    <br/>
+
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Tutoring Session" name="sessName"> Enter the name of the tutoring session the student wishes to leave
+    </div>
+    <br/>
+
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

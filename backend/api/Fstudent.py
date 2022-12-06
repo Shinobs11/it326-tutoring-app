@@ -29,7 +29,6 @@ class Fstudent():
   def studenthome(request):
     return render(request, 'studenthome.html',{})
   
-  #NOTE: TO BE DELETED?
   def showtutorSessions(request):# will create seperate method for searching for specific criteria
     import json
     if request.method== 'POST':
@@ -38,10 +37,6 @@ class Fstudent():
     else:
       tutorsess= TutorOrgManager.objects.get()
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
-  
-  def registerTutorSession(request):
-    pass
-
 
   def ratePage(request):
     return render(request, 'reviewTutor.html',{})

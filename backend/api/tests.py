@@ -10,7 +10,7 @@ from api.management.commands.setup_test_data import Command
 from django.core.management import call_command
 
 
-class RateTutorSessionTest(TestCase):
+class testUser(TestCase):
   fixtures = ['fixture.json']
 
   def setUp(self):
@@ -24,8 +24,6 @@ class RateTutorSessionTest(TestCase):
     user = student.user
     email_address = user.email_address
 
-    
-
     request = self.factory.post('sendrating',
       {
         'session': session.tutorSessID,
@@ -33,6 +31,7 @@ class RateTutorSessionTest(TestCase):
         'email': email_address
       }
     )
+
     review = Review.objects.filter(
       tutSess=session.pk
     ).filter(
@@ -46,3 +45,21 @@ class RateTutorSessionTest(TestCase):
     
     response = Fstudent.rate(request)
     self.assertEqual(response.status_code, 200)
+
+  def test_EXAMPLE(self):
+    # Session
+    session = TutorSession.objects.all()[0]
+
+    # Student
+    student = session.student.all()[0]
+    user = student.user
+    email_address = user.email_address
+
+    # The Request we're making
+    request = self.factory.post('testing',
+      {
+        'session': session.tutorSessID,
+        'rating': 5,
+        'email': email_address
+      }
+    )

@@ -55,7 +55,6 @@ class CTutorSession(CObservable): #Inherits from Observable
             return name
 
     #Checks if student is in a given tutor session
-    #TODO Fix this
     def studentInSess(email, session):
         item = User.objects.get(email_address=email)
         item = item.student
@@ -76,7 +75,7 @@ class CTutorSession(CObservable): #Inherits from Observable
         else:
             return True
         
-    def SessionCheck(session):
+    def getSess(session):
         item = TutorSession.objects.all().filter(sessName=session)
         if not item:
             return False

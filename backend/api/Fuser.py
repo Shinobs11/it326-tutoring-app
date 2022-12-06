@@ -54,12 +54,12 @@ class Fuser():
   def searchSession(request):
     if request.method == 'POST':
       sess = request.POST['TutSesName']
-      if not CTutorSession.SessionCheck(sess):
+      if not CTutorSession.getTutorSession(sess):
         return render(request, 'searchSession.html', {'msg': "Tutor Session not in database"})
       item = TutorSession.objects.get(sessName=sess)
       return render(request, 'searchSession.html', {'item': item})
     else:
-      return render(request, 'searchSession.html', {'msg': "Enter info"})
+      return render(request, 'searchSession.html', {})
 
   def createProfile(request):
     if request.method=='POST':
@@ -134,6 +134,9 @@ class Fuser():
     if request.method=='POST':
       email=request.POST['email']
       password=request.POST['password']
+
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'deleteProfile.html', {'msg': 'Email not found'})
       if not CUser.authenticate(email,password):
         return render(request, 'deleteProfile.html', {'msg': 'Wrong password'})
       UserFactory.deleteUser(request)

@@ -54,12 +54,12 @@ class Fuser():
   def searchSession(request):
     if request.method == 'POST':
       sess = request.POST['TutSesName']
-      if not CTutorSession.SessionCheck(sess):
+      if not CTutorSession.getTutorSession(sess):
         return render(request, 'searchSession.html', {'msg': "Tutor Session not in database"})
       item = TutorSession.objects.get(sessName=sess)
       return render(request, 'searchSession.html', {'item': item})
     else:
-      return render(request, 'searchSession.html', {'msg': "Enter info"})
+      return render(request, 'searchSession.html', {})
 
   def createProfile(request):
     if request.method=='POST':
@@ -83,15 +83,60 @@ class Fuser():
       return render(request,'createProfile.html',{})
 
 
+  def editProfile(request):
+    if request.method == 'POST':
+      curEmail = request.POST['curEmail']
+      newEmail = request.POST['email']
+      newPhone = request.POST['phoneNumber']
+      newPass = request.POST['password']
+      validate = request.POST['repeat']
+      foundUser = False
+      # Check if the email and phoneNumber are not already in the DB
+      for users in User.objects.all():
+        if (users.email_address == curEmail):
+          foundUser = True
+        if (users.email_address == newEmail):
+          return render(request, 'editProfile.html',{'msg': "Email already taken"})
+        elif (users.phone_number == newPhone):
+          return render(request, 'editProfile.html',{'msg': "Phone Number already taken"})
+      
+      # Make sure the passwords matched up
+      if CUser.checkpassword(newPass,validate):
+        return render(request, 'editProfile.html',{'msg': "Passwords didn't line up"})
+
+      # Get the entry from the DB
+      if (not foundUser):
+        return render(request, 'editProfile.html',{'msg': "That email does not exist"})
+      
+      user = User.objects.get(email_address = curEmail)
+      
+      # Update the user's fields
+      if (len(newEmail) > 0):
+        user.email_address = newEmail
+      
+      if (len(newPhone) > 0):
+        user.phone_number = newPhone
+
+      if (len(newPass) > 0):
+        user.password = newPass
+      
+      user.save()
+
+      
+      return render(request, 'homebase.html', {'msg': "Profile successfully updated!"})
+    else:
+      return render(request, 'editProfile.html',{})
+
   def deleteProfilePath(request):
     return render(request,'deleteProfile.html',{})
-
-
 
   def deleteProfile(request):
     if request.method=='POST':
       email=request.POST['email']
       password=request.POST['password']
+
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'deleteProfile.html', {'msg': 'Email not found'})
       if not CUser.authenticate(email,password):
         return render(request, 'deleteProfile.html', {'msg': 'Wrong password'})
       UserFactory.deleteUser(request)

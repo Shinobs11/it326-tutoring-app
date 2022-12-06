@@ -1,0 +1,45 @@
+
+
+Edit your Profile
+
+<form method="POST" action = "{% url 'editProfile' %}">
+{% csrf_token %}
+    <br/>
+
+
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="Current Email" name="curEmail"> Enter your current email
+    </div>
+  <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp"
+      placeholder="New Email" name="email"> Enter the new email
+    </div>
+  <br/>
+  <div class="mb-3">
+    <input type="text" class="form-control" aria-describedby="emailHelp"
+    placeholder="New Phone Number" name="phoneNumber"> Enter the new phone number
+  </div>
+  <br/>
+  <div class="mb-3">
+    <input type="text" class="form-control" aria-describedby="emailHelp"
+    placeholder="New Password" name="password"> Enter the new password
+  </div>
+  <br/>
+  <div class="mb-3">
+    <input type="text" class="form-control" aria-describedby="emailHelp"
+    placeholder="Please Repeat Password" name="repeat"> Please repeat password
+  </div>
+  <br/>
+
+    <div>
+        {% if msg %}
+          <h1> {{ msg }} </h1>
+          {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+
+  </form>

@@ -1,0 +1,31 @@
+
+
+Add a Tutor to a Session Here
+
+<form method="POST" action = "{% url 'addTutorToSession' %}">
+{% csrf_token %}
+    <br/>
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Tutor email" name="tutorEmail"> Enter the email for the tutor
+    </div>
+    <br/>
+
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Session Name" name="sessName"> Enter the session you want to add the tutor to
+    </div>
+    <br/>
+
+    </div>
+    <br/>
+
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

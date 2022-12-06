@@ -78,6 +78,8 @@ class FtutorOrgManager():
         if request.method == "POST":
             email = request.POST['email']
             name = request.POST['name']
+            orgDesc = request.POST['desc']
+            
             if not CTutorOrganization.getOrg(name):
                 pass
             else:
@@ -87,7 +89,7 @@ class FtutorOrgManager():
             if CTutorOrgManager.tutorOrgManEmailCheck(email):
                 return render(request, 'TutorOrgCreation.html', {'msg': "Not a Tutor Org Manager email email!"})
             tutOrgMa = TutorOrgManager.objects.get(user=User.objects.get(email_address=email))
-            instance=TutorOrganization.objects.create(tutOrgName=name)
+            instance=TutorOrganization.objects.create(tutOrgName=name, tutOrgDescription = orgDesc)
             instance.tutOrgMan.add(tutOrgMa)
             instance.save()
             

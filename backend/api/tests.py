@@ -3,6 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 from api.models.Student import Student
 from api.models.TutorSession import TutorSession
+from api.models.Review import Review
 from django.test import RequestFactory, TestCase
 from api.Fstudent import Fstudent
 from api.management.commands.setup_test_data import Command
@@ -23,6 +24,8 @@ class RateTutorSessionTest(TestCase):
     user = student.user
     email_address = user.email_address
 
+    
+
     request = self.factory.post('sendrating',
       {
         'session': session.tutorSessID,
@@ -30,6 +33,16 @@ class RateTutorSessionTest(TestCase):
         'email': email_address
       }
     )
+    review = Review.objects.filter(
+      tutSess=session.pk
+    ).filter(
+      student=student.pk
+    ).first()
+
+    if review:
+      self.assertTrue(True)
+    else:
+      self.fail()
     
     response = Fstudent.rate(request)
     self.assertEqual(response.status_code, 200)

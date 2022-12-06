@@ -26,10 +26,10 @@ from api.models.TutorSession import TutorSession
 #File tutor, nameing convention to keep seperate from other classes
 class Fstudent():
   #will send person to student homepage
-  def studenthome(self, request):
+  def studenthome(request):
     return render(request, 'studenthome.html',{})
   
-  def showtutorSessions(self, request):# will create seperate method for searching for specific criteria
+  def showtutorSessions(request):# will create seperate method for searching for specific criteria
     import json
     if request.method== 'POST':
       #if the button is pushed get
@@ -42,10 +42,10 @@ class Fstudent():
     pass
 
 
-  def ratePage(self, request):
+  def ratePage(request):
     return render(request, 'reviewTutor.html',{})
 
-  def registerSessPage(self, request):
+  def registerSessPage(request):
     TS=TutorSession.objects.all()#TS is for tutorsessions
     return render(request, 'registerSession.html',{'tutsess':TS})
 

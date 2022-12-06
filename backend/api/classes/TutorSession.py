@@ -50,12 +50,9 @@ class CTutorSession(CObservable): #Inherits from Observable
             user.update(self.__content)
 
     #Checks if session by that name exists
-    def getSess(session):
-        item = TutorSession.objects.all().filter(sessName=session)
-        if not item:
-            return False
-        else:
-            return True
+    def getTutorSession(name):
+        if (TutorSession.objects.filter(sessName=name)):
+            return name
 
     #Checks if student is in a given tutor session
     #TODO Fix this

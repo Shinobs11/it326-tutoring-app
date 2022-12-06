@@ -14,7 +14,7 @@ Create your Session here
     <br/>
     <div class="mb-3">
         <input type="text" class="form-control" aria-describedby="emailHelp" 
-        placeholder="EX:12/31/22" name="date"> Date
+        placeholder="EX: 2022-12-6 18:30" name="date"> Date
       </div>
     <br/>
 
@@ -27,6 +27,11 @@ Create your Session here
     </div>
     <br/>
 
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
    
     <button type="submit" class="btn btn-primary">Create</button>
   </form>

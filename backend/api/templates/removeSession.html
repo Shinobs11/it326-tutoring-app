@@ -1,0 +1,24 @@
+
+
+Remove your Session here
+
+<form method="POST" action = "{% url 'removeSession' %}">
+{% csrf_token %}
+    <br/>
+    <div class="mb-3">
+      <input type="text" class="form-control" aria-describedby="emailHelp" 
+      placeholder="Session Name" name="SessName"> Session Name
+    </div>
+    <br/>
+
+    </div>
+    <br/>
+
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>

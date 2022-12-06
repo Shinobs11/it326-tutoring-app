@@ -74,8 +74,8 @@ class Fuser():
         return render(request, 'login.html', {'msg': "Email already taken"})
       if CUser.checkpassword(pswd,pswd2):
         return render(request, 'login.html', {'msg': "Passwords do not match"})
-      if CUser.typeCheck(type):
-        return render(request, 'login.html', {'msg': "Not valid UserType"})
+      #if CUser.typeCheck(type):
+      #  return render(request, 'login.html', {'msg': "Not valid UserType"})
       UserFactory.buildUser(first,last,email,phone,pswd,type)
       return render(request,'homeuser.html',{})
 

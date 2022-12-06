@@ -6,6 +6,7 @@ from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 from api.classes.User import CUser
+from api.classes.Tutor import CTutor
 from api.models.TutorOrgManager import TutorOrgManager
 from api.classes.UserFactory import UserFactory
 
@@ -31,7 +32,24 @@ class Fuser():
   
   def searchtutorsession(request):
     return render(request,'' ,{})
-    
+
+  def searchForTutorPath(request):
+    return render(request,'searchTutor.html',{})
+
+
+  def searchTutor(request):
+    if request.method == 'POST':
+      email = request.POST['email']
+      if not CUser.registerEmailCheck(email):
+        return render(request, 'searchTutor.html', {'msg': "Email not in database"})
+      if CTutor.tutorEmailCheck(email):
+        return render(request, 'searchTutor.html', {'msg': "Not a tutor email"})
+      item = User.objects.get(email_address=email)
+      return render(request, 'searchTutor.html', {'item': item})
+    else:
+      return render(request, 'searchTutor.html', {'msg': "Enter info"})
+
+
   def createProfile(request):
     if request.method=='POST':
       first=request.POST['Fname']

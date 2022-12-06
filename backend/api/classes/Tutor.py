@@ -28,7 +28,7 @@ class CTutor(CUser):
     def tutorEmailCheck(eml):
         item = User.objects.get(email_address=eml)
         item = Tutor.objects.filter(user=item)
-        #If empty...
+        #If no tutor found, returns True
         if not item:
             return True
         else:

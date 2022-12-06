@@ -41,9 +41,15 @@ class CUser(ABC):
 
     def checkpassword(pswd,psw2):
         if(pswd==psw2):
-            return True
-        else:
             return False
+        else:
+            return True
+
+    def typeCheck(type):
+        if type==0 or type==1 or type==2:
+            return False
+        else:
+            return True
 
     # TODO If user is NOT a student, error is thrown, fix it
     def getStudent(email):

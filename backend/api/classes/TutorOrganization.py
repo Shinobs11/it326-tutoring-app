@@ -18,10 +18,11 @@ class CTutorOrganization:
     def getTutorOrg(name):
         return(TutorOrganization.objects.get(tutOrgName=name))
     
-    def getOrg(session):
-        item = TutorOrganization.objects.all().filter(sessName=session)
+    def getOrg(Orgname):
+        item = TutorOrganization.objects.all().filter(tutOrgName=Orgname)
         if not item:
             return False
         else:
             return True
+
     

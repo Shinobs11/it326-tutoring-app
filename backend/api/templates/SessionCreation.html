@@ -13,7 +13,7 @@ Create your Session here
 
     <br/>
     <div class="mb-3">
-        <input type="text" class="form-control" aria-describedby="emailHelp" 
+        <input type="date" class="form-control" aria-describedby="emailHelp" 
         placeholder="EX:12/31/22" name="date"> Date
       </div>
     <br/>
@@ -22,7 +22,12 @@ Create your Session here
       <input type="text" class="form-control" aria-describedby="emailHelp" 
       placeholder="Session Name" name="SessName"> Session Name
     </div>
-    <br/>
+    <br/> 
+    <div>
+      {% if msg %}
+        <h1> {{ msg }} </h1>
+        {% endif %}
+  </div>
 
     </div>
     <br/>

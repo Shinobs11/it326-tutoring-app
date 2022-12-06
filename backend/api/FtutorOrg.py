@@ -9,6 +9,7 @@ from django.shortcuts import render
 import random
 from api.models.TutorSession import TutorSession
 from api.classes.TutorOrganization  import CTutorOrganization
+from api.classes.TutorSession import CTutorSession
 #from api.classes.TutorOrganization import *
 
   
@@ -24,6 +25,14 @@ class FtutorOrg():
       SessionID = SessionID+1
     
     if request.method =="POST":
+      Organization=request.POST['name']
+      sessionName=request.POST['SessName']
+      if not CTutorOrganization.getOrg(Organization):
+        return render(request, 'SessionCreation.html', {'msg': "Not an Organization!"})
+      if not CTutorSession.getSess(sessionName):
+        pass
+      else:
+        return render(request, 'SessionCreation.html', {'msg': "Name already taken!"})
       TutOrg=CTutorOrganization.getTutorOrg(request.POST['name'])
       Ddate= (request.POST['date'])
       sessname=request.POST['SessName'] 

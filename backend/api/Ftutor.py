@@ -59,7 +59,7 @@ class Ftutor():
         #Checks if tutor email
       if CTutor.tutorEmailCheck(email):
         return render(request, 'registerTutOrgTutor.html', {'msg': "Not a tutor email!"})
-      if not CTutorOrganization.getTutorOrg(Organization):
+      if not CTutorOrganization.getOrg(Organization):
         return render(request, 'registerTutOrgTutor.html', {'msg': "Not an Organization!"})
       Org = TutorOrganization.objects.get(tutOrgName=Organization)
       tut = CUser.getTutor(email)

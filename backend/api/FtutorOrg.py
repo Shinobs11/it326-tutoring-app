@@ -31,7 +31,7 @@ class FtutorOrg():
       TutOrg=CTutorOrganization.getTutorOrg(request.POST['name'])
       Ddate= (request.POST['date'])
       sessname=request.POST['SessName'] 
-      TutSes=TutorSession.objects.create(tutorSessID=SessionID,date=Ddate,sessName=sessname)
+      TutSes=TutorSession.objects.create(date=Ddate,sessName=sessname)
       TutOrg.tutSess=TutSes
       TutOrg.save()
       TutSes.save()

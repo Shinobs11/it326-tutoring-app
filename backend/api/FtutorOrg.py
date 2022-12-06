@@ -113,7 +113,6 @@ class FtutorOrg():
 
       # Check if the email is valid
       if (CTutor.tutorEmailCheck(tutEmail)):
-        print("It is not ):")
         return render(request, 'addTutorToSession.html', {'msg': "Email provided does not belong to a tutor"})
       
       # Check if the session exists

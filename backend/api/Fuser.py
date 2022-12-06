@@ -92,7 +92,6 @@ class Fuser():
       validate = request.POST['repeat']
       foundUser = False
       # Check if the email and phoneNumber are not already in the DB
-      #TODO: Add functionality to check if the curEmail is the account's email
       for users in User.objects.all():
         if (users.email_address == curEmail):
           foundUser = True

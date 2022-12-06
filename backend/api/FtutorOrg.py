@@ -10,6 +10,7 @@ import random
 from api.models.TutorSession import TutorSession
 from api.classes.TutorOrganization  import CTutorOrganization
 from api.classes.TutorSession import CTutorSession
+from api.models.SessionResource import SessionResource
 #from api.classes.TutorOrganization import *
 
   
@@ -60,7 +61,20 @@ class FtutorOrg():
   
   def insertResource(request):
     if request.method == "POST":
-      print("WOOHOO")
+      sessname = CTutorSession.getTutorSession(request.POST['sessName'])
+
+      if (sessname):
+        # Create an instance of the class resource
+        classData = request.POST['classData']
+        resourceID = 0
+        for resources in SessionResource.object.all():
+          resourceID = resourceID + 1
+
+        #SessionResource.object.create(sessionID = )
+        print(classData)
+        print(resourceID)
+        return render(request, 'tutorOrghome.html', {'msg': "Class Resource successfully inserted!"})
+
       return render(request, 'insertResource.html', {})
     else:
       return render(request, 'insertResource.html', {})

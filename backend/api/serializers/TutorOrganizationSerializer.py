@@ -6,4 +6,4 @@ from api.serializers.UserSerializer import UserSerializer
 class TutorOrganizationSerializer(serializers.ModelSerializer):
   class Meta:
     model = TutorOrganization
-    fields = ['tutor', 'tutOrgMan', 'tutOrgName','tutOrgDescription']
+    fields = ['tutOrgID','tutor', 'tutOrgMan', 'tutOrgName','tutOrgDescription']

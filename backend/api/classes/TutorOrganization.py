@@ -12,10 +12,6 @@ class CTutorOrganization:
         self._tutorOrgID = manager.tutorOrgManagerID
 
     def createSession(request):
-        DclassID=request.POST['classID']
-        DtutorSessID=sessionID
-        Ddate= request.POST['date']
-        Drate= '0'
         TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)
     # Creates a tutor organization object
     

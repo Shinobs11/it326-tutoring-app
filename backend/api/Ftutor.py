@@ -37,6 +37,8 @@ class Ftutor():
         return render(request, 'registerSessTutor.html', {'msg': "Not a tutor email!"})
       if not CTutorSession.getSess(session):
         return render(request, 'registerSessTutor.html', {'msg': "Not a session!"})
+      if CTutor.isTutorInOrganization(email,session):
+        return render(request, 'registerSessTutor.html', {'msg': "Not in this tutor organization!"})
       sess = DB_TutorSession.objects.get(sessName=session)
       tut = CUser.getTutor(email)
       sess.tutor.add(tut)

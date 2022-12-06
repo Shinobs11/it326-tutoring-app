@@ -35,7 +35,7 @@ class Fstudent():
       #if the button is pushed get
       pass
     else:
-      tutorsess= TutorOrgManager.objects.get(pk='1515a87f-41f0-46ae-83bd-72ba99dc2b4a')
+      tutorsess= TutorOrgManager.objects.get()
       return render(request, 'tutorsession.html',{'tutorsession':tutorsess})
   
   def registerTutorSession(request):

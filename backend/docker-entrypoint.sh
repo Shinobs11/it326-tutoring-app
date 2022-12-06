@@ -39,6 +39,11 @@ python manage.py migrate
 echo "Generate test data"
 python manage.py setup_test_data
 
+# Create fixture for testing
+echo "Dumping generated data"
+python manage.py dumpdata > fixture.json
+
+
 # Start server
 echo "Starting server"
 python manage.py runserver 0.0.0.0:8000

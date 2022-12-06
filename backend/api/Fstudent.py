@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from api.models.User import User
 from api.models.Student import Student
 from api.models.Tutor import Tutor
@@ -21,15 +22,14 @@ from api.classes.Review import CReview
 from api.models.TutorSession import TutorSession
 
 
-
 #The F stands for File. Will make code much easier to read through
 #File tutor, nameing convention to keep seperate from other classes
 class Fstudent():
   #will send person to student homepage
-  def studenthome(request):
+  def studenthome(self, request):
     return render(request, 'studenthome.html',{})
   
-  def showtutorSessions(request):# will create seperate method for searching for specific criteria
+  def showtutorSessions(self, request):# will create seperate method for searching for specific criteria
     import json
     if request.method== 'POST':
       #if the button is pushed get
@@ -41,19 +41,18 @@ class Fstudent():
   def registerTutorSession(request):
     pass
 
-  def rate(request):
-    pass
 
-  def ratePage(request):
+  def ratePage(self, request):
     return render(request, 'reviewTutor.html',{})
 
-  def registerSessPage(request):
+  def registerSessPage(self, request):
     TS=TutorSession.objects.all()#TS is for tutorsessions
     return render(request, 'registerSession.html',{'tutsess':TS})
 
   #TODO Fix session check (check only sessions in user's account)
   #TODO Drop-down menu for tutor sessions?
   #TODO Allow same student to make multiple reviews
+  @staticmethod
   def rate(request):
     if request.method =='POST':
       email = request.POST['email']
@@ -75,6 +74,7 @@ class Fstudent():
       stu = CUser.getStudent(email)
       sess = DB_TutorSession.objects.get(sessName=session)
       Review.objects.create(student=stu, rating=rating,tutSess=sess)
+      
       return render(request, 'studenthome.html', {'msg': "Review sent"})
 
     else:
@@ -82,7 +82,7 @@ class Fstudent():
 
     #TODO Test edge cases
     # TODO What if a user is also a tutOrgMan and Tutor????
-  def registerStudentSess(request):
+  def registerStudentSess(self, request):
     if request.method == 'POST':
       email = request.POST['email']
       session = request.POST['name']

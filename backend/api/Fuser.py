@@ -102,7 +102,7 @@ class Fuser():
       
       # Make sure the passwords matched up
       if CUser.checkpassword(newPass,validate):
-        return render(request, 'editProfile.html',{'msg': "Phone Number already taken"})
+        return render(request, 'editProfile.html',{'msg': "Passwords didn't line up"})
 
       # Get the entry from the DB
       if (not foundUser):

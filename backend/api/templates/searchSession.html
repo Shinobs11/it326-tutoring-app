@@ -1,0 +1,33 @@
+{% extends 'homebase.html' %}
+{% block content %}
+<form method="POST" action = "{% url 'searchSession' %}">
+    {% csrf_token %}
+        <br/>
+    
+    
+        <br/>
+        <div class="mb-3">
+            <input type="text" class="form-control" aria-describedby="emailHelp"
+            placeholder="Tutor Session name" name="TutSesName">
+          </div>
+    
+        <div>
+            {% if msg %}
+              <h1> {{ msg }} </h1>
+              {% endif %}
+        </div>
+    <div class="button-container">
+          <button><span>Search</span></button>
+        </div>
+      </form>
+    
+    {%if item %}
+    
+                Session ID: <h3>{{item.tutorSessID }}</h3><br>
+                Session Date: <h3>{{item.date}}</h3><br>
+                Session Name: <h3>{{item.sessName}}</h3><br>
+                Location: <h3>{{item.location}}</h3><br>
+    
+    {% endif %}
+
+    {% endblock content %}

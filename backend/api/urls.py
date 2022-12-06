@@ -43,6 +43,7 @@ urlpatterns = [
   path('registerOrgtut',Ftutor.registerOrgtut,name='registerOrgtut'),
   path('searchForTutorPath', Fuser.searchForTutorPath, name='searchtutorpage'),
   path('searchForTutor', Fuser.searchTutor, name='searchtutor'),
+  path('searchSession',Fuser.searchSession,name='searchSession'),
 
   #these are for the API
   path('user/', UserList.as_view()),

@@ -78,3 +78,10 @@ class CTutorSession(CObservable): #Inherits from Observable
             return False
         else:
             return True
+        
+    def SessionCheck(session):
+        item = TutorSession.objects.all().filter(sessName=session)
+        if not item:
+            return False
+        else:
+            return True

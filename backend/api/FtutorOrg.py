@@ -71,7 +71,7 @@ class FtutorOrg():
 
       # Check if the session exists
       if not CTutorSession.getSess(sessname):
-        return render(request, 'SessionCreation.html', {'msg': "Session does not exist!"})
+        return render(request, 'insertResource.html', {'msg': "Session does not exist!"})
       
       # Get the session
       session = TutorSession.objects.get(sessName=sessname)

@@ -13,10 +13,6 @@ class CTutorOrganization:
     def __init__(self, manager):
         self._tutorOrgID = manager.tutorOrgManagerID
 
-    def createSession(request):
-        TutorSession.objects.create(tutorSessID=DtutorSessID,date=Ddate)
-    # Creates a tutor organization object
-    
     def getTutorOrg(name):
         return(TutorOrganization.objects.get(tutOrgName=name))
     

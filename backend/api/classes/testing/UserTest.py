@@ -1,9 +1,11 @@
 from django.test import TestCase
-from api.classes.User import User
+from api.classes.User import User as CUser
+from api.models.User import User
 class UserTest(TestCase):
 
     def loginValidInput(self):
         pass
+
 
     def loginInvalidInput(self):
         pass
